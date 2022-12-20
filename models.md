@@ -310,7 +310,7 @@
         "refinement": [
           {
             "leftOperand": "occe:useAs",
-            "operator": "eq",
+            "operator": "odrl:eq",
             "rightOperand": "obo:NCIT_C48294"
           }
         ]
@@ -423,7 +423,7 @@ Constraints will be evaluated in sequence and must be both fulfilled.
 
 # Collaboration
 
-The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and must collaborate with the assigner or any other party (right operand value). The duty also has a constraint of event is equal to policyUsage, meaning the duty rule must be exercised (ie the collaboration) while the permission rule is exercised.
+The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and must collaborate with the assigner or any other party (right operand value). The duty also has a constraint of `event` is equal to `policyUsage`, meaning the duty rule must be exercised (ie the collaboration) while the permission rule is exercised.
 
 ```json
 {
@@ -449,7 +449,7 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
               "refinement": [
                 {
                   "leftOperand": "odrl:recipient",
-                  "operator": "eq",
+                  "operator": "odrl:eq",
                   "rightOperand": "http://example.com/owner:181"
                 }
               ]
@@ -458,7 +458,7 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
           "constraint": [
             {
               "leftOperand": "event",
-              "operator": "eq",
+              "operator": "odrl:eq",
               "rightOperand": { "@id": "odrl:policyUsage" }
             }
           ]
@@ -471,7 +471,7 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
 
 # Fees
 
-The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and must compensate the assigner or any other party (right operand value) by paying an amount of money in euro. The duty also has a constraint of event is less than policyUsage, meaning the duty rule must be exercised (ie the collaboration) before the permission rule can be exercised.
+The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and must compensate the assigner or any other party (right operand value) by paying an amount of money in euro. The duty also has a constraint of `event` is less than `policyUsage`, meaning the duty rule must be exercised (ie the collaboration) before the permission rule can be exercised.
 
 ```json
 {
@@ -497,7 +497,7 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
               "refinement": [
                 {
                   "leftOperand": "odrl:payAmount",
-                  "operator": "eq",
+                  "operator": "odrl:eq",
                   "rightOperand": {
                     "@value": "any_decimal_value",
                     "@type": "xsd:decimal"
@@ -510,7 +510,7 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
           "constraint": [
             {
               "leftOperand": "event",
-              "operator": "lt",
+              "operator": "odrl:lt",
               "rightOperand": { "@id": "odrl:policyUsage" }
             }
           ]
@@ -523,7 +523,7 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
 
 # Return of results
 
-The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and involves a requirement on the recipient (assignee) to return incidental findings to the asset provider (assigner). The duty also has a constraint of event is greater than policyUsage, meaning the duty rule must be exercised (ie the return of results) after the permission rule has been exercised.
+The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and involves a requirement on the recipient (assignee) to return incidental findings to the asset provider (assigner). The duty also has a constraint of `event` is greater than `policyUsage`, meaning the duty rule must be exercised (ie the return of results) after the permission rule has been exercised.
 
 ```json
 {
@@ -547,7 +547,7 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
           "constraint": [
             {
               "leftOperand": "event",
-              "operator": "gt",
+              "operator": "odrl:gt",
               "rightOperand": { "@id": "odrl:policyUsage" }
             }
           ]
@@ -582,7 +582,7 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
           "constraint": [
             {
               "leftOperand": "event",
-              "operator": "gt",
+              "operator": "odrl:gt",
               "rightOperand": { "@id": "odrl:policyUsage" }
             }
           ]
@@ -600,11 +600,12 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
   "@context": [
     "https://www.w3.org/ns/odrl.jsonld",
     {
-      "obo": "http://purl.obolibrary.org/obo/"
+      "occe": "https://w3id.org/odrl-occe/"
     }
   ],
   "@type": "Offer",
   "uid": "http://example.com/policy:0015",
+  "profile": "occe:",
   "permission": [
     {
       "assigner": "http://example.com/owner:181",
@@ -623,5 +624,159 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
       ]
     }
   ]
+}
+```
+
+# Publication moratorium
+
+We can't create a generic policy for this CCE because there can be **many** constraints that could be applied to actions, assets or assignees.
+
+```json
+{
+  "@context": "https://www.w3.org/ns/odrl.jsonld",
+  "@type": "Offer",
+  "uid": "http://example.com/policy:0016",
+  "permission": [],
+  "prohibition": [],
+  "obligation": []
+}
+```
+
+# Publication
+
+The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and involves a requirement on the recipient (assignee) to publish the results. The duty also has a constraint of `event` is greater than `policyUsage`, meaning the duty rule must be exercised (ie the publication of results) after the permission rule has been exercised.
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/odrl.jsonld",
+    {
+      "occe": "https://w3id.org/odrl-occe/"
+    }
+  ],
+  "@type": "Offer",
+  "uid": "http://example.com/policy:0017",
+  "profile": "occe:",
+  "permission": [
+    {
+      "assigner": "http://example.com/owner:181",
+      "target": "http://example.com/dataset:1212",
+      "action": "odrl:use",
+      "duty": [
+        {
+          "action": "occe:publishResults",
+          "constraint": [
+            {
+              "leftOperand": "event",
+              "operator": "odrl:gt",
+              "rightOperand": { "@id": "odrl:policyUsage" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+# User authentication
+
+A permission where the constraint (refinement) is applied on the assignee to check if its ID is one of the provided IDs (right operand).
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/odrl.jsonld",
+    {
+      "occe": "https://w3id.org/odrl-occe/",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    }
+  ],
+  "@type": "Offer",
+  "uid": "http://example.com/policy:0018",
+  "profile": "occe:",
+  "permission": [
+    {
+      "target": "http://example.com/dataset:1212",
+      "action": "odrl:use",
+      "assigner": "http://example.com/owner:181",
+      "assignee": {
+        "@type": "PartyCollection",
+        "source": "http://example.com/users",
+        "refinement": [
+          {
+            "leftOperand": "occe:userID",
+            "operator": "odrl:isPartOf",
+            "rightOperand": {
+              "@value": ["email_1", "ORCID_2", "...n"],
+              "@type": "rdfs:list"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+# Ethics Approval
+
+A permission where a logical constraint is applied on the action to check if the document is an Institutional Review Board Approval and if the industry of the approval body is the Institutional Review Board.
+
+```json
+{
+  "@context": "https://www.w3.org/ns/odrl.jsonld",
+  "@type": "Offer",
+  "uid": "http://example.com/policy:0019",
+  "permission": [
+    {
+      "target": "http://example.com/dataset:1212",
+      "assigner": "http://example.com/owner:181",
+      "assignee": ,
+      "action": [
+        {
+          "rdf:value": { "@id": "odrl:use" },
+          "refinement": {
+            "andSequence": {
+              "@list": [
+                { "@id": "http://example.com/policy:0019/C1" },
+                { "@id": "http://example.com/policy:0019/C2" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+{
+  "@context": [
+    "https://www.w3.org/ns/odrl.jsonld",
+    {
+      "occe": "https://w3id.org/odrl-occe/",
+      "obo": "http://purl.obolibrary.org/obo/"
+    }
+  ],
+  "@type": "Constraint",
+  "uid": "http://example.com/policy:0019/C1",
+  "leftOperand": "occe:documentType",
+  "operator": "odrl:isA",
+  "rightOperand": "obo:NCIT_C70800"
+}
+
+{
+  "@context": [
+    "https://www.w3.org/ns/odrl.jsonld",
+    {
+      "occe": "https://w3id.org/odrl-occe/",
+      "obo": "http://purl.obolibrary.org/obo/"
+    }
+  ],
+  "@type": "Constraint",
+  "uid": "http://example.com/policy:0019/C2",
+  "leftOperand": "odrl:industry",
+  "operator": "odrl:isA",
+  "rightOperand": "obo:NCIT_C16741"
 }
 ```
