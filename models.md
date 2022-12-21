@@ -356,7 +356,7 @@
 
 # Time period of use
 
-Constraints will be evaluated in sequence and must be both fulfilled.
+Constraints will be evaluated in sequence and must be both fulfilled. The right operand of the end date constraint should NEVER be less than the right operand of the start date constraint.
 
 ```json
 {
