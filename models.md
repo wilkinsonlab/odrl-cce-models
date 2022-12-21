@@ -171,9 +171,9 @@
           "rdf:value": { "@id": "odrl:use" },
           "refinement": [
             {
-              "leftOperand": "occe:jurisdiction",
+              "leftOperand": "odrl:purpose",
               "operator": "odrl:isA",
-              "rightOperand": "fibo-fnd-law-jur:Jurisdiction"
+              "rightOperand": "dpv:ResearchAndDevelopment"
             }
           ]
         }
