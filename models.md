@@ -423,7 +423,7 @@ Constraints will be evaluated in sequence and must be both fulfilled. The right 
 
 # Collaboration
 
-The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and must collaborate with the assigner or any other party (right operand value). The duty also has a constraint of `event` is equal to `policyUsage`, meaning the duty rule must be exercised (ie the collaboration) while the permission rule is exercised.
+The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and must collaborate with the assigner or any other party (right operand value). The duty also has a constraint of `event` is equal (because the collaboration happens while the work is being done) to `policyUsage`, meaning the duty rule must be exercised (ie the collaboration) while the permission rule is exercised.
 
 ```json
 {
@@ -523,7 +523,7 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
 
 # Return of results
 
-The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and involves a requirement on the recipient (assignee) to return incidental findings to the asset provider (assigner). The duty also has a constraint of `event` is greater than `policyUsage`, meaning the duty rule must be exercised (ie the return of results) after the permission rule has been exercised.
+The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and involves a requirement on the recipient (assignee) to return the results to the asset provider (assigner). The duty also has a constraint of `event` is greater (because results are obtained after the work is done) than `policyUsage`, meaning the duty rule must be exercised (ie the return of results) after the permission rule has been exercised.
 
 ```json
 {
@@ -559,6 +559,8 @@ The assigner makes an offer to use the target asset. The assignee who wants to u
 ```
 
 # Return of incidental findings
+
+The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and involves a requirement on the recipient (assignee) to return incidental findings to the asset provider (assigner). The duty also has a constraint of `event` is greater (because results are obtained after the work is done) than `policyUsage`, meaning the duty rule must be exercised (ie the return of incidental findings) after the permission rule has been exercised.
 
 ```json
 {
@@ -644,7 +646,7 @@ We can't create a generic policy for this CCE because there can be **many** cons
 
 # Publication
 
-The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and involves a requirement on the recipient (assignee) to publish the results. The duty also has a constraint of `event` is greater than `policyUsage`, meaning the duty rule must be exercised (ie the publication of results) after the permission rule has been exercised.
+The assigner makes an offer to use the target asset. The assignee who wants to use them has a duty and involves a requirement on the recipient (assignee) to publish the results. The duty also has a constraint of `event` is greater (because the publications comes after obtaining results, meaning after work is completed) than `policyUsage`, meaning the duty rule must be exercised (ie the publication of results) after the permission rule has been exercised.
 
 ```json
 {
