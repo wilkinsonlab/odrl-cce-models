@@ -205,7 +205,7 @@
           "rdf:value": { "@id": "odrl:use" },
           "refinement": [
             {
-              "leftOperand": "occe:purpose",
+              "leftOperand": "odrl:purpose",
               "operator": "odrl:isA",
               "rightOperand": "occe:ClinicalCare"
             }
@@ -239,7 +239,7 @@
           "rdf:value": { "@id": "odrl:use" },
           "refinement": [
             {
-              "leftOperand": "occe:purpose",
+              "leftOperand": "odrl:purpose",
               "operator": "odrl:isA",
               "rightOperand": "occe:ClinicalResearch"
             }
