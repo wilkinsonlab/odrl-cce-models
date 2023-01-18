@@ -49,7 +49,7 @@
 
 ## CCE - Use by Commercial Entity
 
-- **type**: Offer
+- **type**: Should be `Offer`
 - **uid**: https://example.com/policy:01
 - **rule_type**: Permission
 - **rule_action**: `odrl:use`
@@ -63,7 +63,7 @@
 
 ## CCE - Geographical Area
 
-- **type**: Offer
+- **type**: Should be `Offer`
 - **uid**: https://example.com/policy:01
 - **rule_type**: Permission
 - **rule_action**: `odrl:use`
@@ -74,3 +74,18 @@
 - **rule_assignee_refinement_lo**: `odrl:leftOperand` should be `odrl:spatialCoordinates`
 - **rule_assignee_refinement_o**: `odrl:operator` (should be `odrl:eq` for equality or `odrl:neq` for inequality)
 - **rule_assignee_refinement_ro**: ISO 3166-1 country code
+
+## CCE - Regulatory Jurisdiction
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **profile**: https://w3id.org/occe/
+- **rule_type**: Permission
+- **rule_action**: `odrl:use`
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **rule_assignee_refinement**: `true`
+- **rule_assignee_refinement_lo**: `odrl:leftOperand` should be `occe:jurisdiction`
+- **rule_assignee_refinement_o**: `odrl:operator` (should be `odrl:eq` for equality or `odrl:neq` for inequality)
+- **rule_assignee_refinement_ro**: ex: https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/NorthAmericanJurisdiction/CAGovernmentEntitiesAndJurisdictions/
