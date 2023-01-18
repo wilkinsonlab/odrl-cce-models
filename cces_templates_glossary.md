@@ -133,3 +133,17 @@
 - **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/purpose
 - **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
 - **rule_action_refinement_ro**: ex: https://w3id.org/occe/ClinicalResearch
+
+## CCE - Disease Specific Use
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **rule_type**: Permission
+- **rule_action**: http://www.w3.org/ns/odrl/2/use
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **rule_action_refinement**: `true`
+- **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/purpose
+- **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
+- **rule_action_refinement_ro**: ex: http://purl.obolibrary.org/obo/DOID_13921
