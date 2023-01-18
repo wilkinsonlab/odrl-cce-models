@@ -187,6 +187,6 @@
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_action_refinement**: `true`
-- **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/date
+- **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/dateTime
 - **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (one of http://www.w3.org/ns/odrl/2/lt, http://www.w3.org/ns/odrl/2/lteq, http://www.w3.org/ns/odrl/2/gt and http://www.w3.org/ns/odrl/2/gteq)
-- **rule_action_refinement_ro**: ex: 01/01/2020
+- **rule_action_refinement_ro**: ex: 2020-12-31
