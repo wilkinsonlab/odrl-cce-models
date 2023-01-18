@@ -87,7 +87,7 @@
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_assignee_refinement**: `true`
-- **rule_assignee_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be `occe:jurisdiction`
+- **rule_assignee_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be https://w3id.org/occe/jurisdiction
 - **rule_assignee_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
 - **rule_assignee_refinement_ro**: Instance of fibo-fnd-law-jur:Jurisdiction (ex: https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/NorthAmericanJurisdiction/CAGovernmentEntitiesAndJurisdictions/)
 
@@ -283,6 +283,18 @@
 - **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
 - **rule_action_refinement_ro**: ex: https://w3id.org/occe/ReIdentificationOfIndividuals
 
+## CCE - Publication moratorium
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **profile**: https://w3id.org/occe/
+- **rule_type**: Permission
+- **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **ALL OTHER FIELDS ARE POSSIBLE**
+
 ## CCE - Publication
 
 - **type**: Should be `Offer`
@@ -299,3 +311,33 @@
 - **permission_duty_constraint_lo**: ex: http://www.w3.org/ns/odrl/2/event
 - **permission_duty_constraint_o**: ex: http://www.w3.org/ns/odrl/2/gt
 - **permission_duty_constraint_ro**: http://www.w3.org/ns/odrl/2/policyUsage
+
+## CCE - User Authentication
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **profile**: https://w3id.org/occe/
+- **rule_type**: Permission
+- **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **rule_assignee_refinement**: `true`
+- **rule_assignee_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be https://w3id.org/occe/userID
+- **rule_assignee_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isPartOf)
+- **rule_assignee_refinement_ro**: ex: http://example.com/list_of_users_ids
+
+## CCE - Ethics Approval
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **profile**: https://w3id.org/occe/
+- **rule_type**: Permission
+- **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **rule_constraint**: `true`
+- **rule_constraint_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be https://w3id.org/occe/documentType
+- **rule_constraint_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
+- **rule_constraint_ro**: ex: http://purl.obolibrary.org/obo/NCIT_C70800
