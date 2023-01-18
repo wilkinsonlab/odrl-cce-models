@@ -147,3 +147,18 @@
 - **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/purpose
 - **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
 - **rule_action_refinement_ro**: ex: http://purl.obolibrary.org/obo/DOID_13921
+
+## CCE - Use As Control
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **profile**: https://w3id.org/occe/
+- **rule_type**: Permission
+- **rule_action**: http://www.w3.org/ns/odrl/2/read
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **rule_target_refinement**: `true`
+- **rule_target_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be https://w3id.org/occe/useAs
+- **rule_target_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
+- **rule_target_refinement_ro**: ex: http://purl.obolibrary.org/obo/NCIT_C48294
