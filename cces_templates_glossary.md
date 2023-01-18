@@ -89,3 +89,17 @@
 - **rule_assignee_refinement_lo**: `odrl:leftOperand` should be `occe:jurisdiction`
 - **rule_assignee_refinement_o**: `odrl:operator` (should be `odrl:isA`)
 - **rule_assignee_refinement_ro**: Instance of fibo-fnd-law-jur:Jurisdiction (ex: https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/NorthAmericanJurisdiction/CAGovernmentEntitiesAndJurisdictions/)
+
+## CCE - Research Use
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **rule_type**: Permission
+- **rule_action**: `odrl:use`
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **rule_action_refinement**: `true`
+- **rule_action_refinement_lo**: `odrl:leftOperand` should be `odrl:purpose`
+- **rule_action_refinement_o**: `odrl:operator` (should be `odrl:isA`)
+- **rule_action_refinement_ro**: ex: https://w3id.org/dpv#ResearchAndDevelopment
