@@ -117,7 +117,7 @@
 - **rule_action_refinement**: `true`
 - **rule_action_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `http://www.w3.org/ns/odrl/2/purpose`
 - **rule_action_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/isA`)
-- **rule_action_refinement_ro**: ex: https://w3id.org/odrl-occe/ClinicalCare
+- **rule_action_refinement_ro**: ex: https://w3id.org/occe/ClinicalCare
 
 ## CCE - Clinical Research
 
@@ -132,4 +132,4 @@
 - **rule_action_refinement**: `true`
 - **rule_action_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `http://www.w3.org/ns/odrl/2/purpose`
 - **rule_action_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/isA`)
-- **rule_action_refinement_ro**: ex: https://w3id.org/odrl-occe/ClinicalResearch
+- **rule_action_refinement_ro**: ex: https://w3id.org/occe/ClinicalResearch
