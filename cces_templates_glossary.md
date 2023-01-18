@@ -176,3 +176,17 @@
 - **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/purpose
 - **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
 - **rule_action_refinement_ro**: ex: http://purl.obolibrary.org/obo/ICO_0000057
+
+## CCE - Time Period of Use
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **rule_type**: Permission
+- **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **rule_action_refinement**: `true`
+- **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/date
+- **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (one of http://www.w3.org/ns/odrl/2/lt, http://www.w3.org/ns/odrl/2/lteq, http://www.w3.org/ns/odrl/2/gt and http://www.w3.org/ns/odrl/2/gteq)
+- **rule_action_refinement_ro**: ex: 01/01/2020
