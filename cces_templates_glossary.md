@@ -168,7 +168,7 @@
 - **type**: Should be `Offer`
 - **uid**: https://example.com/policy:01
 - **rule_type**: Permission
-- **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
+- **rule_action**: ex: http://creativecommons.org/ns#CommercialUse
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
