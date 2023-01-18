@@ -191,3 +191,24 @@
 - **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/dateTime
 - **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (one of http://www.w3.org/ns/odrl/2/lt, http://www.w3.org/ns/odrl/2/lteq, http://www.w3.org/ns/odrl/2/gt and http://www.w3.org/ns/odrl/2/gteq)
 - **rule_action_refinement_ro**: ex: 2020-12-31
+
+## CCE - Collaboration
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **profile**: https://w3id.org/occe/
+- **rule_type**: Permission
+- **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **permission_duty**: `true`
+- **permission_duty_action**: ex: https://w3id.org/occe/collaborate
+- **permission_duty_action_refinement**: `true`
+- **permission_duty_action_refinement_lo**: ex: http://www.w3.org/ns/odrl/2/recipient
+- **permission_duty_action_refinement_o**: ex: http://www.w3.org/ns/odrl/2/eq
+- **permission_duty_action_refinement_ro**: http://example.com/owner:181
+- **permission_duty_constraint**: `true`
+- **permission_duty_constraint_lo**: ex: http://www.w3.org/ns/odrl/2/event
+- **permission_duty_constraint_o**: ex: http://www.w3.org/ns/odrl/2/eq
+- **permission_duty_constraint_ro**: http://www.w3.org/ns/odrl/2/policyUsage
