@@ -87,5 +87,5 @@
 - **rule_assignee**: https://example.com/user
 - **rule_assignee_refinement**: `true`
 - **rule_assignee_refinement_lo**: `odrl:leftOperand` should be `occe:jurisdiction`
-- **rule_assignee_refinement_o**: `odrl:operator` (should be `odrl:eq` for equality or `odrl:neq` for inequality)
-- **rule_assignee_refinement_ro**: ex: https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/NorthAmericanJurisdiction/CAGovernmentEntitiesAndJurisdictions/
+- **rule_assignee_refinement_o**: `odrl:operator` (should be `odrl:isA`)
+- **rule_assignee_refinement_ro**: Instance of fibo-fnd-law-jur:Jurisdiction (ex: https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/NorthAmericanJurisdiction/CAGovernmentEntitiesAndJurisdictions/)
