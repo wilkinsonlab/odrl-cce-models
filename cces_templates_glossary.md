@@ -49,9 +49,9 @@
 
 ## CCE - Use by Commercial Entity
 
-- **type**: http://www.w3.org/ns/odrl/2/Offer
+- **type**: Offer
 - **uid**: https://example.com/policy:01
-- **rule_type**: http://www.w3.org/ns/odrl/2/Permission
+- **rule_type**: Permission
 - **rule_action**: `odrl:use`
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -60,3 +60,17 @@
 - **rule_assignee_refinement_lo**: Any `odrl:leftOperand`
 - **rule_assignee_refinement_o**: Any `odrl:operator`
 - **rule_assignee_refinement_ro**: Any right operand (ex: https://example.com/some_URI)
+
+## CCE - Geographical Area
+
+- **type**: Offer
+- **uid**: https://example.com/policy:01
+- **rule_type**: Permission
+- **rule_action**: `odrl:use`
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **rule_assignee_refinement**: `true`
+- **rule_assignee_refinement_lo**: `odrl:leftOperand` should be `odrl:spatialCoordinates`
+- **rule_assignee_refinement_o**: `odrl:operator` (should be `odrl:eq` for equality or `odrl:neq` for inequality)
+- **rule_assignee_refinement_ro**: ISO 3166-1 country code
