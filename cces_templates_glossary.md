@@ -10,7 +10,7 @@
   - http://www.w3.org/ns/odrl/2/Permission
   - http://www.w3.org/ns/odrl/2/Prohibition
   - http://www.w3.org/ns/odrl/2/Duty (through the `obligation` property)
-- **rule_action**: Rule action (ex: odrl:use)
+- **rule_action**: Rule action (ex: http://www.w3.org/ns/odrl/2/use)
 - **rule_action_refinement** (OPTIONAL): Boolean to indicate that the rule's action has a refinement (defaults to `false`)
 - **rule_action_refinement_lo** (OPTIONAL): Left operand of the refinement of the action of the rule (**ONLY** if `rule_action_refinement` = `true`)
 - **rule_action_refinement_o** (OPTIONAL): Operator of the refinement of the action of the rule (**ONLY** if `rule_action_refinement` = `true`)
@@ -32,7 +32,7 @@
 - **rule_constraint_ro** (OPTIONAL): Right operand of the constraint of the rule (**ONLY** if `rule_constraint` = `true`)
 - **rule_constraint_unit** (OPTIONAL): Right operand of the action of the duty of the permission (**ONLY** if `rule_constraint` = `true`)
 - **permission_duty_target** (OPTIONAL): The target of the permission duty (ex: https://example.com/assets_2)
-- **permission_duty_action** (OPTIONAL): The action of the permission duty (ex: odrl:compensate)
+- **permission_duty_action** (OPTIONAL): The action of the permission duty (ex: http://www.w3.org/ns/odrl/2/compensate)
 - **permission_duty_action_refinement**: Boolean to indicate that the permission duty action has a refinement (defaults to `false`)
 - **permission_duty_action_refinement_lo** (OPTIONAL): Left operand of the action of the duty of the permission (**ONLY** if `permission_duty_action_refinement` = `true`)
 - **permission_duty_action_refinement_o** (OPTIONAL): Operator of the action of the duty of the permission (**ONLY** if `permission_duty_action_refinement` = `true`)
@@ -52,13 +52,13 @@
 - **type**: Should be `Offer`
 - **uid**: https://example.com/policy:01
 - **rule_type**: Permission
-- **rule_action**: `odrl:use`
+- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_assignee_refinement**: `true`
-- **rule_assignee_refinement_lo**: Any `odrl:leftOperand`
-- **rule_assignee_refinement_o**: Any `odrl:operator`
+- **rule_assignee_refinement_lo**: Any `http://www.w3.org/ns/odrl/2/leftOperand`
+- **rule_assignee_refinement_o**: Any `http://www.w3.org/ns/odrl/2/operator`
 - **rule_assignee_refinement_ro**: Any right operand (ex: https://example.com/some_URI)
 
 ## CCE - Geographical Area
@@ -66,13 +66,13 @@
 - **type**: Should be `Offer`
 - **uid**: https://example.com/policy:01
 - **rule_type**: Permission
-- **rule_action**: `odrl:use`
+- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_assignee_refinement**: `true`
-- **rule_assignee_refinement_lo**: `odrl:leftOperand` should be `odrl:spatialCoordinates`
-- **rule_assignee_refinement_o**: `odrl:operator` (should be `odrl:eq` for equality or `odrl:neq` for inequality)
+- **rule_assignee_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `http://www.w3.org/ns/odrl/2/spatialCoordinates`
+- **rule_assignee_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/eq` for equality or `http://www.w3.org/ns/odrl/2/neq` for inequality)
 - **rule_assignee_refinement_ro**: ISO 3166-1 country code
 
 ## CCE - Regulatory Jurisdiction
@@ -81,13 +81,13 @@
 - **uid**: https://example.com/policy:01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: Permission
-- **rule_action**: `odrl:use`
+- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_assignee_refinement**: `true`
-- **rule_assignee_refinement_lo**: `odrl:leftOperand` should be `occe:jurisdiction`
-- **rule_assignee_refinement_o**: `odrl:operator` (should be `odrl:isA`)
+- **rule_assignee_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `occe:jurisdiction`
+- **rule_assignee_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/isA`)
 - **rule_assignee_refinement_ro**: Instance of fibo-fnd-law-jur:Jurisdiction (ex: https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/NorthAmericanJurisdiction/CAGovernmentEntitiesAndJurisdictions/)
 
 ## CCE - Research Use
@@ -95,26 +95,41 @@
 - **type**: Should be `Offer`
 - **uid**: https://example.com/policy:01
 - **rule_type**: Permission
-- **rule_action**: `odrl:use`
+- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_action_refinement**: `true`
-- **rule_action_refinement_lo**: `odrl:leftOperand` should be `odrl:purpose`
-- **rule_action_refinement_o**: `odrl:operator` (should be `odrl:isA`)
+- **rule_action_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `http://www.w3.org/ns/odrl/2/purpose`
+- **rule_action_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/isA`)
 - **rule_action_refinement_ro**: ex: https://w3id.org/dpv#ResearchAndDevelopment
 
-## CCE - Clinical care
+## CCE - Clinical Care
 
 - **type**: Should be `Offer`
 - **uid**: https://example.com/policy:01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: Permission
-- **rule_action**: `odrl:use`
+- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_action_refinement**: `true`
-- **rule_action_refinement_lo**: `odrl:leftOperand` should be `odrl:purpose`
-- **rule_action_refinement_o**: `odrl:operator` (should be `odrl:isA`)
+- **rule_action_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `http://www.w3.org/ns/odrl/2/purpose`
+- **rule_action_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/isA`)
 - **rule_action_refinement_ro**: ex: https://w3id.org/odrl-occe/ClinicalCare
+
+## CCE - Clinical Research
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **profile**: https://w3id.org/occe/
+- **rule_type**: Permission
+- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **rule_action_refinement**: `true`
+- **rule_action_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `http://www.w3.org/ns/odrl/2/purpose`
+- **rule_action_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/isA`)
+- **rule_action_refinement_ro**: ex: https://w3id.org/odrl-occe/ClinicalResearch
