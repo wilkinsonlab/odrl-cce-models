@@ -1,15 +1,15 @@
 ## General Glossary for any CCE
 
 - **type**: Policy type, one of the following:
-  - [http://www.w3.org/ns/odrl/2/Set](http://www.w3.org/ns/odrl/2/Set)
-  - [http://www.w3.org/ns/odrl/2/Offer](http://www.w3.org/ns/odrl/2/Offer)
-  - [http://www.w3.org/ns/odrl/2/Agreement](http://www.w3.org/ns/odrl/2/Agreement)
+  - Set
+  - Offer
+  - Agreement
 - **uid**: Policy unique identifier (ex: https://example.com/policy:01)
 - **profile** (OPTIONAL): A custom ODRL profile to use (ex: https://example.com/my_custom_odrl_profile)
 - **rule_type**: Rule type, one of the following:
-  - http://www.w3.org/ns/odrl/2/Permission
-  - http://www.w3.org/ns/odrl/2/Prohibition
-  - http://www.w3.org/ns/odrl/2/Duty (through the `obligation` property)
+  - Permission
+  - Prohibition
+  - Duty (through the `obligation` property)
 - **rule_action**: Rule action (ex: http://www.w3.org/ns/odrl/2/use)
 - **rule_action_refinement** (OPTIONAL): Boolean to indicate that the rule's action has a refinement (defaults to `false`)
 - **rule_action_refinement_lo** (OPTIONAL): Left operand of the refinement of the action of the rule (**ONLY** if `rule_action_refinement` = `true`)
