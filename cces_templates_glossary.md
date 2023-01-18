@@ -52,13 +52,13 @@
 - **type**: Should be `Offer`
 - **uid**: https://example.com/policy:01
 - **rule_type**: Permission
-- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
+- **rule_action**: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_assignee_refinement**: `true`
-- **rule_assignee_refinement_lo**: Any `http://www.w3.org/ns/odrl/2/leftOperand`
-- **rule_assignee_refinement_o**: Any `http://www.w3.org/ns/odrl/2/operator`
+- **rule_assignee_refinement_lo**: Any http://www.w3.org/ns/odrl/2/leftOperand
+- **rule_assignee_refinement_o**: Any http://www.w3.org/ns/odrl/2/operator
 - **rule_assignee_refinement_ro**: Any right operand (ex: https://example.com/some_URI)
 
 ## CCE - Geographical Area
@@ -66,13 +66,13 @@
 - **type**: Should be `Offer`
 - **uid**: https://example.com/policy:01
 - **rule_type**: Permission
-- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
+- **rule_action**: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_assignee_refinement**: `true`
-- **rule_assignee_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `http://www.w3.org/ns/odrl/2/spatialCoordinates`
-- **rule_assignee_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/eq` for equality or `http://www.w3.org/ns/odrl/2/neq` for inequality)
+- **rule_assignee_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/spatialCoordinates
+- **rule_assignee_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/eq for equality or http://www.w3.org/ns/odrl/2/neq for inequality)
 - **rule_assignee_refinement_ro**: ISO 3166-1 country code
 
 ## CCE - Regulatory Jurisdiction
@@ -81,13 +81,13 @@
 - **uid**: https://example.com/policy:01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: Permission
-- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
+- **rule_action**: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_assignee_refinement**: `true`
-- **rule_assignee_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `occe:jurisdiction`
-- **rule_assignee_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/isA`)
+- **rule_assignee_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be `occe:jurisdiction`
+- **rule_assignee_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
 - **rule_assignee_refinement_ro**: Instance of fibo-fnd-law-jur:Jurisdiction (ex: https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/NorthAmericanJurisdiction/CAGovernmentEntitiesAndJurisdictions/)
 
 ## CCE - Research Use
@@ -95,13 +95,13 @@
 - **type**: Should be `Offer`
 - **uid**: https://example.com/policy:01
 - **rule_type**: Permission
-- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
+- **rule_action**: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_action_refinement**: `true`
-- **rule_action_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `http://www.w3.org/ns/odrl/2/purpose`
-- **rule_action_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/isA`)
+- **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/purpose
+- **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
 - **rule_action_refinement_ro**: ex: https://w3id.org/dpv#ResearchAndDevelopment
 
 ## CCE - Clinical Care
@@ -110,13 +110,13 @@
 - **uid**: https://example.com/policy:01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: Permission
-- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
+- **rule_action**: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_action_refinement**: `true`
-- **rule_action_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `http://www.w3.org/ns/odrl/2/purpose`
-- **rule_action_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/isA`)
+- **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/purpose
+- **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
 - **rule_action_refinement_ro**: ex: https://w3id.org/occe/ClinicalCare
 
 ## CCE - Clinical Research
@@ -125,11 +125,11 @@
 - **uid**: https://example.com/policy:01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: Permission
-- **rule_action**: `http://www.w3.org/ns/odrl/2/use`
+- **rule_action**: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **rule_action_refinement**: `true`
-- **rule_action_refinement_lo**: `http://www.w3.org/ns/odrl/2/leftOperand` should be `http://www.w3.org/ns/odrl/2/purpose`
-- **rule_action_refinement_o**: `http://www.w3.org/ns/odrl/2/operator` (should be `http://www.w3.org/ns/odrl/2/isA`)
+- **rule_action_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be http://www.w3.org/ns/odrl/2/purpose
+- **rule_action_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
 - **rule_action_refinement_ro**: ex: https://w3id.org/occe/ClinicalResearch
