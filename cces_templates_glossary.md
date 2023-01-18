@@ -233,3 +233,20 @@
 - **permission_duty_constraint_lo**: ex: http://www.w3.org/ns/odrl/2/event
 - **permission_duty_constraint_o**: ex: http://www.w3.org/ns/odrl/2/lt
 - **permission_duty_constraint_ro**: http://www.w3.org/ns/odrl/2/policyUsage
+
+## CCE - Return of Results
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **profile**: https://w3id.org/occe/
+- **rule_type**: Permission
+- **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **permission_duty**: `true`
+- **permission_duty_action**: ex: https://w3id.org/occe/returnOfResults
+- **permission_duty_constraint**: `true`
+- **permission_duty_constraint_lo**: ex: http://www.w3.org/ns/odrl/2/event
+- **permission_duty_constraint_o**: ex: http://www.w3.org/ns/odrl/2/gt
+- **permission_duty_constraint_ro**: http://www.w3.org/ns/odrl/2/policyUsage
