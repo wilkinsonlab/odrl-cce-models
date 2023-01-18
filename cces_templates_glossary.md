@@ -103,3 +103,18 @@
 - **rule_action_refinement_lo**: `odrl:leftOperand` should be `odrl:purpose`
 - **rule_action_refinement_o**: `odrl:operator` (should be `odrl:isA`)
 - **rule_action_refinement_ro**: ex: https://w3id.org/dpv#ResearchAndDevelopment
+
+## CCE - Clinical care
+
+- **type**: Should be `Offer`
+- **uid**: https://example.com/policy:01
+- **profile**: https://w3id.org/occe/
+- **rule_type**: Permission
+- **rule_action**: `odrl:use`
+- **rule_target**: https://example.com/asset
+- **rule_assigner**: https://example.com/Apple
+- **rule_assignee**: https://example.com/user
+- **rule_action_refinement**: `true`
+- **rule_action_refinement_lo**: `odrl:leftOperand` should be `odrl:purpose`
+- **rule_action_refinement_o**: `odrl:operator` (should be `odrl:isA`)
+- **rule_action_refinement_ro**: ex: https://w3id.org/odrl-occe/ClinicalCare
