@@ -160,7 +160,7 @@
 - **rule_assignee**: https://example.com/user
 - **rule_target_refinement**: `true`
 - **rule_target_refinement_lo**: http://www.w3.org/ns/odrl/2/leftOperand should be https://w3id.org/occe/useAs
-- **rule_target_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/isA)
+- **rule_target_refinement_o**: http://www.w3.org/ns/odrl/2/operator (should be http://www.w3.org/ns/odrl/2/eq)
 - **rule_target_refinement_ro**: ex: http://purl.obolibrary.org/obo/NCIT_C48294
 
 ## CCE - Profit Motivated Use
