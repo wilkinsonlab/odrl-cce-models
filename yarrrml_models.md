@@ -20,6 +20,7 @@ mappings:
     s: $(uid)
     po:
       - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
       - p: odrl:$(rule_type)
         o:
@@ -95,6 +96,7 @@ mappings:
     s: $(uid)
     po:
       - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
       - p: odrl:$(rule_type)
         o:
@@ -170,6 +172,7 @@ mappings:
     s: $(uid)
     po:
       - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
       - p: odrl:$(rule_type)
         o:
@@ -245,6 +248,7 @@ mappings:
     s: $(uid)
     po:
       - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
       - p: odrl:$(rule_type)
         o:
@@ -320,6 +324,7 @@ mappings:
     s: $(uid)
     po:
       - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
       - p: odrl:$(rule_type)
         o:
@@ -395,6 +400,7 @@ mappings:
     s: $(uid)
     po:
       - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
       - p: odrl:$(rule_type)
         o:
@@ -470,6 +476,7 @@ mappings:
     s: $(uid)
     po:
       - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
       - p: odrl:$(rule_type)
         o:
