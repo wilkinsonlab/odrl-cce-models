@@ -52,7 +52,7 @@ mappings:
     s: this:$(uniqid)_rule_assignee
     po:
       - [a, odrl:Party]
-      - [odrl:source, odrl:$(rule_assignee)]
+      - [odrl:source, odrl:$(rule_assignee)~]
       - p: odrl:refinement
         o:
           mapping: rule_assignee_refinement
@@ -127,7 +127,7 @@ mappings:
     s: this:$(uniqid)_rule_assignee
     po:
       - [a, odrl:Party]
-      - [odrl:source, odrl:$(rule_assignee)]
+      - [odrl:source, odrl:$(rule_assignee)~]
       - p: odrl:refinement
         o:
           mapping: rule_assignee_refinement
@@ -202,7 +202,7 @@ mappings:
     s: this:$(uniqid)_rule_assignee
     po:
       - [a, odrl:Party]
-      - [odrl:source, odrl:$(rule_assignee)]
+      - [odrl:source, odrl:$(rule_assignee)~]
       - p: odrl:refinement
         o:
           mapping: rule_assignee_refinement
