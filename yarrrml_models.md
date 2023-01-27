@@ -61,7 +61,7 @@ mappings:
             parameters:
               - [str1, $(uid)]
               - [str2, $(uid)]
-              
+
   rule_assignee_refinement:
     sources:
       - [data.csv~csv]
@@ -136,7 +136,7 @@ mappings:
             parameters:
               - [str1, $(uid)]
               - [str2, $(uid)]
-              
+
   rule_assignee_refinement:
     sources:
       - [data.csv~csv]
@@ -211,7 +211,7 @@ mappings:
             parameters:
               - [str1, $(uid)]
               - [str2, $(uid)]
-              
+
   rule_assignee_refinement:
     sources:
       - [data.csv~csv]
@@ -286,7 +286,7 @@ mappings:
             parameters:
               - [str1, $(uid)]
               - [str2, $(uid)]
-              
+
   rule_action_refinement:
     sources:
       - [data.csv~csv]
@@ -361,7 +361,7 @@ mappings:
             parameters:
               - [str1, $(uid)]
               - [str2, $(uid)]
-              
+
   rule_action_refinement:
     sources:
       - [data.csv~csv]
@@ -436,7 +436,7 @@ mappings:
             parameters:
               - [str1, $(uid)]
               - [str2, $(uid)]
-              
+
   rule_action_refinement:
     sources:
       - [data.csv~csv]
@@ -511,7 +511,7 @@ mappings:
             parameters:
               - [str1, $(uid)]
               - [str2, $(uid)]
-              
+
   rule_action_refinement:
     sources:
       - [data.csv~csv]
