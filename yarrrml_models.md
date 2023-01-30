@@ -22,14 +22,7 @@ mappings:
       - [a, $(type)~iri]
       - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
-      - p: odrl:$(rule_type)
-        o:
-          mapping: rule
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:$(rule_type), this:$(uniqid)_rule]
 
   rule:
     sources:
@@ -38,14 +31,7 @@ mappings:
     po:
       - [odrl:target, $(rule_target)~iri]
       - [odrl:action, $(rule_action)~iri]
-      - p: odrl:assignee
-        o:
-          mapping: rule_assignee
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:assignee, this:$(uniqid)_rule_assignee]
 
   rule_assignee: 
     sources:
@@ -54,14 +40,7 @@ mappings:
     po:
       - [a, odrl:Party]
       - [odrl:source, $(rule_assignee)~iri]
-      - p: odrl:refinement
-        o:
-          mapping: rule_assignee_refinement
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:refinement, this:$(uniqid)_rule_assignee_refinement]
 
   rule_assignee_refinement:
     sources:
@@ -70,7 +49,10 @@ mappings:
     po:
       - [odrl:leftOperand, $(rule_assignee_refinement_lo)~iri]
       - [odrl:operator, $(rule_assignee_refinement_o)~iri]
-      - [odrl:rightOperand, $(rule_assignee_refinement_ro)]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_float), xsd:float]
       - [odrl:unit, $(rule_assignee_refinement_unit)~iri]
 ```
 
@@ -98,14 +80,7 @@ mappings:
       - [a, $(type)~iri]
       - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
-      - p: odrl:$(rule_type)
-        o:
-          mapping: rule
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:$(rule_type), this:$(uniqid)_rule]
 
   rule:
     sources:
@@ -114,14 +89,7 @@ mappings:
     po:
       - [odrl:target, $(rule_target)~iri]
       - [odrl:action, $(rule_action)~iri]
-      - p: odrl:assignee
-        o:
-          mapping: rule_assignee
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:assignee, this:$(uniqid)_rule_assignee]
 
   rule_assignee: 
     sources:
@@ -130,14 +98,7 @@ mappings:
     po:
       - [a, odrl:Party]
       - [odrl:source, $(rule_assignee)~iri]
-      - p: odrl:refinement
-        o:
-          mapping: rule_assignee_refinement
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:refinement, this:$(uniqid)_rule_assignee_refinement]
 
   rule_assignee_refinement:
     sources:
@@ -146,7 +107,10 @@ mappings:
     po:
       - [odrl:leftOperand, $(rule_assignee_refinement_lo)~iri]
       - [odrl:operator, $(rule_assignee_refinement_o)~iri]
-      - [odrl:rightOperand, $(rule_assignee_refinement_ro)]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_float), xsd:float]
       - [odrl:unit, $(rule_assignee_refinement_unit)~iri]
 ```
 
@@ -174,14 +138,7 @@ mappings:
       - [a, $(type)~iri]
       - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
-      - p: odrl:$(rule_type)
-        o:
-          mapping: rule
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:$(rule_type), this:$(uniqid)_rule]
 
   rule:
     sources:
@@ -190,14 +147,7 @@ mappings:
     po:
       - [odrl:target, $(rule_target)~iri]
       - [odrl:action, $(rule_action)~iri]
-      - p: odrl:assignee
-        o:
-          mapping: rule_assignee
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:assignee, this:$(uniqid)_rule_assignee]
 
   rule_assignee: 
     sources:
@@ -206,14 +156,7 @@ mappings:
     po:
       - [a, odrl:Party]
       - [odrl:source, $(rule_assignee)~iri]
-      - p: odrl:refinement
-        o:
-          mapping: rule_assignee_refinement
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:refinement, this:$(uniqid)_rule_assignee_refinement]
 
   rule_assignee_refinement:
     sources:
@@ -222,7 +165,10 @@ mappings:
     po:
       - [odrl:leftOperand, $(rule_assignee_refinement_lo)~iri]
       - [odrl:operator, $(rule_assignee_refinement_o)~iri]
-      - [odrl:rightOperand, $(rule_assignee_refinement_ro)]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_float), xsd:float]
       - [odrl:unit, $(rule_assignee_refinement_unit)~iri]
 ```
 
@@ -250,14 +196,7 @@ mappings:
       - [a, $(type)~iri]
       - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
-      - p: odrl:$(rule_type)
-        o:
-          mapping: rule
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [$(rule_type), this:$(uniqid)_rule~iri]
 
   rule:
     sources:
@@ -267,14 +206,7 @@ mappings:
       - [odrl:target, $(rule_target)~iri]
       - [odrl:assigner, $(rule_assigner)~iri]
       - [odrl:assignee, $(rule_assignee)~iri]
-      - p: odrl:action
-        o:
-          mapping: rule_action
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:action, this:$(uniqid)_rule_action~iri]
 
   rule_action: 
     sources:
@@ -282,14 +214,7 @@ mappings:
     s: this:$(uniqid)_rule_action
     po:
       - [rdf:value, $(rule_action)~iri]
-      - p: odrl:refinement
-        o:
-          mapping: rule_action_refinement
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:refinement, this:$(uniqid)_rule_action_refinement~iri]
 
   rule_action_refinement:
     sources:
@@ -298,7 +223,10 @@ mappings:
     po:
       - [odrl:leftOperand, $(rule_action_refinement_lo)~iri]
       - [odrl:operator, $(rule_action_refinement_o)~iri]
-      - [odrl:rightOperand, $(rule_action_refinement_ro)]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_float), xsd:float]
       - [odrl:unit, $(rule_action_refinement_unit)~iri]
 ```
 
@@ -326,14 +254,7 @@ mappings:
       - [a, $(type)~iri]
       - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
-      - p: odrl:$(rule_type)
-        o:
-          mapping: rule
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [$(rule_type), this:$(uniqid)_rule~iri]
 
   rule:
     sources:
@@ -343,14 +264,7 @@ mappings:
       - [odrl:target, $(rule_target)~iri]
       - [odrl:assigner, $(rule_assigner)~iri]
       - [odrl:assignee, $(rule_assignee)~iri]
-      - p: odrl:action
-        o:
-          mapping: rule_action
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:action, this:$(uniqid)_rule_action~iri]
 
   rule_action: 
     sources:
@@ -358,14 +272,7 @@ mappings:
     s: this:$(uniqid)_rule_action
     po:
       - [rdf:value, $(rule_action)~iri]
-      - p: odrl:refinement
-        o:
-          mapping: rule_action_refinement
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:refinement, this:$(uniqid)_rule_action_refinement~iri]
 
   rule_action_refinement:
     sources:
@@ -374,7 +281,10 @@ mappings:
     po:
       - [odrl:leftOperand, $(rule_action_refinement_lo)~iri]
       - [odrl:operator, $(rule_action_refinement_o)~iri]
-      - [odrl:rightOperand, $(rule_action_refinement_ro)]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_float), xsd:float]
       - [odrl:unit, $(rule_action_refinement_unit)~iri]
 ```
 
@@ -402,14 +312,7 @@ mappings:
       - [a, $(type)~iri]
       - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
-      - p: odrl:$(rule_type)
-        o:
-          mapping: rule
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [$(rule_type), this:$(uniqid)_rule~iri]
 
   rule:
     sources:
@@ -419,14 +322,7 @@ mappings:
       - [odrl:target, $(rule_target)~iri]
       - [odrl:assigner, $(rule_assigner)~iri]
       - [odrl:assignee, $(rule_assignee)~iri]
-      - p: odrl:action
-        o:
-          mapping: rule_action
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:action, this:$(uniqid)_rule_action~iri]
 
   rule_action: 
     sources:
@@ -434,14 +330,7 @@ mappings:
     s: this:$(uniqid)_rule_action
     po:
       - [rdf:value, $(rule_action)~iri]
-      - p: odrl:refinement
-        o:
-          mapping: rule_action_refinement
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:refinement, this:$(uniqid)_rule_action_refinement~iri]
 
   rule_action_refinement:
     sources:
@@ -450,11 +339,72 @@ mappings:
     po:
       - [odrl:leftOperand, $(rule_action_refinement_lo)~iri]
       - [odrl:operator, $(rule_action_refinement_o)~iri]
-      - [odrl:rightOperand, $(rule_action_refinement_ro)]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_float), xsd:float]
       - [odrl:unit, $(rule_action_refinement_unit)~iri]
 ```
 
 ## Disease Specific Use
+
+### Model
+
+```yaml
+prefixes:
+  odrl: http://www.w3.org/ns/odrl/2/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  occe: https://w3id.org/occe/
+  dpv: https://w3id.org/dpv#
+  obo: http://purl.obolibrary.org/obo/
+  this: https://example.com/
+
+mappings:
+  policy:
+    sources:
+      - [data.csv~csv]
+    s: $(uid)
+    po:
+      - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
+      - [odrl:profile, $(profile)~iri]
+      - [$(rule_type), this:$(uniqid)_rule~iri]
+
+  rule:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule
+    po:
+      - [odrl:target, $(rule_target)~iri]
+      - [odrl:assigner, $(rule_assigner)~iri]
+      - [odrl:assignee, $(rule_assignee)~iri]
+      - [odrl:action, this:$(uniqid)_rule_action~iri]
+
+  rule_action: 
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_action
+    po:
+      - [rdf:value, $(rule_action)~iri]
+      - [odrl:refinement, this:$(uniqid)_rule_action_refinement~iri]
+
+  rule_action_refinement:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_action_refinement
+    po:
+      - [odrl:leftOperand, $(rule_action_refinement_lo)~iri]
+      - [odrl:operator, $(rule_action_refinement_o)~iri]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_float), xsd:float]
+      - [odrl:unit, $(rule_action_refinement_unit)~iri]
+```
+
+## Use As Control
 
 ### Model
 
@@ -492,17 +442,80 @@ mappings:
       - [data.csv~csv]
     s: this:$(uniqid)_rule
     po:
-      - [odrl:target, $(rule_target)~iri]
+      - [odrl:action, $(rule_action)~iri]
       - [odrl:assigner, $(rule_assigner)~iri]
       - [odrl:assignee, $(rule_assignee)~iri]
-      - p: odrl:action
+      - p: odrl:target
         o:
-          mapping: rule_action
+          mapping: rule_target
           condition:
             function: equal
             parameters:
               - [str1, $(uid)]
               - [str2, $(uid)]
+
+  rule_target: 
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_target
+    po:
+      - [odrl:source, $(rule_target)~iri]
+      - p: odrl:refinement
+        o:
+          mapping: rule_target_refinement
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(uid)]
+              - [str2, $(uid)]
+
+  rule_target_refinement:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_target_refinement
+    po:
+      - [odrl:leftOperand, $(rule_target_refinement_lo)~iri]
+      - [odrl:operator, $(rule_target_refinement_o)~iri]
+      - [odrl:rightOperand, $(rule_target_refinement_ro)]
+      - [odrl:unit, $(rule_target_refinement_unit)~iri]
+```
+
+## Profit Motivated Use
+
+### Model
+
+```yaml
+prefixes:
+  odrl: http://www.w3.org/ns/odrl/2/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  occe: https://w3id.org/occe/
+  dpv: https://w3id.org/dpv#
+  obo: http://purl.obolibrary.org/obo/
+  cc: http://creativecommons.org/ns#
+  this: https://example.com/
+
+mappings:
+  policy:
+    sources:
+      - [data.csv~csv]
+    s: $(uid)
+    po:
+      - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
+      - [odrl:profile, $(profile)~iri]
+      - [$(rule_type), this:$(uniqid)_rule~iri]
+
+  rule:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule
+    po:
+      - [odrl:target, $(rule_target)~iri]
+      - [odrl:assigner, $(rule_assigner)~iri]
+      - [odrl:assignee, $(rule_assignee)~iri]
+      - [odrl:action, this:$(uniqid)_rule_action~iri]
 
   rule_action: 
     sources:
@@ -510,14 +523,7 @@ mappings:
     s: this:$(uniqid)_rule_action
     po:
       - [rdf:value, $(rule_action)~iri]
-      - p: odrl:refinement
-        o:
-          mapping: rule_action_refinement
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:refinement, this:$(uniqid)_rule_action_refinement~iri]
 
   rule_action_refinement:
     sources:
@@ -526,6 +532,67 @@ mappings:
     po:
       - [odrl:leftOperand, $(rule_action_refinement_lo)~iri]
       - [odrl:operator, $(rule_action_refinement_o)~iri]
-      - [odrl:rightOperand, $(rule_action_refinement_ro)]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_float), xsd:float]
+      - [odrl:unit, $(rule_action_refinement_unit)~iri]
+```
+
+## Time Period of Use
+
+### Model
+
+```yaml
+prefixes:
+  odrl: http://www.w3.org/ns/odrl/2/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  occe: https://w3id.org/occe/
+  dpv: https://w3id.org/dpv#
+  obo: http://purl.obolibrary.org/obo/
+  this: https://example.com/
+
+mappings:
+  policy:
+    sources:
+      - [data.csv~csv]
+    s: $(uid)
+    po:
+      - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
+      - [odrl:profile, $(profile)~iri]
+      - [$(rule_type), this:$(uniqid)_rule~iri]
+
+  rule:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule
+    po:
+      - [odrl:target, $(rule_target)~iri]
+      - [odrl:assigner, $(rule_assigner)~iri]
+      - [odrl:assignee, $(rule_assignee)~iri]
+      - [odrl:action, this:$(uniqid)_rule_action~iri]
+
+  rule_action: 
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_action
+    po:
+      - [rdf:value, $(rule_action)~iri]
+      - [odrl:refinement, this:$(uniqid)_rule_action_refinement~iri]
+
+  rule_action_refinement:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_action_refinement
+    po:
+      - [odrl:leftOperand, $(rule_action_refinement_lo)~iri]
+      - [odrl:operator, $(rule_action_refinement_o)~iri]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_float), xsd:float]
       - [odrl:unit, $(rule_action_refinement_unit)~iri]
 ```
