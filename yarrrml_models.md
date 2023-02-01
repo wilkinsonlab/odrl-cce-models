@@ -645,9 +645,9 @@ mappings:
   permission_duty_action: 
     sources:
       - [data.csv~csv]
-    s: this:$(uniqid)_rule_action
+    s: this:$(uniqid)_permission_duty_action
     po:
-      - [rdf:value, $(rule_action)~iri]
+      - [rdf:value, $(permission_duty_action)~iri]
       - [odrl:refinement, this:$(uniqid)_permission_duty_action_refinement~iri]
 
   permission_duty_action_refinement:
@@ -726,9 +726,9 @@ mappings:
   permission_duty_action: 
     sources:
       - [data.csv~csv]
-    s: this:$(uniqid)_rule_action
+    s: this:$(uniqid)_permission_duty_action
     po:
-      - [rdf:value, $(rule_action)~iri]
+      - [rdf:value, $(permission_duty_action)~iri]
       - [odrl:refinement, this:$(uniqid)_permission_duty_action_refinement~iri]
 
   permission_duty_action_refinement:
