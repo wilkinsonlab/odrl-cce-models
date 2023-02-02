@@ -110,6 +110,13 @@ occe:mediatedBy
     skos:definition ""@en ;
     skos:note "" .
 
+occe:notMediatedBy
+    a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:isDefinedBy occe: ;
+    rdfs:label "Not mediated by"@en ;
+    skos:definition ""@en ;
+    skos:note "" .
+
 # Right operands
 occe:ClinicalCare
     a odrl:RightOperand, owl:NamedIndividual, skos:Concept, spl:AnyPurpose ;
