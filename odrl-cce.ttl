@@ -52,6 +52,14 @@ occe:publishResults
     skos:definition "Publish results using information collected from asset(s)."@en ;
     skos:note "This action indicates that results obtained from using asset(s) provided by an assigner Party can be published."@en .
 
+occe:reIdentify
+    a odrl:Action, skos:Concept ;
+    rdfs:isDefinedBy occe: ;
+    rdfs:label "(Re-)identification of individuals"@en ;
+    skos:definition "(Re-)identification of individuals from whom the samples or data were taken."@en ;
+    skos:note ""@en ;
+    odrl:includedIn odrl:use .
+
 # Left operands
 occe:permitUsePurpose
     a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
@@ -95,6 +103,12 @@ occe:documentType
     skos:definition "A document is a any paper."@en ;
     skos:note "" .
 
+occe:mediatedBy
+    a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:isDefinedBy occe: ;
+    rdfs:label "Mediated by"@en ;
+    skos:definition ""@en ;
+    skos:note "" .
 
 # Right operands
 occe:ClinicalCare
