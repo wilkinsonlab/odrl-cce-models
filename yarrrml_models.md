@@ -445,7 +445,7 @@ mappings:
       - [odrl:action, $(rule_action)~iri]
       - [odrl:assigner, $(rule_assigner)~iri]
       - [odrl:assignee, $(rule_assignee)~iri]
-      - [odrl:target, this:$(uniqid)_rule_target]
+      - [odrl:target, this:$(uniqid)_rule_target~iri]
 
   rule_target: 
     sources:
