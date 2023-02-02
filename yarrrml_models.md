@@ -462,7 +462,10 @@ mappings:
     po:
       - [odrl:leftOperand, $(rule_target_refinement_lo)~iri]
       - [odrl:operator, $(rule_target_refinement_o)~iri]
-      - [odrl:rightOperand, $(rule_target_refinement_ro)]
+      - [odrl:rightOperand, $(rule_target_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_target_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_target_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_target_refinement_ro_value_float), xsd:float]
       - [odrl:unit, $(rule_target_refinement_unit)~iri]
 ```
 
