@@ -453,7 +453,7 @@ mappings:
     s: this:$(uniqid)_rule_target
     po:
       - [odrl:source, $(rule_target)~iri]
-      - [odrl:refinement, this:$(uniqid)_rule_target_refinement]
+      - [odrl:refinement, this:$(uniqid)_rule_target_refinement~iri]
 
   rule_target_refinement:
     sources:
