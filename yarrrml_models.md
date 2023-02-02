@@ -445,14 +445,7 @@ mappings:
       - [odrl:action, $(rule_action)~iri]
       - [odrl:assigner, $(rule_assigner)~iri]
       - [odrl:assignee, $(rule_assignee)~iri]
-      - p: odrl:target
-        o:
-          mapping: rule_target
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:target, this:$(uniqid)_rule_target]
 
   rule_target: 
     sources:
@@ -460,14 +453,7 @@ mappings:
     s: this:$(uniqid)_rule_target
     po:
       - [odrl:source, $(rule_target)~iri]
-      - p: odrl:refinement
-        o:
-          mapping: rule_target_refinement
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [odrl:refinement, this:$(uniqid)_rule_target_refinement]
 
   rule_target_refinement:
     sources:
