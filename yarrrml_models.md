@@ -428,14 +428,7 @@ mappings:
       - [a, $(type)~iri]
       - [odrl:uid, $(uid)~iri]
       - [odrl:profile, $(profile)~iri]
-      - p: odrl:$(rule_type)
-        o:
-          mapping: rule
-          condition:
-            function: equal
-            parameters:
-              - [str1, $(uid)]
-              - [str2, $(uid)]
+      - [$(rule_type), this:$(uniqid)_rule~iri]
 
   rule:
     sources:
@@ -981,4 +974,174 @@ mappings:
       - [odrl:rightOperand, $(rule_action_refinement_ro_value_string), xsd:string]
       - [odrl:rightOperand, $(rule_action_refinement_ro_value_float), xsd:float]
       - [odrl:unit, $(rule_action_refinement_unit)~iri]
+```
+
+## Publication moratorium (pick 1 model based on data)
+
+### Model (Constraint on assignee)
+
+```yaml
+prefixes:
+  odrl: http://www.w3.org/ns/odrl/2/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  occe: https://w3id.org/occe/
+  dpv: https://w3id.org/dpv#
+  obo: http://purl.obolibrary.org/obo/
+  this: https://example.com/
+
+mappings:
+  policy:
+    sources:
+      - [data.csv~csv]
+    s: $(uid)
+    po:
+      - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
+      - [odrl:profile, $(profile)~iri]
+      - [odrl:$(rule_type), this:$(uniqid)_rule]
+
+  rule:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule
+    po:
+      - [odrl:target, $(rule_target)~iri]
+      - [odrl:action, $(rule_action)~iri]
+      - [odrl:assignee, this:$(uniqid)_rule_assignee]
+
+  rule_assignee: 
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_assignee
+    po:
+      - [a, odrl:Party]
+      - [odrl:source, $(rule_assignee)~iri]
+      - [odrl:refinement, this:$(uniqid)_rule_assignee_refinement]
+
+  rule_assignee_refinement:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_assignee_refinement
+    po:
+      - [odrl:leftOperand, $(rule_assignee_refinement_lo)~iri]
+      - [odrl:operator, $(rule_assignee_refinement_o)~iri]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_assignee_refinement_ro_value_float), xsd:float]
+      - [odrl:unit, $(rule_assignee_refinement_unit)~iri]
+```
+
+### Model (Constraint on action)
+
+```yaml
+prefixes:
+  odrl: http://www.w3.org/ns/odrl/2/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  occe: https://w3id.org/occe/
+  dpv: https://w3id.org/dpv#
+  obo: http://purl.obolibrary.org/obo/
+  this: https://example.com/
+
+mappings:
+  policy:
+    sources:
+      - [data.csv~csv]
+    s: $(uid)
+    po:
+      - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
+      - [odrl:profile, $(profile)~iri]
+      - [$(rule_type), this:$(uniqid)_rule~iri]
+
+  rule:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule
+    po:
+      - [odrl:target, $(rule_target)~iri]
+      - [odrl:assigner, $(rule_assigner)~iri]
+      - [odrl:assignee, $(rule_assignee)~iri]
+      - [odrl:action, this:$(uniqid)_rule_action~iri]
+
+  rule_action: 
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_action
+    po:
+      - [rdf:value, $(rule_action)~iri]
+      - [odrl:refinement, this:$(uniqid)_rule_action_refinement~iri]
+
+  rule_action_refinement:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_action_refinement
+    po:
+      - [odrl:leftOperand, $(rule_action_refinement_lo)~iri]
+      - [odrl:operator, $(rule_action_refinement_o)~iri]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_action_refinement_ro_value_float), xsd:float]
+      - [odrl:unit, $(rule_action_refinement_unit)~iri]
+```
+
+### Model (Constraint on target)
+
+```yaml
+prefixes:
+  odrl: http://www.w3.org/ns/odrl/2/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  occe: https://w3id.org/occe/
+  dpv: https://w3id.org/dpv#
+  obo: http://purl.obolibrary.org/obo/
+  this: https://example.com/
+
+mappings:
+  policy:
+    sources:
+      - [data.csv~csv]
+    s: $(uid)
+    po:
+      - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
+      - [odrl:profile, $(profile)~iri]
+      - [$(rule_type), this:$(uniqid)_rule~iri]
+
+  rule:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule
+    po:
+      - [odrl:action, $(rule_action)~iri]
+      - [odrl:assigner, $(rule_assigner)~iri]
+      - [odrl:assignee, $(rule_assignee)~iri]
+      - [odrl:target, this:$(uniqid)_rule_target~iri]
+
+  rule_target: 
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_target
+    po:
+      - [odrl:source, $(rule_target)~iri]
+      - [odrl:refinement, this:$(uniqid)_rule_target_refinement~iri]
+
+  rule_target_refinement:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_target_refinement
+    po:
+      - [odrl:leftOperand, $(rule_target_refinement_lo)~iri]
+      - [odrl:operator, $(rule_target_refinement_o)~iri]
+      - [odrl:rightOperand, $(rule_target_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_target_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_target_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_target_refinement_ro_value_float), xsd:float]
+      - [odrl:unit, $(rule_target_refinement_unit)~iri]
 ```
