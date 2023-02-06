@@ -83,6 +83,7 @@
 - **rule_assignee_refinement_ro_value_date**: Any value
 - **rule_assignee_refinement_ro_value_string**: Any value
 - **rule_assignee_refinement_ro_value_float**: Any value
+- **uniqid**: Generated automatically
 
 ## CCE - Geographical Area
 
@@ -97,6 +98,7 @@
 - **rule_assignee_refinement_o**: ex: (http://www.w3.org/ns/odrl/2/eq for equality or http://www.w3.org/ns/odrl/2/neq for inequality)
 - **rule_assignee_refinement_ro_value_iri**: ISO 3166-1 country code (https://www.omg.org/spec/LCC/Countries/ISO3166-1-CountryCodes/ES)
 - **rule_assignee_refinement_ro_value_string**: Any value (`ES`)
+- **uniqid**: Generated automatically
 
 ## CCE - Regulatory Jurisdiction
 
@@ -112,6 +114,7 @@
 - **rule_assignee_refinement_o**: ex: http://www.w3.org/ns/odrl/2/isA
 - **rule_assignee_refinement_ro_value_iri**: ex: Instance of fibo-fnd-law-jur:Jurisdiction (ex: https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/NorthAmericanJurisdiction/CAGovernmentEntitiesAndJurisdictions/)
 - **rule_assignee_refinement_ro_value_string**: Any value (ex: Any name of jurisdiction)
+- **uniqid**: Generated automatically
 
 ## CCE - Research Use
 
@@ -126,6 +129,7 @@
 - **rule_action_refinement_o**: ex: http://www.w3.org/ns/odrl/2/isA or http://www.w3.org/ns/odrl/2/eq or http://www.w3.org/ns/odrl/2/neq
 - **rule_action_refinement_ro_value_iri**: ex: https://w3id.org/dpv#ResearchAndDevelopment
 - **rule_action_refinement_ro_value_string**: ex: `R&D`
+- **uniqid**: Generated automatically
 
 ## CCE - Clinical Care
 
@@ -141,6 +145,7 @@
 - **rule_action_refinement_o**: ex: http://www.w3.org/ns/odrl/2/isA or http://www.w3.org/ns/odrl/2/eq or http://www.w3.org/ns/odrl/2/neq
 - **rule_action_refinement_ro_value_iri**: ex: https://w3id.org/dpv#ClinicalCare
 - **rule_action_refinement_ro_value_string**: ex: `Clinical care`
+- **uniqid**: Generated automatically
 
 ## CCE - Clinical Research
 
@@ -156,6 +161,7 @@
 - **rule_action_refinement_o**: ex: http://www.w3.org/ns/odrl/2/isA or http://www.w3.org/ns/odrl/2/eq or http://www.w3.org/ns/odrl/2/neq
 - **rule_action_refinement_ro_value_iri**: ex: https://w3id.org/dpv#ClinicalResearch
 - **rule_action_refinement_ro_value_string**: ex: `Clinical research`
+- **uniqid**: Generated automatically
 
 ## CCE - Disease Specific Use
 
@@ -170,6 +176,7 @@
 - **rule_action_refinement_o**: ex: http://www.w3.org/ns/odrl/2/isA or http://www.w3.org/ns/odrl/2/eq
 - **rule_action_refinement_ro_value_iri**: ex: http://purl.obolibrary.org/obo/DOID_13921
 - **rule_action_refinement_ro_value_string**: ex: `Alzheimer`
+- **uniqid**: Generated automatically
 
 ## CCE - Use As Control
 
@@ -185,6 +192,7 @@
 - **rule_target_refinement_o**: ex: http://www.w3.org/ns/odrl/2/eq
 - **rule_target_refinement_ro_value_iri**: ex: http://purl.obolibrary.org/obo/NCIT_C48294
 - **rule_target_refinement_ro_value_string**: ex: `Reference`
+- **uniqid**: Generated automatically
 
 ## CCE - Profit Motivated Use
 
@@ -199,6 +207,7 @@
 - **rule_action_refinement_o**: ex: http://www.w3.org/ns/odrl/2/isA
 - **rule_action_refinement_ro_value_iri**: ex: http://purl.obolibrary.org/obo/ICO_0000057
 - **rule_action_refinement_ro_value_string**: ex: `Profit motivated use`
+- **uniqid**: Generated automatically
 
 ## CCE - Time Period of Use
 
@@ -213,6 +222,7 @@
 - **rule_action_refinement_o**: ex: (one of http://www.w3.org/ns/odrl/2/lt, http://www.w3.org/ns/odrl/2/lteq, http://www.w3.org/ns/odrl/2/gt and http://www.w3.org/ns/odrl/2/gteq)
 - **rule_action_refinement_ro_value_date**: ex: Any xsd:date value: 2020-12-31
 - **rule_action_refinement_ro_value_dateTime**: ex: Any xsd:dateTime value: 2017-12-31T06:00Z
+- **uniqid**: Generated automatically
 
 ## CCE - Collaboration
 
@@ -231,6 +241,7 @@
 - **permission_duty_constraint_lo**: ex: http://www.w3.org/ns/odrl/2/event
 - **permission_duty_constraint_o**: ex: http://www.w3.org/ns/odrl/2/eq
 - **permission_duty_constraint_ro_value_iri**: http://www.w3.org/ns/odrl/2/policyUsage
+- **uniqid**: Generated automatically
 
 ## CCE - Fees
 
@@ -249,6 +260,7 @@
 - **permission_duty_constraint_lo**: ex: http://www.w3.org/ns/odrl/2/event
 - **permission_duty_constraint_o**: ex: http://www.w3.org/ns/odrl/2/lt
 - **permission_duty_constraint_ro_value_iri**: ex: http://www.w3.org/ns/odrl/2/policyUsage
+- **uniqid**: Generated automatically
 
 ## CCE - Return of Results
 
@@ -264,6 +276,7 @@
 - **permission_duty_constraint_lo**: ex: http://www.w3.org/ns/odrl/2/event
 - **permission_duty_constraint_o**: ex: http://www.w3.org/ns/odrl/2/gt
 - **permission_duty_constraint_ro_value_iri**: http://www.w3.org/ns/odrl/2/policyUsage
+- **uniqid**: Generated automatically
 
 ## CCE - Return of Incidental Findings
 
@@ -279,6 +292,7 @@
 - **permission_duty_constraint_lo**: ex: http://www.w3.org/ns/odrl/2/event
 - **permission_duty_constraint_o**: ex: http://www.w3.org/ns/odrl/2/gt
 - **permission_duty_constraint_ro_value_iri**: http://www.w3.org/ns/odrl/2/policyUsage
+- **uniqid**: Generated automatically
 
 ## CCE - Re-identification of Individuals
 
@@ -293,6 +307,7 @@
 - **rule_action_refinement_lo**: ex: http://www.w3.org/ns/odrl/2/purpose
 - **rule_action_refinement_o**: ex: http://www.w3.org/ns/odrl/2/isA
 - **rule_action_refinement_ro**: ex: https://w3id.org/occe/ReIdentificationOfIndividuals
+- **uniqid**: Generated automatically
 
 ## CCE - Publication moratorium
 
@@ -305,6 +320,7 @@
 - **rule_assigner**: https://example.com/Apple
 - **rule_assignee**: https://example.com/user
 - **ALL OTHER FIELDS ARE POSSIBLE**
+- **uniqid**: Generated automatically
 
 ## CCE - Publication
 
@@ -320,6 +336,7 @@
 - **permission_duty_constraint_lo**: ex: http://www.w3.org/ns/odrl/2/event
 - **permission_duty_constraint_o**: ex: http://www.w3.org/ns/odrl/2/gt
 - **permission_duty_constraint_ro_value_iri**: http://www.w3.org/ns/odrl/2/policyUsage
+- **uniqid**: Generated automatically
 
 ## CCE - User Authentication
 
@@ -335,6 +352,7 @@
 - **rule_assignee_refinement_o**: ex: http://www.w3.org/ns/odrl/2/isPartOf
 - **rule_assignee_refinement_ro_value_iri**: ex: http://example.com/list_of_users_ids
 - **rule_assignee_refinement_ro_value_string**: ex: `5408498|310155|905094|2501484`
+- **uniqid**: Generated automatically
 
 ## CCE - Ethics Approval
 
@@ -350,3 +368,4 @@
 - **rule_constraint_o**: ex: http://www.w3.org/ns/odrl/2/isA
 - **rule_constraint_ro_value_iri**: ex: http://purl.obolibrary.org/obo/NCIT_C70800
 - **rule_constraint_ro_value_string**: ex: `Institutional Review Board Approval`
+- **uniqid**: Generated automatically
