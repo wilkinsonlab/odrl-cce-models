@@ -244,7 +244,7 @@
 - **permission_duty_action**: ex: http://www.w3.org/ns/odrl/2/compensate
 - **permission_duty_action_refinement_lo**: ex: http://www.w3.org/ns/odrl/2/payAmount
 - **permission_duty_action_refinement_o**: ex: http://www.w3.org/ns/odrl/2/eq
-- **permission_duty_action_refinement_ro**: 500.00
+- **permission_duty_action_refinement_ro_value_float**: 500.00
 - **permission_duty_action_refinement_unit**: ex: http://dbpedia.org/resource/Euro
 - **permission_duty_constraint_lo**: ex: http://www.w3.org/ns/odrl/2/event
 - **permission_duty_constraint_o**: ex: http://www.w3.org/ns/odrl/2/lt
