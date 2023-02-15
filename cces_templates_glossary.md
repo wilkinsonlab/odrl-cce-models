@@ -4,7 +4,7 @@
   - Set
   - Offer
   - Agreement
-- **uid**: Policy unique identifier (ex: https://example.com/policy:01)
+- **uid**: Policy unique identifier (ex: https://example.com/policy_01)
 - **profile** (OPTIONAL): A custom ODRL profile to use (ex: https://example.com/my_custom_odrl_profile)
 - **rule_type**: Rule type, one of the following:
   - Permission
@@ -71,7 +71,7 @@
 ## CCE - Use by Commercial Entity
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
@@ -88,7 +88,7 @@
 ## CCE - Geographical Area
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
@@ -103,7 +103,7 @@
 ## CCE - Regulatory Jurisdiction
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
@@ -119,7 +119,7 @@
 ## CCE - Research Use
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
@@ -134,7 +134,7 @@
 ## CCE - Clinical Care
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
@@ -150,7 +150,7 @@
 ## CCE - Clinical Research
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
@@ -166,7 +166,7 @@
 ## CCE - Disease Specific Use
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
@@ -181,7 +181,7 @@
 ## CCE - Use As Control
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/read
@@ -197,7 +197,7 @@
 ## CCE - Profit Motivated Use
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://creativecommons.org/ns#CommercialUse
 - **rule_target**: https://example.com/asset
@@ -212,7 +212,7 @@
 ## CCE - Time Period of Use
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
@@ -227,7 +227,7 @@
 ## CCE - Collaboration
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
@@ -246,7 +246,7 @@
 ## CCE - Fees
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
@@ -265,7 +265,7 @@
 ## CCE - Return of Results
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
@@ -281,7 +281,7 @@
 ## CCE - Return of Incidental Findings
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
@@ -297,7 +297,7 @@
 ## CCE - Re-identification of Individuals
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
@@ -312,7 +312,7 @@
 ## CCE - Publication moratorium
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
@@ -325,7 +325,7 @@
 ## CCE - Publication
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
@@ -341,7 +341,7 @@
 ## CCE - User Authentication
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
@@ -357,7 +357,7 @@
 ## CCE - Ethics Approval
 
 - **type**: ex: `Offer`
-- **uid**: https://example.com/policy:01
+- **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
 - **rule_type**: ex: `Permission`
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
