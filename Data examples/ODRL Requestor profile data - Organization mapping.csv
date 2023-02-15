@@ -1,0 +1,20 @@
+Form terms,RDF mappings
+uid,odrl:uid
+profile,odrl:profile
+organization_name,vcard:organization-name
+organization_email,vcard:hasEmail
+organization_tel_type,vcard:TelephoneType
+organization_tel,vcard:hasTelephone
+rule_type,odrl:rule
+rule_target,odrl:target
+rule_action,odrl:action
+rule_assignee,odrl:assignee
+rule_assigner,odrl:assigner
+rule_constraint_lo,odrl:leftOperand
+rule_constraint_o,odrl:operator
+rule_constraint_ro_value_iri,odrl:rightOperand
+rule_constraint_ro_value_date,odrl:rightOperand
+rule_constraint_ro_value_dateTime,odrl:rightOperand
+rule_constraint_ro_value_string,odrl:rightOperand
+rule_constraint_ro_value_float,odrl:rightOperand
+rule_constraint_unit,odrl:unit

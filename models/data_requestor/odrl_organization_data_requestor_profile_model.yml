@@ -1,0 +1,78 @@
+prefixes:
+  odrl: http://www.w3.org/ns/odrl/2/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  occe: https://w3id.org/occe/
+  dpv: https://w3id.org/dpv#
+  obo: http://purl.obolibrary.org/obo/
+  this: https://example.com/
+  vcard: http://www.w3.org/2006/vcard/ns#
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+  idlab-fn: http://example.com/idlab/function/
+
+mappings:
+  policy:
+    sources:
+      - [data.csv~csv]
+    s: $(uid)
+    po:
+      - [a, odrl:Request]
+      - [odrl:uid, $(uid)~iri]
+      - [odrl:profile, $(profile)~iri]
+      - [odrl:$(rule_type), this:$(uniqid)_rule~iri]
+
+  rule:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule
+    po:
+      - [odrl:target, $(rule_target)~iri]
+      - [odrl:action, $(rule_action)~iri]
+      - [odrl:assignee, $(rule_assignee)~iri]
+      - [odrl:constraint, this:$(uniqid)_rule_constraint~iri]
+
+  rule_assignee: 
+    sources:
+      - [data.csv~csv]
+    s: $(rule_assignee)
+    po:
+      - [a, [odrl:Party, vcard:Organization]]
+      - [vcard:organization-name, $(organization_name), xsd:string]
+      - [vcard:hasEmail, mailto:$(organization_email)~iri]
+      - p: vcard:hasTelephone
+        o:
+          - value: this:$(uniqid)_organization_tel
+            type: iri
+            condition:
+              function: idlab-fn:equal
+              parameters:
+                - [grel:valueParameter, $(organization_tel)]
+                - [grel:valueParameter2, $(organization_tel)]
+
+  organization_tel:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_organization_tel
+    condition:
+      function: idlab-fn:equal
+      parameters:
+        - [grel:valueParameter, $(organization_tel)]
+        - [grel:valueParameter2, $(organization_tel)]
+    po:
+      - [a, [vcard:Work, $(organization_tel_type)~iri]]
+      - [vcard:hasValue, tel:$(organization_tel)~iri]
+
+  rule_constraint:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule_constraint
+    po:
+      - [odrl:leftOperand, $(rule_constraint_lo)~iri]
+      - [odrl:operator, $(rule_constraint_o)~iri]
+      - [odrl:rightOperand, $(rule_constraint_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(rule_constraint_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(rule_constraint_ro_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(rule_constraint_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(rule_constraint_ro_value_float), xsd:float]
+      - [odrl:unit, $(rule_constraint_unit)~iri]

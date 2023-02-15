@@ -1,0 +1,81 @@
+## General glossary for the data requestor ODRL profile
+
+- **uid**: Policy unique identifier (ex: https://example.com/policy_01)
+- **profile** (OPTIONAL): A custom ODRL profile to use (ex: https://example.com/my_custom_odrl_profile)
+- **full_name**: Full name of the data requestor
+- **organization_url** (OPTIONAL): Organization URL (related to the data requestor, if it's an individual)
+- **organization_name** (OPTIONAL): Organization name (related to the data requestor, if it's an individual)
+- **personal_email**: Work email address of the data requestor
+- **work_email**: Personal email address of the data requestor
+- **personal_tel_type**: One of telephone type codes (Cell (mobile), Fax, Pager, Text (sms), TextPhone, Video, Voice)
+- **personal_tel**: Personal telephone number of the data requestor
+- **work_tel_type**: One of telephone type codes (Cell (mobile), Fax, Pager, Text (sms), TextPhone, Video, Voice)
+- **work_tel**: Work telephone number of the data requestor
+- **organization_email**: Email address of the organization
+- **organization_tel_type**: One of telephone type codes (Cell (mobile), Fax, Pager, Text (sms), TextPhone, Video, Voice)
+- **organization_tel**: Telephone number of the organization
+- **rule_type**: `Permission`
+- **rule_target**: Rule target (ex: https://example.com/asset)
+- **rule_assigner** (OPTIONAL): The assigner of the rule
+- **rule_assignee**: The assignee of the rule
+- **rule_action**: Rule action (ex: http://www.w3.org/ns/odrl/2/use)
+- **rule_constraint_lo** (OPTIONAL): Left operand of the constraint of the rule
+- **rule_constraint_o** (OPTIONAL): Operator of the constraint of the rule
+- **rule_constraint_ro_value_iri** (OPTIONAL): Right operand of the constraint of the rule as IRI type
+- **rule_constraint_ro_value_date** (OPTIONAL): Right operand of the constraint of the rule as Date datatype
+- **rule_constraint_ro_value_dateTime** (OPTIONAL): Right operand of the constraint of the rule as DateTime datatype
+- **rule_constraint_ro_value_string** (OPTIONAL): Right operand of the constraint of the rule as String datatype
+- **rule_constraint_ro_value_float** (OPTIONAL): Right operand of the constraint of the rule as Float datatype
+- **rule_constraint_unit** (OPTIONAL): Unit of the action of the duty of the permission
+- **uniqid**: A numeric ID for the Policy to avoid the use of blank nodes in generated RDF
+
+## As an Individual
+
+- **uid**: Policy unique identifier (ex: https://example.com/policy_01)
+- **profile** (OPTIONAL): A custom ODRL profile to use (ex: https://example.com/my_custom_odrl_profile)
+- **full_name**: Full name of the data requestor
+- **organization_url** (OPTIONAL): Organization URL of the data requestor
+- **organization_name** (OPTIONAL): Organization name of the data requestor
+- **personal_email**: Work email address of the data requestor
+- **work_email**: Personal email address of the data requestor
+- **personal_tel_type**: One of telephone type codes (Cell (mobile), Fax, Pager, Text (sms), TextPhone, Video, Voice)
+- **personal_tel**: Personal telephone number of the data requestor
+- **work_tel_type**: One of telephone type codes (Cell (mobile), Fax, Pager, Text (sms), TextPhone, Video, Voice)
+- **work_tel**: Work telephone number of the data requestor
+- **rule_type**: `Permission`
+- **rule_target**: Rule target (ex: https://example.com/asset)
+- **rule_assigner** (OPTIONAL): The assigner of the rule
+- **rule_assignee**: The assignee of the rule
+- **rule_action**: Rule action (ex: http://www.w3.org/ns/odrl/2/use)
+- **rule_constraint_lo** (OPTIONAL): Left operand of the constraint of the rule
+- **rule_constraint_o** (OPTIONAL): Operator of the constraint of the rule
+- **rule_constraint_ro_value_iri** (OPTIONAL): Right operand of the constraint of the rule as IRI type
+- **rule_constraint_ro_value_date** (OPTIONAL): Right operand of the constraint of the rule as Date datatype
+- **rule_constraint_ro_value_dateTime** (OPTIONAL): Right operand of the constraint of the rule as DateTime datatype
+- **rule_constraint_ro_value_string** (OPTIONAL): Right operand of the constraint of the rule as String datatype
+- **rule_constraint_ro_value_float** (OPTIONAL): Right operand of the constraint of the rule as Float datatype
+- **rule_constraint_unit** (OPTIONAL): Unit of the action of the duty of the permission
+- **uniqid**: A numeric ID for the Policy to avoid the use of blank nodes in generated RDF
+
+## As an Organization
+
+- **uid**: Policy unique identifier (ex: https://example.com/policy_01)
+- **profile** (OPTIONAL): A custom ODRL profile to use (ex: https://example.com/my_custom_odrl_profile)
+- **organization_name**: Organization name
+- **organization_email**: Email address of the organization
+- **organization_tel_type**: One of telephone type codes (Cell (mobile), Fax, Pager, Text (sms), TextPhone, Video, Voice)
+- **organization_tel**: Telephone number of the organization
+- **rule_type**: `Permission`
+- **rule_target**: Rule target (ex: https://example.com/asset)
+- **rule_assigner** (OPTIONAL): The assigner of the rule
+- **rule_assignee**: The assignee of the rule
+- **rule_action**: Rule action (ex: http://www.w3.org/ns/odrl/2/use)
+- **rule_constraint_lo** (OPTIONAL): Left operand of the constraint of the rule
+- **rule_constraint_o** (OPTIONAL): Operator of the constraint of the rule
+- **rule_constraint_ro_value_iri** (OPTIONAL): Right operand of the constraint of the rule as IRI type
+- **rule_constraint_ro_value_date** (OPTIONAL): Right operand of the constraint of the rule as Date datatype
+- **rule_constraint_ro_value_dateTime** (OPTIONAL): Right operand of the constraint of the rule as DateTime datatype
+- **rule_constraint_ro_value_string** (OPTIONAL): Right operand of the constraint of the rule as String datatype
+- **rule_constraint_ro_value_float** (OPTIONAL): Right operand of the constraint of the rule as Float datatype
+- **rule_constraint_unit** (OPTIONAL): Unit of the action of the duty of the permission
+- **uniqid**: A numeric ID for the Policy to avoid the use of blank nodes in generated RDF

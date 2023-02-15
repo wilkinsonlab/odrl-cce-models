@@ -1,0 +1,76 @@
+prefixes:
+  odrl: http://www.w3.org/ns/odrl/2/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  occe: https://w3id.org/occe/
+  dpv: https://w3id.org/dpv#
+  obo: http://purl.obolibrary.org/obo/
+  dbo: http://dbpedia.org/resource/
+  this: https://example.com/
+
+mappings:
+  policy:
+    sources:
+      - [data.csv~csv]
+    s: $(uid)
+    po:
+      - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri]
+      - [odrl:profile, $(profile)~iri]
+      - [$(rule_type), this:$(uniqid)_rule~iri]
+
+  rule:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_rule
+    po:
+      - [odrl:target, $(rule_target)~iri]
+      - [odrl:assigner, $(rule_assigner)~iri]
+      - [odrl:assignee, $(rule_assignee)~iri]
+      - [odrl:action, $(rule_action)~iri]
+      - [odrl:duty, this:$(uniqid)_permission_duty~iri]
+
+  permission_duty: 
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_permission_duty
+    po:
+      - [odrl:action, this:$(uniqid)_permission_duty_action~iri]
+      - [odrl:constraint, this:$(uniqid)_permission_duty_constraint~iri]
+
+  permission_duty_action: 
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_permission_duty_action
+    po:
+      - [rdf:value, $(permission_duty_action)~iri]
+      - [odrl:refinement, this:$(uniqid)_permission_duty_action_refinement~iri]
+
+  permission_duty_action_refinement:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_permission_duty_action_refinement
+    po:
+      - [odrl:leftOperand, $(permission_duty_action_refinement_lo)~iri]
+      - [odrl:operator, $(permission_duty_action_refinement_o)~iri]
+      - [odrl:rightOperand, $(permission_duty_action_refinement_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(permission_duty_action_refinement_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(permission_duty_action_refinement_ro_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(permission_duty_action_refinement_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(permission_duty_action_refinement_ro_value_float), xsd:float]
+      - [odrl:unit, $(permission_duty_action_refinement_unit)~iri]
+
+  permission_duty_constraint:
+    sources:
+      - [data.csv~csv]
+    s: this:$(uniqid)_permission_duty_constraint
+    po:
+      - [odrl:leftOperand, $(permission_duty_constraint_lo)~iri]
+      - [odrl:operator, $(permission_duty_constraint_o)~iri]
+      - [odrl:rightOperand, $(permission_duty_constraint_ro_value_iri)~iri]
+      - [odrl:rightOperand, $(permission_duty_constraint_ro_value_date), xsd:date]
+      - [odrl:rightOperand, $(permission_duty_constraint_ro_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(permission_duty_constraint_ro_value_string), xsd:string]
+      - [odrl:rightOperand, $(permission_duty_constraint_ro_value_float), xsd:float]
+      - [odrl:unit, $(permission_duty_constraint_unit)~iri]
