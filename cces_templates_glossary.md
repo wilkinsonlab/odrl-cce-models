@@ -70,9 +70,9 @@
 
 ## CCE - Use by Commercial Entity
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -87,9 +87,9 @@
 
 ## CCE - Geographical Area
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -102,10 +102,10 @@
 
 ## CCE - Regulatory Jurisdiction
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -118,9 +118,9 @@
 
 ## CCE - Research Use
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -133,10 +133,10 @@
 
 ## CCE - Clinical Care
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -149,10 +149,10 @@
 
 ## CCE - Clinical Research
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -165,9 +165,9 @@
 
 ## CCE - Disease Specific Use
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -180,10 +180,10 @@
 
 ## CCE - Use As Control
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/read
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -196,9 +196,9 @@
 
 ## CCE - Profit Motivated Use
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://creativecommons.org/ns#CommercialUse
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -211,9 +211,9 @@
 
 ## CCE - Time Period of Use
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -226,10 +226,10 @@
 
 ## CCE - Collaboration
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -245,9 +245,9 @@
 
 ## CCE - Fees
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -264,10 +264,10 @@
 
 ## CCE - Return of Results
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -280,10 +280,10 @@
 
 ## CCE - Return of Incidental Findings
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -296,10 +296,10 @@
 
 ## CCE - Re-identification of Individuals
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -311,10 +311,10 @@
 
 ## CCE - Publication moratorium
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -324,10 +324,10 @@
 
 ## CCE - Publication
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -340,10 +340,10 @@
 
 ## CCE - User Authentication
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
@@ -356,10 +356,10 @@
 
 ## CCE - Ethics Approval
 
-- **type**: ex: `Offer`
+- **type**: ex: http://www.w3.org/ns/odrl/2/Offer
 - **uid**: https://example.com/policy_01
 - **profile**: https://w3id.org/occe/
-- **rule_type**: ex: `Permission`
+- **rule_type**: ex: http://www.w3.org/ns/odrl/2/permission
 - **rule_action**: ex: http://www.w3.org/ns/odrl/2/use
 - **rule_target**: https://example.com/asset
 - **rule_assigner**: https://example.com/Apple
