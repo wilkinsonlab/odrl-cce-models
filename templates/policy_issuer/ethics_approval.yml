@@ -13,28 +13,28 @@ mappings:
   policy:
     sources:
       - [data.csv~csv]
-    s: $(uid)
+    s: this:$(uniqid)
     po:
       - [a, $(type)~iri]
-      - [odrl:uid, $(uid)~iri]
+      - [this:id, $(uniqid)]
       - [odrl:profile, $(profile)~iri]
-      - [$(rule_type), this:$(uniqid)_rule~iri]
+      - [odrl:permission, this:$(uniqid)/rule~iri]
 
   rule:
     sources:
       - [data.csv~csv]
-    s: this:$(uniqid)_rule
+    s: this:$(uniqid)/rule
     po:
       - [odrl:target, $(rule_target)~iri]
       - [odrl:assigner, $(rule_assigner)~iri]
       - [odrl:assignee, $(rule_assignee)~iri]
       - [odrl:action, $(rule_action)~iri]
-      - [odrl:constraint, this:$(uniqid)_rule_constraint~iri]
+      - [odrl:constraint, this:$(uniqid)/rule_constraint~iri]
 
   rule_constraint: 
     sources:
       - [data.csv~csv]
-    s: this:$(uniqid)_rule_constraint
+    s: this:$(uniqid)/rule_constraint
     po:
       - [odrl:leftOperand, $(rule_constraint_lo)~iri]
       - [odrl:operator, $(rule_constraint_o)~iri]
