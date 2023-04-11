@@ -1,0 +1,317 @@
+{
+  "policies": [
+    {
+      "type": "http://www.w3.org/ns/odrl/2/Offer",
+      "uid": "https://example.com/policy_01",
+      "profile": null,
+      "id": 4515165,
+      "rules": {
+        "permissions": [
+          {
+            "id": 1,
+            "policy_id": 4515165,
+            "type": "http://www.w3.org/ns/odrl/2/permission",
+            "target": "https://example.com/asset_1",
+            "assigner": "https://example.com/Data_Center_1",
+            "assignee": null,
+            "actions": [
+              {
+                "id": 54056161,
+                "policy_id": 4515165,
+                "permission_id": 1,
+                "value": "http://www.w3.org/ns/odrl/2/use",
+                "refinements": [
+                  {
+                    "id": 7601505,
+                    "action_id": 54056161,
+                    "policy_id": 4515165,
+                    "permission_id": 1,
+                    "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
+                    "operator": "http://www.w3.org/ns/odrl/2/isA",
+                    "right_operand_value_iri": "https://w3id.org/dpv#CommercialResearch",
+                    "right_operand_value_string": null,
+                    "right_operand_value_date": null,
+                    "right_operand_value_dateTime": null,
+                    "right_operand_value_float": null,
+                    "right_operand_value_duration": null,
+                    "unit": null
+                  }
+                ]
+              }
+            ],
+            "assignee_refinement_lo": null,
+            "assignee_refinement_o": null,
+            "assignee_refinement_ro_value_iri": null,
+            "assignee_refinement_ro_value_string": null,
+            "assignee_refinement_ro_value_date": null,
+            "assignee_refinement_ro_value_dateTime": null,
+            "assignee_refinement_ro_value_float": null,
+            "assignee_refinement_ro_value_duration": null,
+            "assignee_refinement_unit": null,
+            "target_refinement_lo": null,
+            "target_refinement_o": null,
+            "target_refinement_ro_value_iri": null,
+            "target_refinement_ro_value_string": null,
+            "target_refinement_ro_value_date": null,
+            "target_refinement_ro_value_dateTime": null,
+            "target_refinement_ro_value_float": null,
+            "target_refinement_ro_value_duration": null,
+            "target_refinement_unit": null,
+            "constraints": [
+              {
+                "id": 1,
+                "policy_id": 4515165,
+                "permission_id": 1,
+                "left_operand": null,
+                "operator": null,
+                "right_operand_value_iri": null,
+                "right_operand_value_string": null,
+                "right_operand_value_date": null,
+                "right_operand_value_dateTime": null,
+                "right_operand_value_float": null,
+                "right_operand_value_duration": null,
+                "unit": null
+              }
+            ],
+            "duties": [
+              {
+                "id": 1,
+                "policy_id": 4515165,
+                "permission_id": 1,
+                "target": null,
+                "actions": [
+                  {
+                    "id": 62000655,
+                    "policy_id": 4515165,
+                    "permission_id": 1,
+                    "duty_id": 1,
+                    "value": "http://www.w3.org/ns/odrl/2/compensate",
+                    "refinements": [
+                      {
+                        "id": 1,
+                        "action_id": 62000655,
+                        "policy_id": 4515165,
+                        "permission_id": 1,
+                        "duty_id": 1,
+                        "left_operand": "http://www.w3.org/ns/odrl/2/payAmount",
+                        "operator": "http://www.w3.org/ns/odrl/2/eq",
+                        "right_operand_value_iri": null,
+                        "right_operand_value_string": null,
+                        "right_operand_value_date": null,
+                        "right_operand_value_dateTime": null,
+                        "right_operand_value_float": 5.0,
+                        "right_operand_value_duration": null,
+                        "unit": "http://dbpedia.org/resource/Euro"
+                      }
+                    ]
+                  }
+                ],
+                "constraints": [
+                  {
+                    "id": 1,
+                    "policy_id": 4515165,
+                    "permission_id": 1,
+                    "duty_id": 1,
+                    "left_operand": null,
+                    "operator": null,
+                    "right_operand_value_iri": null,
+                    "right_operand_value_string": null,
+                    "right_operand_value_date": null,
+                    "right_operand_value_dateTime": null,
+                    "right_operand_value_float": null,
+                    "right_operand_value_duration": null,
+                    "unit": null
+                  }
+                ],
+                "consequences": []
+              }
+            ]
+          },
+          {
+            "id": 2080481,
+            "policy_id": 4515165,
+            "type": "http://www.w3.org/ns/odrl/2/permission",
+            "target": "https://example.com/asset_2",
+            "assigner": "https://example.com/Data_Center_1",
+            "assignee": null,
+            "actions": [
+              {
+                "id": 605409844,
+                "policy_id": 4515165,
+                "permission_id": 2080481,
+                "value": "http://www.w3.org/ns/odrl/2/use",
+                "refinements": [
+                  {
+                    "id": 3504848,
+                    "action_id": 605409844,
+                    "policy_id": 4515165,
+                    "permission_id": 2080481,
+                    "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
+                    "operator": "http://www.w3.org/ns/odrl/2/isA",
+                    "right_operand_value_iri": "https://w3id.org/dpv#CommercialResearch",
+                    "right_operand_value_string": null,
+                    "right_operand_value_date": null,
+                    "right_operand_value_dateTime": null,
+                    "right_operand_value_float": null,
+                    "right_operand_value_duration": null,
+                    "unit": null
+                  }
+                ]
+              }
+            ],
+            "assignee_refinement_lo": null,
+            "assignee_refinement_o": null,
+            "assignee_refinement_ro_value_iri": null,
+            "assignee_refinement_ro_value_string": null,
+            "assignee_refinement_ro_value_date": null,
+            "assignee_refinement_ro_value_dateTime": null,
+            "assignee_refinement_ro_value_float": null,
+            "assignee_refinement_ro_value_duration": null,
+            "assignee_refinement_unit": null,
+            "target_refinement_lo": null,
+            "target_refinement_o": null,
+            "target_refinement_ro_value_iri": null,
+            "target_refinement_ro_value_string": null,
+            "target_refinement_ro_value_date": null,
+            "target_refinement_ro_value_dateTime": null,
+            "target_refinement_ro_value_float": null,
+            "target_refinement_ro_value_duration": null,
+            "target_refinement_unit": null,
+            "constraints": [],
+            "duties": []
+          }
+        ],
+        "prohibitions": [
+          {
+            "id": 5406515,
+            "policy_id": 4515165,
+            "type": "http://www.w3.org/ns/odrl/2/prohibitions",
+            "target": "https://example.com/asset_1",
+            "assigner": "https://example.com/Data_Center_1",
+            "assignee": null,
+            "actions": [
+              {
+                "id": 7960460,
+                "policy_id": 4515165,
+                "prohibition_id": 5406515,
+                "value": "http://www.w3.org/ns/odrl/2/share",
+                "refinements": [
+                  {
+                    "id": 8418505,
+                    "action_id": 7960460,
+                    "policy_id": 4515165,
+                    "prohibition_id": 5406515,
+                    "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
+                    "operator": "http://www.w3.org/ns/odrl/2/isA",
+                    "right_operand_value_iri": "https://w3id.org/dpv#CommercialResearch",
+                    "right_operand_value_string": null,
+                    "right_operand_value_date": null,
+                    "right_operand_value_dateTime": null,
+                    "right_operand_value_float": null,
+                    "right_operand_value_duration": null,
+                    "unit": null
+                  }
+                ]
+              }
+            ],
+            "assignee_refinement_lo": null,
+            "assignee_refinement_o": null,
+            "assignee_refinement_ro_value_iri": null,
+            "assignee_refinement_ro_value_string": null,
+            "assignee_refinement_ro_value_date": null,
+            "assignee_refinement_ro_value_dateTime": null,
+            "assignee_refinement_ro_value_float": null,
+            "assignee_refinement_ro_value_duration": null,
+            "assignee_refinement_unit": null,
+            "target_refinement_lo": null,
+            "target_refinement_o": null,
+            "target_refinement_ro_value_iri": null,
+            "target_refinement_ro_value_string": null,
+            "target_refinement_ro_value_date": null,
+            "target_refinement_ro_value_dateTime": null,
+            "target_refinement_ro_value_float": null,
+            "target_refinement_ro_value_duration": null,
+            "target_refinement_unit": null,
+            "constraint_lo": null,
+            "constraint_o": null,
+            "constraint_ro_value_iri": null,
+            "constraint_ro_value_string": null,
+            "constraint_ro_value_date": null,
+            "constraint_ro_value_dateTime": null,
+            "constraint_ro_value_float": null,
+            "constraint_ro_value_duration": null,
+            "constraint_unit": null,
+            "remedy_action": null,
+            "remedy_target": null
+          }
+        ],
+        "obligations": []
+      }
+    },
+    {
+      "type": "http://www.w3.org/ns/odrl/2/Offer",
+      "uid": "https://example.com/policy_02",
+      "profile": null,
+      "id": 5540994940,
+      "rules": {
+        "permissions": [
+          {
+            "id": 2,
+            "policy_id": 5540994940,
+            "type": "http://www.w3.org/ns/odrl/2/permission",
+            "target": "https://example.com/asset_2",
+            "assigner": "https://example.com/Data_Center_2",
+            "assignee": null,
+            "actions": [
+              {
+                "id": 9970615,
+                "policy_id": 5540994940,
+                "permission_id": 2,
+                "value": "http://www.w3.org/ns/odrl/2/use",
+                "refinements": [
+                  {
+                    "id": 1804949,
+                    "action_id": 9970615,
+                    "policy_id": 5540994940,
+                    "permission_id": 2,
+                    "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
+                    "operator": "http://www.w3.org/ns/odrl/2/isA",
+                    "right_operand_value_iri": "https://w3id.org/dpv#Marketing",
+                    "right_operand_value_string": null,
+                    "right_operand_value_date": null,
+                    "right_operand_value_dateTime": null,
+                    "right_operand_value_float": null,
+                    "right_operand_value_duration": null,
+                    "unit": null
+                  }
+                ]
+              }
+            ],
+            "assignee_refinement_lo": null,
+            "assignee_refinement_o": null,
+            "assignee_refinement_ro_value_iri": null,
+            "assignee_refinement_ro_value_string": null,
+            "assignee_refinement_ro_value_date": null,
+            "assignee_refinement_ro_value_dateTime": null,
+            "assignee_refinement_ro_value_float": null,
+            "assignee_refinement_ro_value_duration": null,
+            "assignee_refinement_unit": null,
+            "target_refinement_lo": null,
+            "target_refinement_o": null,
+            "target_refinement_ro_value_iri": null,
+            "target_refinement_ro_value_string": null,
+            "target_refinement_ro_value_date": null,
+            "target_refinement_ro_value_dateTime": null,
+            "target_refinement_ro_value_float": null,
+            "target_refinement_ro_value_duration": null,
+            "target_refinement_unit": null,
+            "constraints": [],
+            "duties": []
+          }
+        ],
+        "prohibitions": [],
+        "obligations": []
+      }
+    }
+  ]
+}

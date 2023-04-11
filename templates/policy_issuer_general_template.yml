@@ -1,0 +1,193 @@
+prefixes:
+  odrl: http://www.w3.org/ns/odrl/2/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  occe: https://w3id.org/occe/
+  dpv: https://w3id.org/dpv#
+  obo: http://purl.obolibrary.org/obo/
+  this: https://example.com/
+
+sources:
+  policy:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*]"
+
+  permission:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*]"
+
+  permission_action:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].actions.[*]"
+
+  permission_action_refinement:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].actions.[*].refinements.[*]"
+
+  permission_duty:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*]"
+
+  permission_duty_action:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].actions.[*]"
+
+  permission_duty_action_refinement:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].actions.[*].refinements.[*]"
+
+  permission_duty_consequence:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].consequences.[*]"
+
+  prohibition:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*]"
+
+  obligation:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.obligations.[*]"
+
+mappings:
+  policy:
+    sources:
+      - policy
+    s: this:policies/$(id)
+    po:
+      - [a, $(type)~iri]
+      - [odrl:profile, $(profile)~iri]
+      - p: odrl:permission
+        o:
+          - mapping: permission
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From policy
+                - [str2, $(policy_id)] # From permission
+      - p: odrl:prohibition
+        o:
+          - mapping: prohibition
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From policy
+                - [str2, $(policy_id)] # From rule
+
+  permission:
+    sources:
+      - permission
+    s: this:policies/$(policy_id)/permissions/$(id)
+    po:
+      - [odrl:target, $(target)~iri]
+      - [odrl:assigner, $(assigner)~iri]
+      - [odrl:assignee, $(assignee)~iri]
+      - p: odrl:action
+        o:
+          - mapping: permission_action
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission
+                - [str2, $(permission_id)] # From action
+      - p: odrl:duty
+        o:
+          - mapping: permission_duty
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission
+                - [str2, $(permission_id)] # From duty
+
+  permission_action:
+    sources:
+      - permission_action
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/actions/$(id)
+    po:
+      - [rdf:value, $(value)~iri]
+      - p: odrl:refinement
+        o:
+          - mapping: permission_action_refinement
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission's action
+                - [str2, $(action_id)] # From permission action's refinement
+
+  permission_action_refinement:
+    sources:
+      - permission_action_refinement
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/actions/$(action_id)/refinements/$(id)
+    po:
+      - [odrl:leftOperand, $(left_operand)~iri]
+      - [odrl:operator, $(operator)~iri]
+      - [odrl:rightOperand, $(right_operand_value_iri)~iri]
+      - [odrl:rightOperand, $(right_operand_value_date), xsd:date]
+      - [odrl:rightOperand, $(right_operand_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(right_operand_value_string), xsd:string]
+      - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
+      - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
+      - [odrl:unit, $(unit)~iri]
+
+  permission_duty:
+    sources:
+      - permission_duty
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/duties/$(id)
+    po:
+      - p: odrl:action
+        o:
+          - mapping: permission_duty_action
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission's duty
+                - [str2, $(permission_id)] # From permission duty's action
+
+  permission_duty_action:
+    sources:
+      - permission_duty_action
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/duties/$(duty_id)/actions/$(id)
+    po:
+      - [rdf:value, $(value)~iri]
+      - p: odrl:refinement
+        o:
+          - mapping: permission_duty_action_refinement
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission duty's action
+                - [str2, $(action_id)] # From permission duty action's refinement
+
+  permission_duty_action_refinement:
+    sources:
+      - permission_duty_action_refinement
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/duties/$(duty_id)/actions/$(action_id)/refinements/$(id)
+    po:
+      - [odrl:leftOperand, $(left_operand)~iri]
+      - [odrl:operator, $(operator)~iri]
+      - [odrl:rightOperand, $(right_operand_value_iri)~iri]
+      - [odrl:rightOperand, $(right_operand_value_date), xsd:date]
+      - [odrl:rightOperand, $(right_operand_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(right_operand_value_string), xsd:string]
+      - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
+      - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
+      - [odrl:unit, $(unit)~iri]
+
+  prohibition:
+    sources:
+      - prohibition
+    s: this:policies/$(policy_id)/prohibitions/$(id)
+    po:
+      - [odrl:target, $(target)~iri]
+      - [odrl:assigner, $(assigner)~iri]
+      - [odrl:assignee, $(assignee)~iri]
