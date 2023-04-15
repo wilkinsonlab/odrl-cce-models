@@ -6,6 +6,7 @@ prefixes:
   occe: https://w3id.org/occe/
   dpv: https://w3id.org/dpv#
   obo: http://purl.obolibrary.org/obo/
+  dc: http://purl.org/dc/terms/
   this: https://example.com/
 
 sources:
@@ -34,6 +35,11 @@ sources:
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.permissions.[*].duties.[*]"
 
+  permission_constraint:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].constraints.[*]"
+
   permission_duty_action:
     access: data.json
     referenceFormulation: jsonpath
@@ -43,6 +49,11 @@ sources:
     access: data.json
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.permissions.[*].duties.[*].actions.[*].refinements.[*]"
+
+  permission_duty_constraint:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].constraints.[*]"
 
   permission_duty_consequence:
     access: data.json
@@ -108,6 +119,14 @@ mappings:
               parameters:
                 - [str1, $(id)] # From permission
                 - [str2, $(permission_id)] # From duty
+      - p: odrl:constraint
+        o:
+          - mapping: permission_constraint
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission
+                - [str2, $(permission_id)] # From permission's constraint
 
   permission_action:
     sources:
@@ -152,6 +171,14 @@ mappings:
               parameters:
                 - [str1, $(id)] # From permission's duty
                 - [str2, $(permission_id)] # From permission duty's action
+      - p: odrl:constraint
+        o:
+          - mapping: permission_duty_constraint
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission's duty
+                - [str2, $(duty_id)] # From permission duty's constraint
 
   permission_duty_action:
     sources:
@@ -172,6 +199,36 @@ mappings:
     sources:
       - permission_duty_action_refinement
     s: this:policies/$(policy_id)/permissions/$(permission_id)/duties/$(duty_id)/actions/$(action_id)/refinements/$(id)
+    po:
+      - [odrl:leftOperand, $(left_operand)~iri]
+      - [odrl:operator, $(operator)~iri]
+      - [odrl:rightOperand, $(right_operand_value_iri)~iri]
+      - [odrl:rightOperand, $(right_operand_value_date), xsd:date]
+      - [odrl:rightOperand, $(right_operand_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(right_operand_value_string), xsd:string]
+      - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
+      - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
+      - [odrl:unit, $(unit)~iri]
+
+  permission_duty_constraint:
+    sources:
+      - permission_duty_constraint
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/duties/$(duty_id)/constraints/$(id)
+    po:
+      - [odrl:leftOperand, $(left_operand)~iri]
+      - [odrl:operator, $(operator)~iri]
+      - [odrl:rightOperand, $(right_operand_value_iri)~iri]
+      - [odrl:rightOperand, $(right_operand_value_date), xsd:date]
+      - [odrl:rightOperand, $(right_operand_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(right_operand_value_string), xsd:string]
+      - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
+      - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
+      - [odrl:unit, $(unit)~iri]
+
+  permission_constraint:
+    sources:
+      - permission_constraint
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/constraints/$(id)
     po:
       - [odrl:leftOperand, $(left_operand)~iri]
       - [odrl:operator, $(operator)~iri]

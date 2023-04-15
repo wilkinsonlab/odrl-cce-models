@@ -57,22 +57,7 @@
             "target_refinement_ro_value_float": null,
             "target_refinement_ro_value_duration": null,
             "target_refinement_unit": null,
-            "constraints": [
-              {
-                "id": 1,
-                "policy_id": 4515165,
-                "permission_id": 1,
-                "left_operand": null,
-                "operator": null,
-                "right_operand_value_iri": null,
-                "right_operand_value_string": null,
-                "right_operand_value_date": null,
-                "right_operand_value_dateTime": null,
-                "right_operand_value_float": null,
-                "right_operand_value_duration": null,
-                "unit": null
-              }
-            ],
+            "constraints": [],
             "duties": [
               {
                 "id": 1,
@@ -112,9 +97,9 @@
                     "policy_id": 4515165,
                     "permission_id": 1,
                     "duty_id": 1,
-                    "left_operand": null,
-                    "operator": null,
-                    "right_operand_value_iri": null,
+                    "left_operand": "http://www.w3.org/ns/odrl/2/event",
+                    "operator": "http://www.w3.org/ns/odrl/2/lt",
+                    "right_operand_value_iri": "http://www.w3.org/ns/odrl/2/policyUsage",
                     "right_operand_value_string": null,
                     "right_operand_value_date": null,
                     "right_operand_value_dateTime": null,
@@ -177,7 +162,22 @@
             "target_refinement_ro_value_float": null,
             "target_refinement_ro_value_duration": null,
             "target_refinement_unit": null,
-            "constraints": [],
+            "constraints": [
+              {
+                "id": 1,
+                "policy_id": 4515165,
+                "permission_id": 2080481,
+                "left_operand": "http://www.w3.org/ns/odrl/2/dateTime",
+                "operator": "http://www.w3.org/ns/odrl/2/lt",
+                "right_operand_value_iri": null,
+                "right_operand_value_string": null,
+                "right_operand_value_date": "2024-01-01",
+                "right_operand_value_dateTime": null,
+                "right_operand_value_float": null,
+                "right_operand_value_duration": null,
+                "unit": null
+              }
+            ],
             "duties": []
           }
         ],
