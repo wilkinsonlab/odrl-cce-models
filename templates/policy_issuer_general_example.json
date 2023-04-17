@@ -13,7 +13,6 @@
             "type": "http://www.w3.org/ns/odrl/2/permission",
             "target": "https://example.com/asset_1",
             "assigner": "https://example.com/Data_Center_1",
-            "assignee": null,
             "actions": [
               {
                 "id": 54056161,
@@ -39,15 +38,28 @@
                 ]
               }
             ],
-            "assignee_refinement_lo": null,
-            "assignee_refinement_o": null,
-            "assignee_refinement_ro_value_iri": null,
-            "assignee_refinement_ro_value_string": null,
-            "assignee_refinement_ro_value_date": null,
-            "assignee_refinement_ro_value_dateTime": null,
-            "assignee_refinement_ro_value_float": null,
-            "assignee_refinement_ro_value_duration": null,
-            "assignee_refinement_unit": null,
+            "assignee": {
+              "policy_id": 4515165,
+              "permission_id": 1,
+              "type": "http://www.w3.org/ns/odrl/2/Party",
+              "value": null,
+              "refinements": [
+                {
+                  "id": 60260,
+                  "policy_id": 4515165,
+                  "permission_id": 1,
+                  "left_operand": null,
+                  "operator": null,
+                  "right_operand_value_iri": null,
+                  "right_operand_value_string": null,
+                  "right_operand_value_date": null,
+                  "right_operand_value_dateTime": null,
+                  "right_operand_value_float": null,
+                  "right_operand_value_duration": null,
+                  "unit": null
+                }
+              ]
+            },
             "target_refinement_lo": null,
             "target_refinement_o": null,
             "target_refinement_ro_value_iri": null,
@@ -118,7 +130,6 @@
             "type": "http://www.w3.org/ns/odrl/2/permission",
             "target": "https://example.com/asset_2",
             "assigner": "https://example.com/Data_Center_1",
-            "assignee": null,
             "actions": [
               {
                 "id": 605409844,
@@ -144,15 +155,7 @@
                 ]
               }
             ],
-            "assignee_refinement_lo": null,
-            "assignee_refinement_o": null,
-            "assignee_refinement_ro_value_iri": null,
-            "assignee_refinement_ro_value_string": null,
-            "assignee_refinement_ro_value_date": null,
-            "assignee_refinement_ro_value_dateTime": null,
-            "assignee_refinement_ro_value_float": null,
-            "assignee_refinement_ro_value_duration": null,
-            "assignee_refinement_unit": null,
+            "assignee": {},
             "target_refinement_lo": null,
             "target_refinement_o": null,
             "target_refinement_ro_value_iri": null,
@@ -188,7 +191,6 @@
             "type": "http://www.w3.org/ns/odrl/2/prohibitions",
             "target": "https://example.com/asset_1",
             "assigner": "https://example.com/Data_Center_1",
-            "assignee": null,
             "actions": [
               {
                 "id": 7960460,
@@ -214,15 +216,28 @@
                 ]
               }
             ],
-            "assignee_refinement_lo": null,
-            "assignee_refinement_o": null,
-            "assignee_refinement_ro_value_iri": null,
-            "assignee_refinement_ro_value_string": null,
-            "assignee_refinement_ro_value_date": null,
-            "assignee_refinement_ro_value_dateTime": null,
-            "assignee_refinement_ro_value_float": null,
-            "assignee_refinement_ro_value_duration": null,
-            "assignee_refinement_unit": null,
+            "assignee": {
+              "policy_id": 4515165,
+              "prohibition_id": 5406515,
+              "type": "http://www.w3.org/ns/odrl/2/Party",
+              "value": null,
+              "refinements": [
+                {
+                  "id": 464094,
+                  "policy_id": 4515165,
+                  "prohibition_id": 5406515,
+                  "left_operand": null,
+                  "operator": null,
+                  "right_operand_value_iri": null,
+                  "right_operand_value_string": null,
+                  "right_operand_value_date": null,
+                  "right_operand_value_dateTime": null,
+                  "right_operand_value_float": null,
+                  "right_operand_value_duration": null,
+                  "unit": null
+                }
+              ]
+            },
             "target_refinement_lo": null,
             "target_refinement_o": null,
             "target_refinement_ro_value_iri": null,
@@ -261,7 +276,6 @@
             "type": "http://www.w3.org/ns/odrl/2/permission",
             "target": "https://example.com/asset_2",
             "assigner": "https://example.com/Data_Center_2",
-            "assignee": null,
             "actions": [
               {
                 "id": 9970615,
@@ -287,15 +301,28 @@
                 ]
               }
             ],
-            "assignee_refinement_lo": null,
-            "assignee_refinement_o": null,
-            "assignee_refinement_ro_value_iri": null,
-            "assignee_refinement_ro_value_string": null,
-            "assignee_refinement_ro_value_date": null,
-            "assignee_refinement_ro_value_dateTime": null,
-            "assignee_refinement_ro_value_float": null,
-            "assignee_refinement_ro_value_duration": null,
-            "assignee_refinement_unit": null,
+            "assignee": {
+              "policy_id": 5540994940,
+              "permission_id": 2,
+              "type": "http://www.w3.org/ns/odrl/2/Party",
+              "value": null,
+              "refinements": [
+                {
+                  "id": 302,
+                  "policy_id": 5540994940,
+                  "permission_id": 2,
+                  "left_operand": null,
+                  "operator": null,
+                  "right_operand_value_iri": null,
+                  "right_operand_value_string": null,
+                  "right_operand_value_date": null,
+                  "right_operand_value_dateTime": null,
+                  "right_operand_value_float": null,
+                  "right_operand_value_duration": null,
+                  "unit": null
+                }
+              ]
+            },
             "target_refinement_lo": null,
             "target_refinement_o": null,
             "target_refinement_ro_value_iri": null,

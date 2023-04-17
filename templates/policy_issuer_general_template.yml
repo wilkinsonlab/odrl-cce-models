@@ -20,6 +20,16 @@ sources:
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.permissions.[*]"
 
+  permission_assignee:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].assignee"
+
+  permission_assignee_refinement:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].assignee.refinements.[*]"
+
   permission_action:
     access: data.json
     referenceFormulation: jsonpath
@@ -102,7 +112,14 @@ mappings:
     po:
       - [odrl:target, $(target)~iri]
       - [odrl:assigner, $(assigner)~iri]
-      - [odrl:assignee, $(assignee)~iri]
+      - p: odrl:assignee
+        o:
+          - mapping: permission_assignee
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission
+                - [str2, $(permission_id)] # From assignee
       - p: odrl:action
         o:
           - mapping: permission_action
@@ -127,6 +144,37 @@ mappings:
               parameters:
                 - [str1, $(id)] # From permission
                 - [str2, $(permission_id)] # From permission's constraint
+
+  permission_assignee:
+    sources:
+      - permission_assignee
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/assignee
+    po:
+      - [a, $(type)~iri]
+      - [rdf:uid, $(value)~iri]
+      - p: odrl:refinement
+        o:
+          - mapping: permission_assignee_refinement
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission's assignee
+                - [str2, $(permission_id)] # From permission assignee's refinement
+
+  permission_assignee_refinement:
+    sources:
+      - permission_assignee_refinement
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/assignee/refinements/$(id)
+    po:
+      - [odrl:leftOperand, $(left_operand)~iri]
+      - [odrl:operator, $(operator)~iri]
+      - [odrl:rightOperand, $(right_operand_value_iri)~iri]
+      - [odrl:rightOperand, $(right_operand_value_date), xsd:date]
+      - [odrl:rightOperand, $(right_operand_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(right_operand_value_string), xsd:string]
+      - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
+      - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
+      - [odrl:unit, $(unit)~iri]
 
   permission_action:
     sources:
