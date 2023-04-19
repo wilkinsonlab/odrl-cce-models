@@ -30,6 +30,16 @@ sources:
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.permissions.[*].assignee.refinements.[*]"
 
+  permission_target:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].target"
+
+  permission_target_refinement:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].target.refinements.[*]"
+
   permission_action:
     access: data.json
     referenceFormulation: jsonpath
@@ -110,11 +120,20 @@ mappings:
       - permission
     s: this:policies/$(policy_id)/permissions/$(id)
     po:
-      - [odrl:target, $(target)~iri]
       - [odrl:assigner, $(assigner)~iri]
-      - p: odrl:assignee
+      - [odrl:assignee, $(assignee_uri)~iri] # In case "assignee" is an URI
+      - p: odrl:assignee # In case "assignee" is an object
         o:
           - mapping: permission_assignee
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission
+                - [str2, $(permission_id)] # From assignee
+      - [odrl:target, $(target_uri)~iri] # In case "target" is an URI
+      - p: odrl:target # In case "target" is an object
+        o:
+          - mapping: permission_target
             condition:
               function: equal
               parameters:
@@ -152,7 +171,7 @@ mappings:
     po:
       - [a, $(type)~iri]
       - [odrl:uid, $(uid)~iri] # In case "assignee" has no refinement
-      - [odrl:source, $(source)~iri] # In case "assignee" has one or more refinements
+      - [odrl:source, $(source)~iri] # In case "assignee" has one or more refinement(s)
       - p: odrl:refinement
         o:
           - mapping: permission_assignee_refinement
@@ -166,6 +185,38 @@ mappings:
     sources:
       - permission_assignee_refinement
     s: this:policies/$(policy_id)/permissions/$(permission_id)/assignee/refinements/$(id)
+    po:
+      - [odrl:leftOperand, $(left_operand)~iri]
+      - [odrl:operator, $(operator)~iri]
+      - [odrl:rightOperand, $(right_operand_value_iri)~iri]
+      - [odrl:rightOperand, $(right_operand_value_date), xsd:date]
+      - [odrl:rightOperand, $(right_operand_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(right_operand_value_string), xsd:string]
+      - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
+      - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
+      - [odrl:unit, $(unit)~iri]
+
+  permission_target:
+    sources:
+      - permission_target
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/target
+    po:
+      - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri] # In case "target" has no refinement
+      - [odrl:source, $(source)~iri] # In case "target" has one or more refinement(s)
+      - p: odrl:refinement
+        o:
+          - mapping: permission_target_refinement
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission's target
+                - [str2, $(permission_id)] # From permission target's refinement
+
+  permission_target_refinement:
+    sources:
+      - permission_target_refinement
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/target/refinements/$(id)
     po:
       - [odrl:leftOperand, $(left_operand)~iri]
       - [odrl:operator, $(operator)~iri]
