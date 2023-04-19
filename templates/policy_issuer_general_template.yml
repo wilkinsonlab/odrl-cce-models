@@ -151,7 +151,8 @@ mappings:
     s: this:policies/$(policy_id)/permissions/$(permission_id)/assignee
     po:
       - [a, $(type)~iri]
-      - [rdf:uid, $(value)~iri]
+      - [odrl:uid, $(uid)~iri] # In case "assignee" has no refinement
+      - [odrl:source, $(source)~iri] # In case "assignee" has one or more refinements
       - p: odrl:refinement
         o:
           - mapping: permission_assignee_refinement

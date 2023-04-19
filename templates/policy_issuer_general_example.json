@@ -41,8 +41,9 @@
             "assignee": {
               "policy_id": 4515165,
               "permission_id": 1,
-              "type": "http://www.w3.org/ns/odrl/2/Party",
-              "value": null,
+              "type": ["http://www.w3.org/ns/odrl/2/Party"],
+              "uid": null,
+              "source": null,
               "refinements": [
                 {
                   "id": 60260,
@@ -219,8 +220,9 @@
             "assignee": {
               "policy_id": 4515165,
               "prohibition_id": 5406515,
-              "type": "http://www.w3.org/ns/odrl/2/Party",
-              "value": null,
+              "type": ["http://www.w3.org/ns/odrl/2/Party"],
+              "uid": null,
+              "source": null,
               "refinements": [
                 {
                   "id": 464094,
@@ -304,8 +306,9 @@
             "assignee": {
               "policy_id": 5540994940,
               "permission_id": 2,
-              "type": "http://www.w3.org/ns/odrl/2/Party",
-              "value": null,
+              "type": ["http://www.w3.org/ns/odrl/2/Party"],
+              "uid": null,
+              "source": null,
               "refinements": [
                 {
                   "id": 302,
