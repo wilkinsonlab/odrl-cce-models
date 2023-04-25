@@ -60,7 +60,7 @@
                 }
               ]
             },
-            "target_uri": null,
+            "targets_uri": [],
             "target": {
               "policy_id": 4515165,
               "permission_id": 1,
@@ -91,6 +91,20 @@
                 "policy_id": 4515165,
                 "permission_id": 1,
                 "target": null,
+                "assigner": null,
+                "assignee": null,
+                "attributed_party": null,
+                "attributing_party": null,
+                "compensated_party": null,
+                "compensating_party": null,
+                "consented_party": null,
+                "consenting_party": null,
+                "contracted_party": null,
+                "contracting_party": null,
+                "informed_party": null,
+                "informing_party": null,
+                "tracked_party": null,
+                "tracking_party": null,
                 "actions": [
                   {
                     "id": 62000655,
@@ -135,7 +149,58 @@
                     "unit": null
                   }
                 ],
-                "consequences": []
+                "consequences": [
+                  {
+                    "id": 1,
+                    "policy_id": 4515165,
+                    "permission_id": 1,
+                    "duty_id": 1,
+                    "actions": [
+                      {
+                        "id": 1,
+                        "policy_id": 4515165,
+                        "permission_id": 1,
+                        "duty_id": 1,
+                        "consequence_id": 1,
+                        "value": "http://www.w3.org/ns/odrl/2/compensate",
+                        "refinements": [
+                          {
+                            "id": 1,
+                            "policy_id": 4515165,
+                            "permission_id": 1,
+                            "duty_id": 1,
+                            "consequence_id": 1,
+                            "action_id": 1,
+                            "left_operand": "http://www.w3.org/ns/odrl/2/payAmount",
+                            "operator": "http://www.w3.org/ns/odrl/2/eq",
+                            "right_operand_value_iri": null,
+                            "right_operand_value_string": null,
+                            "right_operand_value_date": null,
+                            "right_operand_value_dateTime": null,
+                            "right_operand_value_float": 10.0,
+                            "right_operand_value_duration": null,
+                            "unit": "http://dbpedia.org/resource/Euro"
+                          }
+                        ]
+                      }
+                    ],
+                    "target": null,
+                    "assigner": null,
+                    "assignee": null,
+                    "attributed_party": null,
+                    "attributing_party": null,
+                    "compensated_party": "https://example.com/Organization_54563",
+                    "compensating_party": null,
+                    "consented_party": null,
+                    "consenting_party": null,
+                    "contracted_party": null,
+                    "contracting_party": null,
+                    "informed_party": null,
+                    "informing_party": null,
+                    "tracked_party": null,
+                    "tracking_party": null
+                  }
+                ]
               }
             ]
           },
@@ -170,7 +235,7 @@
               }
             ],
             "assignee": {},
-            "target_uri": null,
+            "targets_uri": [],
             "target": {
               "policy_id": 4515165,
               "permission_id": 2080481,
@@ -218,7 +283,7 @@
             "id": 5406515,
             "policy_id": 4515165,
             "type": "http://www.w3.org/ns/odrl/2/prohibitions",
-            "target_uri": "https://example.com/asset_1",
+            "targets_uri": ["https://example.com/asset_1"],
             "assigner": "https://example.com/Data_Center_1",
             "actions": [
               {
@@ -287,7 +352,10 @@
             "id": 2,
             "policy_id": 5540994940,
             "type": "http://www.w3.org/ns/odrl/2/permission",
-            "target_uri": "https://example.com/asset_2",
+            "targets_uri": [
+              "https://example.com/asset_2",
+              "https://example.com/asset_33"
+            ],
             "assigner": "https://example.com/Data_Center_2",
             "actions": [
               {

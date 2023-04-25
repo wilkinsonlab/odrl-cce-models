@@ -50,15 +50,15 @@ sources:
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.permissions.[*].actions.[*].refinements.[*]"
 
-  permission_duty:
-    access: data.json
-    referenceFormulation: jsonpath
-    iterator: "$.policies[*].rules.permissions.[*].duties.[*]"
-
   permission_constraint:
     access: data.json
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.permissions.[*].constraints.[*]"
+
+  permission_duty:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*]"
 
   permission_duty_action:
     access: data.json
@@ -79,6 +79,16 @@ sources:
     access: data.json
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.permissions.[*].duties.[*].consequences.[*]"
+
+  permission_duty_consequence_action:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].consequences.[*].actions.[*]"
+
+  permission_duty_consequence_action_refinement:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].consequences.[*].actions.[*].refinements.[*]"
 
   prohibition:
     access: data.json
@@ -121,7 +131,7 @@ mappings:
     s: this:policies/$(policy_id)/permissions/$(id)
     po:
       - [odrl:assigner, $(assigner)~iri]
-      - [odrl:assignee, $(assignee_uri)~iri] # In case "assignee" is an URI
+      - [odrl:assignee, $(assignee_uri)~iri] # In case "assignee" is a URI
       - p: odrl:assignee # In case "assignee" is an object
         o:
           - mapping: permission_assignee
@@ -130,7 +140,7 @@ mappings:
               parameters:
                 - [str1, $(id)] # From permission
                 - [str2, $(permission_id)] # From assignee
-      - [odrl:target, $(target_uri)~iri] # In case "target" is an URI
+      - [odrl:target, $(targets_uri)~iri] # In case "target" is a URI
       - p: odrl:target # In case "target" is an object
         o:
           - mapping: permission_target
@@ -263,6 +273,21 @@ mappings:
       - permission_duty
     s: this:policies/$(policy_id)/permissions/$(permission_id)/duties/$(id)
     po:
+      - [odrl:target, $(target)~iri]
+      - [odrl:assigner, $(assigner)~iri]
+      - [odrl:assignee, $(assignee)~iri]
+      - [odrl:attributedParty, $(attributed_party)~iri]
+      - [odrl:attributingParty, $(attributing_party)~iri]
+      - [odrl:compensatedParty, $(compensated_party)~iri]
+      - [odrl:compensatingParty, $(compensating_party)~iri]
+      - [odrl:consentedParty, $(consented_party)~iri]
+      - [odrl:consentingParty, $(consenting_party)~iri]
+      - [odrl:contractedParty, $(contracted_party)~iri]
+      - [odrl:contractingParty, $(contracting_party)~iri]
+      - [odrl:informedParty, $(informed_party)~iri]
+      - [odrl:informingParty, $(informing_party)~iri]
+      - [odrl:trackedParty, $(tracked_party)~iri]
+      - [odrl:trackingParty, $(tracking_party)~iri]
       - p: odrl:action
         o:
           - mapping: permission_duty_action
@@ -279,6 +304,14 @@ mappings:
               parameters:
                 - [str1, $(id)] # From permission's duty
                 - [str2, $(duty_id)] # From permission duty's constraint
+      - p: odrl:consequence
+        o:
+          - mapping: permission_duty_consequence
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission's duty
+                - [str2, $(duty_id)] # From permission duty's consequence
 
   permission_duty_action:
     sources:
@@ -314,6 +347,65 @@ mappings:
     sources:
       - permission_duty_constraint
     s: this:policies/$(policy_id)/permissions/$(permission_id)/duties/$(duty_id)/constraints/$(id)
+    po:
+      - [odrl:leftOperand, $(left_operand)~iri]
+      - [odrl:operator, $(operator)~iri]
+      - [odrl:rightOperand, $(right_operand_value_iri)~iri]
+      - [odrl:rightOperand, $(right_operand_value_date), xsd:date]
+      - [odrl:rightOperand, $(right_operand_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(right_operand_value_string), xsd:string]
+      - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
+      - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
+      - [odrl:unit, $(unit)~iri]
+
+  permission_duty_consequence:
+    sources:
+      - permission_duty_consequence
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/duties/$(id)/consequences/$(id)
+    po:
+      - [odrl:target, $(target)~iri]
+      - [odrl:assigner, $(assigner)~iri]
+      - [odrl:assignee, $(assignee)~iri]
+      - [odrl:attributedParty, $(attributed_party)~iri]
+      - [odrl:attributingParty, $(attributing_party)~iri]
+      - [odrl:compensatedParty, $(compensated_party)~iri]
+      - [odrl:compensatingParty, $(compensating_party)~iri]
+      - [odrl:consentedParty, $(consented_party)~iri]
+      - [odrl:consentingParty, $(consenting_party)~iri]
+      - [odrl:contractedParty, $(contracted_party)~iri]
+      - [odrl:contractingParty, $(contracting_party)~iri]
+      - [odrl:informedParty, $(informed_party)~iri]
+      - [odrl:informingParty, $(informing_party)~iri]
+      - [odrl:trackedParty, $(tracked_party)~iri]
+      - [odrl:trackingParty, $(tracking_party)~iri]
+      - p: odrl:action
+        o:
+          - mapping: permission_duty_consequence_action
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission duty consequence
+                - [str2, $(consequence_id)] # From permission duty consequence's action
+
+  permission_duty_consequence_action:
+    sources:
+      - permission_duty_consequence_action
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/duties/$(duty_id)/consequences/$(id)/actions/$(id)
+    po:
+      - [rdf:value, $(value)~iri]
+      - p: odrl:refinement
+        o:
+          - mapping: permission_duty_consequence_action_refinement
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission duty consequence's action
+                - [str2, $(action_id)] # From permission duty consequence action's refinement
+
+  permission_duty_consequence_action_refinement:
+    sources:
+      - permission_duty_consequence_action_refinement
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/duties/$(duty_id)/consequences/$(id)/actions/$(id)/refinements/$(id)
     po:
       - [odrl:leftOperand, $(left_operand)~iri]
       - [odrl:operator, $(operator)~iri]
