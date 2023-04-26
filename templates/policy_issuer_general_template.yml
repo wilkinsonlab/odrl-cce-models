@@ -95,6 +95,26 @@ sources:
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.prohibitions.[*]"
 
+  prohibition_assignee:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].assignees.[*]"
+
+  prohibition_assignee_refinement:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].assignees.[*].refinements.[*]"
+
+  prohibition_target:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].targets.[*]"
+
+  prohibition_target_refinement:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].targets.[*].refinements.[*]"
+
   obligation:
     access: data.json
     referenceFormulation: jsonpath
@@ -131,8 +151,7 @@ mappings:
     s: this:policies/$(policy_id)/permissions/$(id)
     po:
       - [odrl:assigner, $(assigner)~iri]
-      - [odrl:assignee, $(assignee_uri)~iri] # In case "assignee" is a URI
-      - p: odrl:assignee # In case "assignee" is an object
+      - p: odrl:assignee
         o:
           - mapping: permission_assignee
             condition:
@@ -148,7 +167,7 @@ mappings:
               function: equal
               parameters:
                 - [str1, $(id)] # From permission
-                - [str2, $(permission_id)] # From assignee
+                - [str2, $(permission_id)] # From target
       - p: odrl:action
         o:
           - mapping: permission_action
@@ -437,6 +456,85 @@ mappings:
       - prohibition
     s: this:policies/$(policy_id)/prohibitions/$(id)
     po:
-      - [odrl:target, $(target)~iri]
+      - p: odrl:assignee
+        o:
+          - mapping: prohibition_assignee
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From prohibition
+                - [str2, $(prohibition_id)] # From assignee
+      - p: odrl:target
+        o:
+          - mapping: prohibition_target
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From prohibition
+                - [str2, $(prohibition_id)] # From target
       - [odrl:assigner, $(assigner)~iri]
       - [odrl:assignee, $(assignee)~iri]
+
+  prohibition_assignee:
+    sources:
+      - prohibition_assignee
+    s: this:policies/$(policy_id)/prohibitions/$(prohibition_id)/assignees/$(id)
+    po:
+      - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri] # In case "assignee" has no refinement
+      - [odrl:source, $(source)~iri] # In case "assignee" has one or more refinement(s)
+      - p: odrl:refinement
+        o:
+          - mapping: prohibition_assignee_refinement
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From prohibition's assignee
+                - [str2, $(assignee_id)] # From prohibition assignee's refinement
+
+  prohibition_assignee_refinement:
+    sources:
+      - prohibition_assignee_refinement
+    s: this:policies/$(policy_id)/prohibitions/$(prohibition_id)/assignees/$(assignee_id)/refinements/$(id)
+    po:
+      - [odrl:leftOperand, $(left_operand)~iri]
+      - [odrl:operator, $(operator)~iri]
+      - [odrl:rightOperand, $(right_operand_value_iri)~iri]
+      - [odrl:rightOperand, $(right_operand_value_date), xsd:date]
+      - [odrl:rightOperand, $(right_operand_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(right_operand_value_string), xsd:string]
+      - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
+      - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
+      - [odrl:unit, $(unit)~iri]
+
+  prohibition_target:
+    sources:
+      - prohibition_target
+    s: this:policies/$(policy_id)/prohibitions/$(prohibition_id)/targets/$(id)
+    po:
+      - [a, $(type)~iri]
+      - [odrl:uid, $(uid)~iri] # In case "target" has no refinement
+      - [odrl:source, $(source)~iri] # In case "target" has one or more refinement(s)
+      - p: odrl:refinement
+        o:
+          - mapping: prohibition_target_refinement
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From prohibition's target
+                - [str2, $(target_id)] # From prohibition target's refinement
+
+  prohibition_target_refinement:
+    sources:
+      - prohibition_target_refinement
+    s: this:policies/$(policy_id)/prohibitions/$(prohibition_id)/targets/$(target_id)/refinements/$(id)
+    po:
+      - [odrl:leftOperand, $(left_operand)~iri]
+      - [odrl:operator, $(operator)~iri]
+      - [odrl:rightOperand, $(right_operand_value_iri)~iri]
+      - [odrl:rightOperand, $(right_operand_value_date), xsd:date]
+      - [odrl:rightOperand, $(right_operand_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(right_operand_value_string), xsd:string]
+      - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
+      - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
+      - [odrl:unit, $(unit)~iri]

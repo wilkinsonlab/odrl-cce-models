@@ -282,8 +282,16 @@
           {
             "id": 5406515,
             "policy_id": 4515165,
-            "type": "http://www.w3.org/ns/odrl/2/prohibitions",
-            "targets_uri": ["https://example.com/asset_1"],
+            "targets": [
+              {
+                "id": 55084,
+                "policy_id": 4515165,
+                "prohibition_id": 5406515,
+                "type": ["http://www.w3.org/ns/odrl/2/Asset"],
+                "uid": "https://example.com/asset_515015",
+                "refinements": []
+              }
+            ],
             "assigner": "https://example.com/Data_Center_1",
             "actions": [
               {
@@ -310,30 +318,33 @@
                 ]
               }
             ],
-            "assignee": {
-              "policy_id": 4515165,
-              "prohibition_id": 5406515,
-              "type": ["http://www.w3.org/ns/odrl/2/Party"],
-              "uid": null,
-              "source": null,
-              "refinements": [
-                {
-                  "id": 464094,
-                  "policy_id": 4515165,
-                  "prohibition_id": 5406515,
-                  "left_operand": null,
-                  "operator": null,
-                  "right_operand_value_iri": null,
-                  "right_operand_value_string": null,
-                  "right_operand_value_date": null,
-                  "right_operand_value_dateTime": null,
-                  "right_operand_value_float": null,
-                  "right_operand_value_duration": null,
-                  "unit": null
-                }
-              ]
-            },
-            "target": null,
+            "assignees": [
+              {
+                "id": 6465403,
+                "policy_id": 4515165,
+                "prohibition_id": 5406515,
+                "type": ["http://www.w3.org/ns/odrl/2/Party"],
+                "uid": "https://example.com/assigner_560565",
+                "source": null,
+                "refinements": [
+                  {
+                    "id": 464094,
+                    "policy_id": 4515165,
+                    "prohibition_id": 5406515,
+                    "assignee_id": 6465403,
+                    "left_operand": null,
+                    "operator": null,
+                    "right_operand_value_iri": null,
+                    "right_operand_value_string": null,
+                    "right_operand_value_date": null,
+                    "right_operand_value_dateTime": null,
+                    "right_operand_value_float": null,
+                    "right_operand_value_duration": null,
+                    "unit": null
+                  }
+                ]
+              }
+            ],
             "constraints": [],
             "remedies": []
           }
