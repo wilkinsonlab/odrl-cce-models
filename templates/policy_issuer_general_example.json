@@ -37,53 +37,60 @@
                 ]
               }
             ],
-            "assignee": {
-              "policy_id": 4515165,
-              "permission_id": 1,
-              "type": ["http://www.w3.org/ns/odrl/2/Party"],
-              "uid": null,
-              "source": null,
-              "refinements": [
-                {
-                  "id": 60260,
-                  "policy_id": 4515165,
-                  "permission_id": 1,
-                  "left_operand": null,
-                  "operator": null,
-                  "right_operand_value_iri": null,
-                  "right_operand_value_string": null,
-                  "right_operand_value_date": null,
-                  "right_operand_value_dateTime": null,
-                  "right_operand_value_float": null,
-                  "right_operand_value_duration": null,
-                  "unit": null
-                }
-              ]
-            },
-            "targets_uri": [],
-            "target": {
-              "policy_id": 4515165,
-              "permission_id": 1,
-              "type": ["http://www.w3.org/ns/odrl/2/Asset"],
-              "uid": "https://example.com/asset_1",
-              "source": null,
-              "refinements": [
-                {
-                  "id": 60260,
-                  "policy_id": 4515165,
-                  "permission_id": 1,
-                  "left_operand": null,
-                  "operator": null,
-                  "right_operand_value_iri": null,
-                  "right_operand_value_string": null,
-                  "right_operand_value_date": null,
-                  "right_operand_value_dateTime": null,
-                  "right_operand_value_float": null,
-                  "right_operand_value_duration": null,
-                  "unit": null
-                }
-              ]
-            },
+            "assignees": [
+              {
+                "id": 6065515,
+                "policy_id": 4515165,
+                "permission_id": 1,
+                "type": ["http://www.w3.org/ns/odrl/2/Party"],
+                "uid": null,
+                "source": null,
+                "refinements": [
+                  {
+                    "id": 9560284,
+                    "policy_id": 4515165,
+                    "permission_id": 1,
+                    "assignee_id": 6065515,
+                    "left_operand": null,
+                    "operator": null,
+                    "right_operand_value_iri": null,
+                    "right_operand_value_string": null,
+                    "right_operand_value_date": null,
+                    "right_operand_value_dateTime": null,
+                    "right_operand_value_float": null,
+                    "right_operand_value_duration": null,
+                    "unit": null
+                  }
+                ]
+              }
+            ],
+            "targets": [
+              {
+                "id": 97853,
+                "policy_id": 4515165,
+                "permission_id": 1,
+                "type": ["http://www.w3.org/ns/odrl/2/Asset"],
+                "uid": "https://example.com/asset_1",
+                "source": null,
+                "refinements": [
+                  {
+                    "id": 60260,
+                    "policy_id": 4515165,
+                    "permission_id": 1,
+                    "target_id": 97853,
+                    "left_operand": null,
+                    "operator": null,
+                    "right_operand_value_iri": null,
+                    "right_operand_value_string": null,
+                    "right_operand_value_date": null,
+                    "right_operand_value_dateTime": null,
+                    "right_operand_value_float": null,
+                    "right_operand_value_duration": null,
+                    "unit": null
+                  }
+                ]
+              }
+            ],
             "constraints": [],
             "duties": [
               {
@@ -234,31 +241,34 @@
                 ]
               }
             ],
-            "assignee": {},
-            "targets_uri": [],
-            "target": {
-              "policy_id": 4515165,
-              "permission_id": 2080481,
-              "type": ["http://www.w3.org/ns/odrl/2/Asset"],
-              "uid": "https://example.com/asset_2",
-              "source": null,
-              "refinements": [
-                {
-                  "id": 60260,
-                  "policy_id": 4515165,
-                  "permission_id": 2080481,
-                  "left_operand": null,
-                  "operator": null,
-                  "right_operand_value_iri": null,
-                  "right_operand_value_string": null,
-                  "right_operand_value_date": null,
-                  "right_operand_value_dateTime": null,
-                  "right_operand_value_float": null,
-                  "right_operand_value_duration": null,
-                  "unit": null
-                }
-              ]
-            },
+            "assignees": [],
+            "targets": [
+              {
+                "id": 1576,
+                "policy_id": 4515165,
+                "permission_id": 2080481,
+                "type": ["http://www.w3.org/ns/odrl/2/Asset"],
+                "uid": "https://example.com/asset_2",
+                "source": null,
+                "refinements": [
+                  {
+                    "id": 60260,
+                    "policy_id": 4515165,
+                    "permission_id": 2080481,
+                    "target_id": 1576,
+                    "left_operand": null,
+                    "operator": null,
+                    "right_operand_value_iri": null,
+                    "right_operand_value_string": null,
+                    "right_operand_value_date": null,
+                    "right_operand_value_dateTime": null,
+                    "right_operand_value_float": null,
+                    "right_operand_value_duration": null,
+                    "unit": null
+                  }
+                ]
+              }
+            ],
             "constraints": [
               {
                 "id": 1,
@@ -363,10 +373,6 @@
             "id": 2,
             "policy_id": 5540994940,
             "type": "http://www.w3.org/ns/odrl/2/permission",
-            "targets_uri": [
-              "https://example.com/asset_2",
-              "https://example.com/asset_33"
-            ],
             "assigner": "https://example.com/Data_Center_2",
             "actions": [
               {
@@ -393,30 +399,43 @@
                 ]
               }
             ],
-            "assignee": {
-              "policy_id": 5540994940,
-              "permission_id": 2,
-              "type": ["http://www.w3.org/ns/odrl/2/Party"],
-              "uid": null,
-              "source": null,
-              "refinements": [
-                {
-                  "id": 302,
-                  "policy_id": 5540994940,
-                  "permission_id": 2,
-                  "left_operand": null,
-                  "operator": null,
-                  "right_operand_value_iri": null,
-                  "right_operand_value_string": null,
-                  "right_operand_value_date": null,
-                  "right_operand_value_dateTime": null,
-                  "right_operand_value_float": null,
-                  "right_operand_value_duration": null,
-                  "unit": null
-                }
-              ]
-            },
-            "target": null,
+            "assignee": [
+              {
+                "id": 358045,
+                "policy_id": 5540994940,
+                "permission_id": 2,
+                "type": ["http://www.w3.org/ns/odrl/2/Party"],
+                "uid": null,
+                "source": null,
+                "refinements": [
+                  {
+                    "id": 302,
+                    "policy_id": 5540994940,
+                    "permission_id": 2,
+                    "assignee_id": 358045,
+                    "left_operand": null,
+                    "operator": null,
+                    "right_operand_value_iri": null,
+                    "right_operand_value_string": null,
+                    "right_operand_value_date": null,
+                    "right_operand_value_dateTime": null,
+                    "right_operand_value_float": null,
+                    "right_operand_value_duration": null,
+                    "unit": null
+                  }
+                ]
+              }
+            ],
+            "targets": [
+              {
+                "id": 6059840,
+                "policy_id": 5540994940,
+                "permission_id": 2,
+                "type": ["http://www.w3.org/ns/odrl/2/Asset"],
+                "uid": "https://example.com/asset_9079804",
+                "refinements": []
+              }
+            ],
             "constraints": [],
             "duties": []
           }

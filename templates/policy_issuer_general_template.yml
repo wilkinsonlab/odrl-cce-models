@@ -23,22 +23,22 @@ sources:
   permission_assignee:
     access: data.json
     referenceFormulation: jsonpath
-    iterator: "$.policies[*].rules.permissions.[*].assignee"
+    iterator: "$.policies[*].rules.permissions.[*].assignees.[*]"
 
   permission_assignee_refinement:
     access: data.json
     referenceFormulation: jsonpath
-    iterator: "$.policies[*].rules.permissions.[*].assignee.refinements.[*]"
+    iterator: "$.policies[*].rules.permissions.[*].assignees.[*].refinements.[*]"
 
   permission_target:
     access: data.json
     referenceFormulation: jsonpath
-    iterator: "$.policies[*].rules.permissions.[*].target"
+    iterator: "$.policies[*].rules.permissions.[*].targets.[*]"
 
   permission_target_refinement:
     access: data.json
     referenceFormulation: jsonpath
-    iterator: "$.policies[*].rules.permissions.[*].target.refinements.[*]"
+    iterator: "$.policies[*].rules.permissions.[*].target.[*].refinements.[*]"
 
   permission_action:
     access: data.json
@@ -159,7 +159,6 @@ mappings:
               parameters:
                 - [str1, $(id)] # From permission
                 - [str2, $(permission_id)] # From assignee
-      - [odrl:target, $(targets_uri)~iri] # In case "target" is a URI
       - p: odrl:target # In case "target" is an object
         o:
           - mapping: permission_target
@@ -196,7 +195,7 @@ mappings:
   permission_assignee:
     sources:
       - permission_assignee
-    s: this:policies/$(policy_id)/permissions/$(permission_id)/assignee
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/assignees/$(id)
     po:
       - [a, $(type)~iri]
       - [odrl:uid, $(uid)~iri] # In case "assignee" has no refinement
@@ -208,12 +207,12 @@ mappings:
               function: equal
               parameters:
                 - [str1, $(id)] # From permission's assignee
-                - [str2, $(permission_id)] # From permission assignee's refinement
+                - [str2, $(assignee_id)] # From permission assignee's refinement
 
   permission_assignee_refinement:
     sources:
       - permission_assignee_refinement
-    s: this:policies/$(policy_id)/permissions/$(permission_id)/assignee/refinements/$(id)
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/assignees/$(assignee_id)/refinements/$(id)
     po:
       - [odrl:leftOperand, $(left_operand)~iri]
       - [odrl:operator, $(operator)~iri]
@@ -228,7 +227,7 @@ mappings:
   permission_target:
     sources:
       - permission_target
-    s: this:policies/$(policy_id)/permissions/$(permission_id)/target
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/targets/$(id)
     po:
       - [a, $(type)~iri]
       - [odrl:uid, $(uid)~iri] # In case "target" has no refinement
@@ -240,12 +239,12 @@ mappings:
               function: equal
               parameters:
                 - [str1, $(id)] # From permission's target
-                - [str2, $(permission_id)] # From permission target's refinement
+                - [str2, $(target_id)] # From permission target's refinement
 
   permission_target_refinement:
     sources:
       - permission_target_refinement
-    s: this:policies/$(policy_id)/permissions/$(permission_id)/target/refinements/$(id)
+    s: this:policies/$(policy_id)/permissions/$(permission_id)/targets/$(target_id)/refinements/$(id)
     po:
       - [odrl:leftOperand, $(left_operand)~iri]
       - [odrl:operator, $(operator)~iri]
