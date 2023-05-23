@@ -16,14 +16,14 @@
               {
                 "id": 54056161,
                 "policy_id": 4515165,
-                "permission_id": 1,
+                "rule_id": 1,
                 "value": "http://www.w3.org/ns/odrl/2/use",
                 "refinements": [
                   {
                     "id": 7601505,
                     "action_id": 54056161,
                     "policy_id": 4515165,
-                    "permission_id": 1,
+                    "rule_id": 1,
                     "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
                     "operator": "http://www.w3.org/ns/odrl/2/isA",
                     "right_operand_value_iri": "https://w3id.org/dpv#CommercialResearch",
@@ -41,7 +41,7 @@
               {
                 "id": 6065515,
                 "policy_id": 4515165,
-                "permission_id": 1,
+                "rule_id": 1,
                 "type": ["http://www.w3.org/ns/odrl/2/Party"],
                 "uid": null,
                 "source": null,
@@ -49,7 +49,7 @@
                   {
                     "id": 9560284,
                     "policy_id": 4515165,
-                    "permission_id": 1,
+                    "rule_id": 1,
                     "assignee_id": 6065515,
                     "left_operand": null,
                     "operator": null,
@@ -68,7 +68,7 @@
               {
                 "id": 97853,
                 "policy_id": 4515165,
-                "permission_id": 1,
+                "rule_id": 1,
                 "type": ["http://www.w3.org/ns/odrl/2/Asset"],
                 "uid": "https://example.com/asset_1",
                 "source": null,
@@ -76,7 +76,7 @@
                   {
                     "id": 60260,
                     "policy_id": 4515165,
-                    "permission_id": 1,
+                    "rule_id": 1,
                     "target_id": 97853,
                     "left_operand": null,
                     "operator": null,
@@ -96,7 +96,7 @@
               {
                 "id": 1,
                 "policy_id": 4515165,
-                "permission_id": 1,
+                "rule_id": 1,
                 "target": null,
                 "assigner": null,
                 "assignee": null,
@@ -116,7 +116,7 @@
                   {
                     "id": 62000655,
                     "policy_id": 4515165,
-                    "permission_id": 1,
+                    "rule_id": 1,
                     "duty_id": 1,
                     "value": "http://www.w3.org/ns/odrl/2/compensate",
                     "refinements": [
@@ -124,7 +124,7 @@
                         "id": 1,
                         "action_id": 62000655,
                         "policy_id": 4515165,
-                        "permission_id": 1,
+                        "rule_id": 1,
                         "duty_id": 1,
                         "left_operand": "http://www.w3.org/ns/odrl/2/payAmount",
                         "operator": "http://www.w3.org/ns/odrl/2/eq",
@@ -143,7 +143,7 @@
                   {
                     "id": 1,
                     "policy_id": 4515165,
-                    "permission_id": 1,
+                    "rule_id": 1,
                     "duty_id": 1,
                     "left_operand": "http://www.w3.org/ns/odrl/2/event",
                     "operator": "http://www.w3.org/ns/odrl/2/lt",
@@ -160,13 +160,13 @@
                   {
                     "id": 1,
                     "policy_id": 4515165,
-                    "permission_id": 1,
+                    "rule_id": 1,
                     "duty_id": 1,
                     "actions": [
                       {
                         "id": 1,
                         "policy_id": 4515165,
-                        "permission_id": 1,
+                        "rule_id": 1,
                         "duty_id": 1,
                         "consequence_id": 1,
                         "value": "http://www.w3.org/ns/odrl/2/compensate",
@@ -174,7 +174,7 @@
                           {
                             "id": 1,
                             "policy_id": 4515165,
-                            "permission_id": 1,
+                            "rule_id": 1,
                             "duty_id": 1,
                             "consequence_id": 1,
                             "action_id": 1,
@@ -220,14 +220,14 @@
               {
                 "id": 605409844,
                 "policy_id": 4515165,
-                "permission_id": 2080481,
+                "rule_id": 2080481,
                 "value": "http://www.w3.org/ns/odrl/2/use",
                 "refinements": [
                   {
                     "id": 3504848,
                     "action_id": 605409844,
                     "policy_id": 4515165,
-                    "permission_id": 2080481,
+                    "rule_id": 2080481,
                     "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
                     "operator": "http://www.w3.org/ns/odrl/2/isA",
                     "right_operand_value_iri": "https://w3id.org/dpv#CommercialResearch",
@@ -246,7 +246,7 @@
               {
                 "id": 1576,
                 "policy_id": 4515165,
-                "permission_id": 2080481,
+                "rule_id": 2080481,
                 "type": ["http://www.w3.org/ns/odrl/2/Asset"],
                 "uid": "https://example.com/asset_2",
                 "source": null,
@@ -254,7 +254,7 @@
                   {
                     "id": 60260,
                     "policy_id": 4515165,
-                    "permission_id": 2080481,
+                    "rule_id": 2080481,
                     "target_id": 1576,
                     "left_operand": null,
                     "operator": null,
@@ -273,7 +273,7 @@
               {
                 "id": 1,
                 "policy_id": 4515165,
-                "permission_id": 2080481,
+                "rule_id": 2080481,
                 "left_operand": "http://www.w3.org/ns/odrl/2/dateTime",
                 "operator": "http://www.w3.org/ns/odrl/2/lt",
                 "right_operand_value_iri": null,
@@ -296,7 +296,7 @@
               {
                 "id": 55084,
                 "policy_id": 4515165,
-                "prohibition_id": 5406515,
+                "rule_id": 5406515,
                 "type": ["http://www.w3.org/ns/odrl/2/Asset"],
                 "uid": "https://example.com/asset_515015",
                 "refinements": []
@@ -307,14 +307,14 @@
               {
                 "id": 7960460,
                 "policy_id": 4515165,
-                "prohibition_id": 5406515,
+                "rule_id": 5406515,
                 "value": "http://www.w3.org/ns/odrl/2/share",
                 "refinements": [
                   {
                     "id": 8418505,
                     "action_id": 7960460,
                     "policy_id": 4515165,
-                    "prohibition_id": 5406515,
+                    "rule_id": 5406515,
                     "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
                     "operator": "http://www.w3.org/ns/odrl/2/isA",
                     "right_operand_value_iri": "https://w3id.org/dpv#CommercialResearch",
@@ -332,15 +332,15 @@
               {
                 "id": 6465403,
                 "policy_id": 4515165,
-                "prohibition_id": 5406515,
+                "rule_id": 5406515,
                 "type": ["http://www.w3.org/ns/odrl/2/Party"],
-                "uid": "https://example.com/assigner_560565",
+                "uid": "https://example.com/assigne_560565",
                 "source": null,
                 "refinements": [
                   {
                     "id": 464094,
                     "policy_id": 4515165,
-                    "prohibition_id": 5406515,
+                    "rule_id": 5406515,
                     "assignee_id": 6465403,
                     "left_operand": null,
                     "operator": null,
@@ -378,14 +378,14 @@
               {
                 "id": 9970615,
                 "policy_id": 5540994940,
-                "permission_id": 2,
+                "rule_id": 2,
                 "value": "http://www.w3.org/ns/odrl/2/use",
                 "refinements": [
                   {
                     "id": 1804949,
                     "action_id": 9970615,
                     "policy_id": 5540994940,
-                    "permission_id": 2,
+                    "rule_id": 2,
                     "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
                     "operator": "http://www.w3.org/ns/odrl/2/isA",
                     "right_operand_value_iri": "https://w3id.org/dpv#Marketing",
@@ -403,7 +403,7 @@
               {
                 "id": 358045,
                 "policy_id": 5540994940,
-                "permission_id": 2,
+                "rule_id": 2,
                 "type": ["http://www.w3.org/ns/odrl/2/Party"],
                 "uid": null,
                 "source": null,
@@ -411,7 +411,7 @@
                   {
                     "id": 302,
                     "policy_id": 5540994940,
-                    "permission_id": 2,
+                    "rule_id": 2,
                     "assignee_id": 358045,
                     "left_operand": null,
                     "operator": null,
@@ -430,7 +430,7 @@
               {
                 "id": 6059840,
                 "policy_id": 5540994940,
-                "permission_id": 2,
+                "rule_id": 2,
                 "type": ["http://www.w3.org/ns/odrl/2/Asset"],
                 "uid": "https://example.com/asset_9079804",
                 "refinements": []
