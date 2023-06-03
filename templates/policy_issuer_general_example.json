@@ -1,448 +1,372 @@
 {
   "policies": [
     {
+      "id": 3135535980,
       "type": "http://www.w3.org/ns/odrl/2/Offer",
-      "uid": "https://example.com/policy_01",
-      "profile": null,
-      "id": 4515165,
+      "creator": null,
+      "description": null,
+      "issued": "2023-05-28",
       "rules": {
         "permissions": [
           {
-            "id": 1,
-            "policy_id": 4515165,
+            "id": 2904600500,
             "type": "http://www.w3.org/ns/odrl/2/permission",
-            "assigner": "https://example.com/Data_Center_1",
-            "actions": [
-              {
-                "id": 54056161,
-                "policy_id": 4515165,
-                "rule_id": 1,
-                "value": "http://www.w3.org/ns/odrl/2/use",
-                "refinements": [
-                  {
-                    "id": 7601505,
-                    "action_id": 54056161,
-                    "policy_id": 4515165,
-                    "rule_id": 1,
-                    "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
-                    "operator": "http://www.w3.org/ns/odrl/2/isA",
-                    "right_operand_value_iri": "https://w3id.org/dpv#CommercialResearch",
-                    "right_operand_value_string": null,
-                    "right_operand_value_date": null,
-                    "right_operand_value_dateTime": null,
-                    "right_operand_value_float": null,
-                    "right_operand_value_duration": null,
-                    "unit": null
-                  }
-                ]
-              }
-            ],
-            "assignees": [
-              {
-                "id": 6065515,
-                "policy_id": 4515165,
-                "rule_id": 1,
-                "type": ["http://www.w3.org/ns/odrl/2/Party"],
-                "uid": null,
-                "source": null,
-                "refinements": [
-                  {
-                    "id": 9560284,
-                    "policy_id": 4515165,
-                    "rule_id": 1,
-                    "assignee_id": 6065515,
-                    "left_operand": null,
-                    "operator": null,
-                    "right_operand_value_iri": null,
-                    "right_operand_value_string": null,
-                    "right_operand_value_date": null,
-                    "right_operand_value_dateTime": null,
-                    "right_operand_value_float": null,
-                    "right_operand_value_duration": null,
-                    "unit": null
-                  }
-                ]
-              }
-            ],
+            "policy_id": 3135535980,
+            "cce": "reidentification_of_individuals_with_irp",
             "targets": [
               {
-                "id": 97853,
-                "policy_id": 4515165,
-                "rule_id": 1,
-                "type": ["http://www.w3.org/ns/odrl/2/Asset"],
-                "uid": "https://example.com/asset_1",
+                "id": 4038216710,
+                "policy_id": 3135535980,
+                "rule_id": 2904600500,
+                "type": "http://www.w3.org/ns/odrl/2/AssetCollection",
+                "uri": "https://example.com/assets_01",
+                "uid": null,
+                "source": "https://example.com/assets_01",
+                "refinements": [],
+                "operand": null,
+                "first": null,
+                "logical_constraints": {
+                  "and": [],
+                  "or": [],
+                  "andSequence": [],
+                  "xone": []
+                }
+              }
+            ],
+            "actions": [
+              {
+                "id": 2125455817,
+                "policy_id": 3135535980,
+                "rule_id": 2904600500,
+                "value": "http://www.w3.org/ns/odrl/2/modify",
+                "refinements": [],
+                "operand": null,
+                "first": null,
+                "logical_constraints": {
+                  "and": [],
+                  "or": [],
+                  "andSequence": [],
+                  "xone": []
+                }
+              }
+            ],
+            "assigner": "https://example.com/Data_Center_01",
+            "assignees": [
+              {
+                "id": 3309985409,
+                "policy_id": 3135535980,
+                "rule_id": 2904600500,
+                "uri": "https://example.com/assignee_01",
+                "type": "http://www.w3.org/ns/odrl/2/Party",
+                "uid": "https://example.com/assignee_01",
                 "source": null,
-                "refinements": [
-                  {
-                    "id": 60260,
-                    "policy_id": 4515165,
-                    "rule_id": 1,
-                    "target_id": 97853,
-                    "left_operand": null,
-                    "operator": null,
-                    "right_operand_value_iri": null,
-                    "right_operand_value_string": null,
-                    "right_operand_value_date": null,
-                    "right_operand_value_dateTime": null,
-                    "right_operand_value_float": null,
-                    "right_operand_value_duration": null,
-                    "unit": null
-                  }
-                ]
+                "refinements": [],
+                "operand": null,
+                "first": null,
+                "logical_constraints": {
+                  "and": [],
+                  "or": [],
+                  "andSequence": [],
+                  "xone": []
+                }
               }
             ],
             "constraints": [],
             "duties": [
               {
-                "id": 1,
-                "policy_id": 4515165,
-                "rule_id": 1,
-                "target": null,
-                "assigner": null,
-                "assignee": null,
-                "attributed_party": null,
-                "attributing_party": null,
-                "compensated_party": null,
-                "compensating_party": null,
-                "consented_party": null,
-                "consenting_party": null,
-                "contracted_party": null,
-                "contracting_party": null,
-                "informed_party": null,
-                "informing_party": null,
-                "tracked_party": null,
-                "tracking_party": null,
+                "operand": null,
+                "id": 3489799962,
+                "policy_id": 3135535980,
+                "targets": [
+                  {
+                    "id": 1708367817,
+                    "policy_id": 3135535980,
+                    "type": "http://www.w3.org/ns/odrl/2/Asset",
+                    "uid": null,
+                    "source": null,
+                    "refinements": [],
+                    "duty_id": 3489799962,
+                    "uri": null
+                  }
+                ],
                 "actions": [
                   {
-                    "id": 62000655,
-                    "policy_id": 4515165,
-                    "rule_id": 1,
-                    "duty_id": 1,
-                    "value": "http://www.w3.org/ns/odrl/2/compensate",
+                    "id": 1049014309,
+                    "policy_id": 3135535980,
+                    "rule_id": 2904600500,
+                    "value": "http://www.w3.org/ns/odrl/2/share",
                     "refinements": [
                       {
-                        "id": 1,
-                        "action_id": 62000655,
-                        "policy_id": 4515165,
-                        "rule_id": 1,
-                        "duty_id": 1,
-                        "left_operand": "http://www.w3.org/ns/odrl/2/payAmount",
+                        "id": 1548986050,
+                        "policy_id": 3135535980,
+                        "rule_id": 2904600500,
+                        "action_id": 1049014309,
+                        "duty_id": 3489799962,
+                        "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
                         "operator": "http://www.w3.org/ns/odrl/2/eq",
-                        "right_operand_value_iri": null,
-                        "right_operand_value_string": null,
+                        "valueType": "iri",
+                        "right_operand_value_duration": null,
                         "right_operand_value_date": null,
                         "right_operand_value_dateTime": null,
-                        "right_operand_value_float": 5.0,
-                        "right_operand_value_duration": null,
-                        "unit": "http://dbpedia.org/resource/Euro"
-                      }
-                    ]
-                  }
-                ],
-                "constraints": [
-                  {
-                    "id": 1,
-                    "policy_id": 4515165,
-                    "rule_id": 1,
-                    "duty_id": 1,
-                    "left_operand": "http://www.w3.org/ns/odrl/2/event",
-                    "operator": "http://www.w3.org/ns/odrl/2/lt",
-                    "right_operand_value_iri": "http://www.w3.org/ns/odrl/2/policyUsage",
-                    "right_operand_value_string": null,
-                    "right_operand_value_date": null,
-                    "right_operand_value_dateTime": null,
-                    "right_operand_value_float": null,
-                    "right_operand_value_duration": null,
-                    "unit": null
-                  }
-                ],
-                "consequences": [
-                  {
-                    "id": 1,
-                    "policy_id": 4515165,
-                    "rule_id": 1,
-                    "duty_id": 1,
-                    "actions": [
+                        "right_operand_value_float": null,
+                        "unit": null,
+                        "right_operand_value_iri": "http://purl.obolibrary.org/obo/NCIT_C77140",
+                        "next": 2899940933,
+                        "right_operand_value_string": null
+                      },
                       {
-                        "id": 1,
-                        "policy_id": 4515165,
-                        "rule_id": 1,
-                        "duty_id": 1,
-                        "consequence_id": 1,
-                        "value": "http://www.w3.org/ns/odrl/2/compensate",
-                        "refinements": [
-                          {
-                            "id": 1,
-                            "policy_id": 4515165,
-                            "rule_id": 1,
-                            "duty_id": 1,
-                            "consequence_id": 1,
-                            "action_id": 1,
-                            "left_operand": "http://www.w3.org/ns/odrl/2/payAmount",
-                            "operator": "http://www.w3.org/ns/odrl/2/eq",
-                            "right_operand_value_iri": null,
-                            "right_operand_value_string": null,
-                            "right_operand_value_date": null,
-                            "right_operand_value_dateTime": null,
-                            "right_operand_value_float": 10.0,
-                            "right_operand_value_duration": null,
-                            "unit": "http://dbpedia.org/resource/Euro"
-                          }
-                        ]
+                        "id": 2899940933,
+                        "policy_id": 3135535980,
+                        "left_operand": "http://www.w3.org/ns/odrl/2/recipient",
+                        "operator": "http://www.w3.org/ns/odrl/2/eq",
+                        "valueType": "iri",
+                        "right_operand_value_duration": null,
+                        "right_operand_value_date": null,
+                        "right_operand_value_dateTime": null,
+                        "right_operand_value_float": null,
+                        "rule_id": 2904600500,
+                        "action_id": 1049014309,
+                        "duty_id": 3489799962,
+                        "right_operand_value_iri": "http://purl.obolibrary.org/obo/NCIT_C29867",
+                        "next": "null",
+                        "right_operand_value_string": null
                       }
                     ],
-                    "target": null,
-                    "assigner": null,
-                    "assignee": null,
-                    "attributed_party": null,
-                    "attributing_party": null,
-                    "compensated_party": "https://example.com/Organization_54563",
-                    "compensating_party": null,
-                    "consented_party": null,
-                    "consenting_party": null,
-                    "contracted_party": null,
-                    "contracting_party": null,
-                    "informed_party": null,
-                    "informing_party": null,
-                    "tracked_party": null,
-                    "tracking_party": null
+                    "operand": "andSequence",
+                    "first": 1548986050,
+                    "logical_constraints": {
+                      "and": [],
+                      "or": [],
+                      "andSequence": [
+                        {
+                          "id": 1548986050,
+                          "policy_id": 3135535980,
+                          "rule_id": 2904600500,
+                          "action_id": 1049014309,
+                          "duty_id": 3489799962,
+                          "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
+                          "operator": "http://www.w3.org/ns/odrl/2/eq",
+                          "valueType": "iri",
+                          "right_operand_value_duration": null,
+                          "right_operand_value_date": null,
+                          "right_operand_value_dateTime": null,
+                          "right_operand_value_float": null,
+                          "unit": null,
+                          "right_operand_value_iri": "http://purl.obolibrary.org/obo/NCIT_C77140",
+                          "next": 2899940933,
+                          "right_operand_value_string": null
+                        },
+                        {
+                          "id": 2899940933,
+                          "policy_id": 3135535980,
+                          "left_operand": "http://www.w3.org/ns/odrl/2/recipient",
+                          "operator": "http://www.w3.org/ns/odrl/2/eq",
+                          "valueType": "iri",
+                          "right_operand_value_duration": null,
+                          "right_operand_value_date": null,
+                          "right_operand_value_dateTime": null,
+                          "right_operand_value_float": null,
+                          "rule_id": 2904600500,
+                          "action_id": 1049014309,
+                          "duty_id": 3489799962,
+                          "right_operand_value_iri": "http://purl.obolibrary.org/obo/NCIT_C29867",
+                          "next": "null",
+                          "right_operand_value_string": null
+                        }
+                      ],
+                      "xone": []
+                    },
+                    "duty_id": 3489799962
                   }
-                ]
+                ],
+                "assigner": null,
+                "assignees": [],
+                "constraints": [],
+                "first": null,
+                "logical_constraints": {
+                  "xone": [],
+                  "and": [],
+                  "andSequence": [],
+                  "or": []
+                },
+                "rule_id": 2904600500,
+                "consequences": []
               }
             ]
           },
           {
-            "id": 2080481,
-            "policy_id": 4515165,
+            "id": 869327217,
             "type": "http://www.w3.org/ns/odrl/2/permission",
-            "assigner": "https://example.com/Data_Center_1",
+            "policy_id": 3135535980,
+            "cce": "clinical_care",
+            "targets": [
+              {
+                "id": 4183208055,
+                "policy_id": 3135535980,
+                "rule_id": 869327217,
+                "type": "http://www.w3.org/ns/odrl/2/AssetCollection",
+                "uid": null,
+                "source": "https://example.com/assets_01",
+                "refinements": [],
+                "uri": "https://example.com/assets_01",
+                "operand": null,
+                "first": null,
+                "logical_constraints": {
+                  "and": [],
+                  "or": [],
+                  "andSequence": [],
+                  "xone": []
+                }
+              }
+            ],
             "actions": [
               {
-                "id": 605409844,
-                "policy_id": 4515165,
-                "rule_id": 2080481,
+                "id": 1782906490,
+                "policy_id": 3135535980,
+                "rule_id": 869327217,
                 "value": "http://www.w3.org/ns/odrl/2/use",
                 "refinements": [
                   {
-                    "id": 3504848,
-                    "action_id": 605409844,
-                    "policy_id": 4515165,
-                    "rule_id": 2080481,
+                    "id": 2633318211,
+                    "policy_id": 3135535980,
+                    "rule_id": 869327217,
+                    "action_id": 1782906490,
                     "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
                     "operator": "http://www.w3.org/ns/odrl/2/isA",
-                    "right_operand_value_iri": "https://w3id.org/dpv#CommercialResearch",
+                    "right_operand_value_iri": "http://purl.obolibrary.org/obo/DUO_0000043",
                     "right_operand_value_string": null,
+                    "right_operand_value_duration": null,
                     "right_operand_value_date": null,
                     "right_operand_value_dateTime": null,
                     "right_operand_value_float": null,
-                    "right_operand_value_duration": null,
-                    "unit": null
+                    "unit": null,
+                    "valueType": "iri",
+                    "next": "null"
                   }
-                ]
+                ],
+                "operand": null,
+                "first": null,
+                "logical_constraints": {
+                  "and": [],
+                  "or": [],
+                  "andSequence": [],
+                  "xone": []
+                }
               }
             ],
+            "assigner": "https://example.com/Data_Center_01",
             "assignees": [],
-            "targets": [
+            "constraints": [],
+            "duties": [
               {
-                "id": 1576,
-                "policy_id": 4515165,
-                "rule_id": 2080481,
-                "type": ["http://www.w3.org/ns/odrl/2/Asset"],
-                "uid": "https://example.com/asset_2",
-                "source": null,
-                "refinements": [
+                "id": 3451491273,
+                "policy_id": 3135535980,
+                "targets": [
                   {
-                    "id": 60260,
-                    "policy_id": 4515165,
-                    "rule_id": 2080481,
-                    "target_id": 1576,
-                    "left_operand": null,
-                    "operator": null,
-                    "right_operand_value_iri": null,
-                    "right_operand_value_string": null,
-                    "right_operand_value_date": null,
-                    "right_operand_value_dateTime": null,
-                    "right_operand_value_float": null,
-                    "right_operand_value_duration": null,
-                    "unit": null
+                    "id": 3072267243,
+                    "policy_id": 3135535980,
+                    "type": "http://www.w3.org/ns/odrl/2/Asset",
+                    "uid": null,
+                    "source": null,
+                    "refinements": [],
+                    "operand": null,
+                    "first": null,
+                    "logical_constraints": {
+                      "and": [],
+                      "or": [],
+                      "andSequence": [],
+                      "xone": []
+                    },
+                    "duty_id": 3451491273
                   }
-                ]
+                ],
+                "actions": [
+                  {
+                    "id": 3119269707,
+                    "policy_id": 3135535980,
+                    "rule_id": 869327217,
+                    "value": "http://www.w3.org/ns/odrl/2/use",
+                    "operand": null,
+                    "first": null,
+                    "logical_constraints": {
+                      "and": [],
+                      "or": [],
+                      "andSequence": [],
+                      "xone": []
+                    },
+                    "refinements": [],
+                    "duty_id": 3451491273
+                  }
+                ],
+                "assigner": null,
+                "assignees": [],
+                "constraints": [],
+                "operand": null,
+                "first": null,
+                "logical_constraints": {
+                  "and": [],
+                  "or": [],
+                  "andSequence": [],
+                  "xone": []
+                },
+                "rule_id": 869327217,
+                "consequences": []
               }
-            ],
-            "constraints": [
-              {
-                "id": 1,
-                "policy_id": 4515165,
-                "rule_id": 2080481,
-                "left_operand": "http://www.w3.org/ns/odrl/2/dateTime",
-                "operator": "http://www.w3.org/ns/odrl/2/lt",
-                "right_operand_value_iri": null,
-                "right_operand_value_string": null,
-                "right_operand_value_date": "2024-01-01",
-                "right_operand_value_dateTime": null,
-                "right_operand_value_float": null,
-                "right_operand_value_duration": null,
-                "unit": null
-              }
-            ],
-            "duties": []
+            ]
           }
         ],
         "prohibitions": [
           {
-            "id": 5406515,
-            "policy_id": 4515165,
+            "id": 3462910446,
+            "type": "http://www.w3.org/ns/odrl/2/prohibition",
+            "policy_id": 3135535980,
+            "cce": "reidentification_of_individuals_without_irp",
             "targets": [
               {
-                "id": 55084,
-                "policy_id": 4515165,
-                "rule_id": 5406515,
-                "type": ["http://www.w3.org/ns/odrl/2/Asset"],
-                "uid": "https://example.com/asset_515015",
-                "refinements": []
+                "id": 2586567097,
+                "policy_id": 3135535980,
+                "rule_id": 3462910446,
+                "type": "http://www.w3.org/ns/odrl/2/AssetCollection",
+                "uid": null,
+                "source": "https://example.com/assets_01",
+                "refinements": [],
+                "uri": "https://example.com/assets_01",
+                "operand": null,
+                "first": null,
+                "logical_constraints": {
+                  "and": [],
+                  "or": [],
+                  "andSequence": [],
+                  "xone": []
+                }
               }
             ],
-            "assigner": "https://example.com/Data_Center_1",
             "actions": [
               {
-                "id": 7960460,
-                "policy_id": 4515165,
-                "rule_id": 5406515,
-                "value": "http://www.w3.org/ns/odrl/2/share",
-                "refinements": [
-                  {
-                    "id": 8418505,
-                    "action_id": 7960460,
-                    "policy_id": 4515165,
-                    "rule_id": 5406515,
-                    "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
-                    "operator": "http://www.w3.org/ns/odrl/2/isA",
-                    "right_operand_value_iri": "https://w3id.org/dpv#CommercialResearch",
-                    "right_operand_value_string": null,
-                    "right_operand_value_date": null,
-                    "right_operand_value_dateTime": null,
-                    "right_operand_value_float": null,
-                    "right_operand_value_duration": null,
-                    "unit": null
-                  }
-                ]
+                "id": 2533335809,
+                "policy_id": 3135535980,
+                "rule_id": 3462910446,
+                "value": "http://www.w3.org/ns/odrl/2/modify",
+                "refinements": [],
+                "operand": null,
+                "first": null,
+                "logical_constraints": {
+                  "and": [],
+                  "or": [],
+                  "andSequence": [],
+                  "xone": []
+                }
               }
             ],
-            "assignees": [
-              {
-                "id": 6465403,
-                "policy_id": 4515165,
-                "rule_id": 5406515,
-                "type": ["http://www.w3.org/ns/odrl/2/Party"],
-                "uid": "https://example.com/assigne_560565",
-                "source": null,
-                "refinements": [
-                  {
-                    "id": 464094,
-                    "policy_id": 4515165,
-                    "rule_id": 5406515,
-                    "assignee_id": 6465403,
-                    "left_operand": null,
-                    "operator": null,
-                    "right_operand_value_iri": null,
-                    "right_operand_value_string": null,
-                    "right_operand_value_date": null,
-                    "right_operand_value_dateTime": null,
-                    "right_operand_value_float": null,
-                    "right_operand_value_duration": null,
-                    "unit": null
-                  }
-                ]
-              }
-            ],
+            "assigner": "https://example.com/Data_Center_01",
+            "assignees": [],
             "constraints": [],
             "remedies": []
           }
         ],
         "obligations": []
-      }
-    },
-    {
-      "type": "http://www.w3.org/ns/odrl/2/Offer",
-      "uid": "https://example.com/policy_02",
-      "profile": null,
-      "id": 5540994940,
-      "rules": {
-        "permissions": [
-          {
-            "id": 2,
-            "policy_id": 5540994940,
-            "type": "http://www.w3.org/ns/odrl/2/permission",
-            "assigner": "https://example.com/Data_Center_2",
-            "actions": [
-              {
-                "id": 9970615,
-                "policy_id": 5540994940,
-                "rule_id": 2,
-                "value": "http://www.w3.org/ns/odrl/2/use",
-                "refinements": [
-                  {
-                    "id": 1804949,
-                    "action_id": 9970615,
-                    "policy_id": 5540994940,
-                    "rule_id": 2,
-                    "left_operand": "http://www.w3.org/ns/odrl/2/purpose",
-                    "operator": "http://www.w3.org/ns/odrl/2/isA",
-                    "right_operand_value_iri": "https://w3id.org/dpv#Marketing",
-                    "right_operand_value_string": null,
-                    "right_operand_value_date": null,
-                    "right_operand_value_dateTime": null,
-                    "right_operand_value_float": null,
-                    "right_operand_value_duration": null,
-                    "unit": null
-                  }
-                ]
-              }
-            ],
-            "assignee": [
-              {
-                "id": 358045,
-                "policy_id": 5540994940,
-                "rule_id": 2,
-                "type": ["http://www.w3.org/ns/odrl/2/Party"],
-                "uid": null,
-                "source": null,
-                "refinements": [
-                  {
-                    "id": 302,
-                    "policy_id": 5540994940,
-                    "rule_id": 2,
-                    "assignee_id": 358045,
-                    "left_operand": null,
-                    "operator": null,
-                    "right_operand_value_iri": null,
-                    "right_operand_value_string": null,
-                    "right_operand_value_date": null,
-                    "right_operand_value_dateTime": null,
-                    "right_operand_value_float": null,
-                    "right_operand_value_duration": null,
-                    "unit": null
-                  }
-                ]
-              }
-            ],
-            "targets": [
-              {
-                "id": 6059840,
-                "policy_id": 5540994940,
-                "rule_id": 2,
-                "type": ["http://www.w3.org/ns/odrl/2/Asset"],
-                "uid": "https://example.com/asset_9079804",
-                "refinements": []
-              }
-            ],
-            "constraints": [],
-            "duties": []
-          }
-        ],
-        "prohibitions": [],
-        "obligations": []
-      }
+      },
+      "references": []
     }
   ]
 }

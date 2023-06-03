@@ -6,8 +6,11 @@ prefixes:
   occe: https://w3id.org/occe/
   dpv: https://w3id.org/dpv#
   obo: http://purl.obolibrary.org/obo/
-  dc: http://purl.org/dc/terms/
+  dc-terms: http://purl.org/dc/terms/
+  dc-elements: http://purl.org/dc/elements/
   this: https://example.com/
+  idlab-fn: http://example.com/idlab/function/
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
 
 sources:
   policy:
@@ -55,6 +58,26 @@ sources:
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.permissions.[*].constraints.[*]"
 
+  permission_constraint_xone:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].logical_constraints.xone.[*]"
+  
+  permission_constraint_or:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].logical_constraints.or.[*]"
+  
+  permission_constraint_and:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].logical_constraints.and.[*]"
+  
+  permission_constraint_andSequence:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].logical_constraints.andSequence.[*]"
+
   permission_duty:
     access: data.json
     referenceFormulation: jsonpath
@@ -64,6 +87,31 @@ sources:
     access: data.json
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.permissions.[*].duties.[*].actions.[*]"
+  
+  permission_duty_action_xone:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].actions.[*].logical_constraints.xone.[*]"
+  
+  permission_duty_action_or:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].actions.[*].logical_constraints.or.[*]"
+  
+  permission_duty_action_and:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].actions.[*].logical_constraints.and.[*]"
+  
+  permission_duty_action_andSequence:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].actions.[*].logical_constraints.andSequence.[*]"
+
+  permission_duty_assignee:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].assignees.[*]"
 
   permission_duty_action_refinement:
     access: data.json
@@ -74,6 +122,26 @@ sources:
     access: data.json
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.permissions.[*].duties.[*].constraints.[*]"
+
+  permission_duty_xone:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].logical_constraints.xone.[*]"
+  
+  permission_duty_or:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].logical_constraints.or.[*]"
+  
+  permission_duty_and:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].logical_constraints.and.[*]"
+  
+  permission_duty_andSequence:
+    access: data.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.permissions.[*].duties.[*].logical_constraints.andSequence.[*]"
 
   permission_duty_consequence:
     access: data.json
@@ -153,6 +221,9 @@ mappings:
     po:
       - [a, $(type)~iri]
       - [odrl:profile, $(profile)~iri]
+      - [dc-terms:creator, $(creator)]
+      - [dc-terms:issued, $(issued), xsd:date]
+      - [dc-terms:description, $(description)]
       - p: odrl:permission
         o:
           - mapping: permission
@@ -175,6 +246,7 @@ mappings:
       - permission
     s: this:policies/$(policy_id)/permissions/$(id)
     po:
+      - [dc-elements:subject, $(cce), xsd:string]
       - [odrl:assigner, $(assigner)~iri]
       - p: odrl:assignee
         o:
@@ -212,10 +284,13 @@ mappings:
         o:
           - mapping: permission_constraint
             condition:
-              function: equal
-              parameters:
-                - [str1, $(id)] # From permission
-                - [str2, $(rule_id)] # From permission's constraint
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From permission
+                  - [str2, $(rule_id)] # From permission's constraint
 
   permission_assignee:
     sources:
@@ -229,10 +304,13 @@ mappings:
         o:
           - mapping: permission_assignee_refinement
             condition:
-              function: equal
-              parameters:
-                - [str1, $(id)] # From permission's assignee
-                - [str2, $(assignee_id)] # From permission assignee's refinement
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From permission's assignee
+                  - [str2, $(assignee_id)] # From permission assignee's refinement
 
   permission_assignee_refinement:
     sources:
@@ -261,10 +339,13 @@ mappings:
         o:
           - mapping: permission_target_refinement
             condition:
-              function: equal
-              parameters:
-                - [str1, $(id)] # From permission's target
-                - [str2, $(target_id)] # From permission target's refinement
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From permission's target
+                  - [str2, $(target_id)] # From permission target's refinement
 
   permission_target_refinement:
     sources:
@@ -291,10 +372,13 @@ mappings:
         o:
           - mapping: permission_action_refinement
             condition:
-              function: equal
-              parameters:
-                - [str1, $(id)] # From permission's action
-                - [str2, $(action_id)] # From permission action's refinement
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From permission's action
+                  - [str2, $(action_id)] # From permission action's refinement
 
   permission_action_refinement:
     sources:
@@ -318,7 +402,6 @@ mappings:
     po:
       - [odrl:target, $(target)~iri]
       - [odrl:assigner, $(assigner)~iri]
-      - [odrl:assignee, $(assignee)~iri]
       - [odrl:attributedParty, $(attributed_party)~iri]
       - [odrl:attributingParty, $(attributing_party)~iri]
       - [odrl:compensatedParty, $(compensated_party)~iri]
@@ -331,6 +414,14 @@ mappings:
       - [odrl:informingParty, $(informing_party)~iri]
       - [odrl:trackedParty, $(tracked_party)~iri]
       - [odrl:trackingParty, $(tracking_party)~iri]
+      - p: odrl:assignee
+        o:
+          - mapping: permission_duty_assignee
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(id)] # From permission's duty
+                - [str2, $(duty_id)] # From permission duty's assignee
       - p: odrl:action
         o:
           - mapping: permission_duty_action
@@ -343,10 +434,49 @@ mappings:
         o:
           - mapping: permission_duty_constraint
             condition:
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From permission's duty
+                  - [str2, $(duty_id)] # From permission duty's constraint
+      - p: odrl:constraint
+        o:
+          - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(id)/xone
+            type: iri
+            condition:
               function: equal
               parameters:
-                - [str1, $(id)] # From permission's duty
-                - [str2, $(duty_id)] # From permission duty's constraint
+                - [grel:valueParameter, $(operand)] # From permission's duty
+                - [grel:valueParameter2, "xone"] # From permission duty's
+      - p: odrl:constraint
+        o:
+          - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(id)/and
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [grel:valueParameter, $(operand)] # From permission's duty
+                - [grel:valueParameter2, "and"] # From permission duty's
+      - p: odrl:constraint
+        o:
+          - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(id)/or
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [grel:valueParameter, $(operand)] # From permission's duty
+                - [grel:valueParameter2, "or"] # From permission duty's
+      - p: odrl:constraint
+        o:
+          - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(id)/andSequence
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [grel:valueParameter, $(operand)] # From permission's duty
+                - [grel:valueParameter2, "andSequence"] # From permission duty's
       - p: odrl:consequence
         o:
           - mapping: permission_duty_consequence
@@ -355,6 +485,82 @@ mappings:
               parameters:
                 - [str1, $(id)] # From permission's duty
                 - [str2, $(duty_id)] # From permission duty's consequence
+  
+  permission_duty_xone_parent:
+    sources:
+      - permission_duty
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(id)/xone
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission's duty
+        - [grel:valueParameter2, "xone"] # From permission's duty
+    po:
+      - p: odrl:xone
+        o:
+          - mapping: permission_duty_xone
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission's duty
+                - [str2, $(id)] # From permission duty's xone
+
+  permission_duty_or_parent:
+    sources:
+      - permission_duty
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(id)/or
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission's duty
+        - [grel:valueParameter2, "or"] # From permission's duty
+    po:
+      - p: odrl:or
+        o:
+          - mapping: permission_duty_or
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission's duty
+                - [str2, $(id)] # From permission duty's or
+
+  permission_duty_and_parent:
+    sources:
+      - permission_duty
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(id)/and
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission's duty
+        - [grel:valueParameter2, "and"] # From permission's duty
+    po:
+      - p: odrl:and
+        o:
+          - mapping: permission_duty_and
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission's duty
+                - [str2, $(id)] # From permission duty's and
+
+  permission_duty_andSequence_parent:
+    sources:
+      - permission_duty
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(id)/andSequence
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission's duty
+        - [grel:valueParameter2, "andSequence"] # From permission's duty
+    po:
+      - p: odrl:andSequence
+        o:
+          - mapping: permission_duty_andSequence
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission's duty
+                - [str2, $(id)] # From permission duty's andSequence
 
   permission_duty_action:
     sources:
@@ -362,14 +568,221 @@ mappings:
     s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(id)
     po:
       - [rdf:value, $(value)~iri]
+      - [dc-elements:subject, $(context)]
       - p: odrl:refinement
         o:
           - mapping: permission_duty_action_refinement
             condition:
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From permission duty's action
+                  - [str2, $(action_id)] # From permission duty action's refinement
+      - p: odrl:refinement
+        o:
+          - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(id)/xone
+            type: iri
+            condition:
               function: equal
               parameters:
-                - [str1, $(id)] # From permission duty's action
-                - [str2, $(action_id)] # From permission duty action's refinement
+                - [grel:valueParameter, $(operand)] # From permission duty's action
+                - [grel:valueParameter2, "xone"] # From permission duty's action
+      - p: odrl:refinement
+        o:
+          - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(id)/and
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [grel:valueParameter, $(operand)] # From permission duty's action
+                - [grel:valueParameter2, "and"] # From permission duty's action
+      - p: odrl:refinement
+        o:
+          - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(id)/or
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [grel:valueParameter, $(operand)] # From permission duty's action
+                - [grel:valueParameter2, "or"] # From permission duty's action
+      - p: odrl:refinement
+        o:
+          - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(id)/andSequence
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [grel:valueParameter, $(operand)] # From permission duty's action
+                - [grel:valueParameter2, "andSequence"] # From permission duty's action
+
+  permission_duty_action_xone_parent:
+    sources:
+      - permission_duty_action
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(id)/xone
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission duty's action
+        - [grel:valueParameter2, "xone"] # From permission duty's action
+    po:
+      - p: odrl:xone
+        o:
+          - mapping: permission_duty_action_xone
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission duty's action
+                - [str2, $(id)] # From permission duty's xone
+  permission_duty_action_or_parent:
+    sources:
+      - permission_duty_action
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(id)/or
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission duty's action
+        - [grel:valueParameter2, "or"] # From permission duty's action
+    po:
+      - p: odrl:or
+        o:
+          - mapping: permission_duty_action_or
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission duty's action
+                - [str2, $(id)] # From permission duty's action or
+
+  permission_duty_action_and_parent:
+    sources:
+      - permission_duty_action
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(id)/and
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission duty's action
+        - [grel:valueParameter2, "and"] # From permission duty's action
+    po:
+      - p: odrl:and
+        o:
+          - mapping: permission_duty_action_and
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission duty's action
+                - [str2, $(id)] # From permission duty's action and
+
+  permission_duty_action_andSequence_parent:
+    sources:
+      - permission_duty_action
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(id)/andSequence
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission duty's action
+        - [grel:valueParameter2, "andSequence"] # From permission duty's action
+    po:
+      - p: odrl:andSequence
+        o:
+          - mapping: permission_duty_action_andSequence
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission duty's action
+                - [str2, $(id)] # From permission duty's action andSequence
+  
+  permission_duty_action_xone:
+    sources:
+      - permission_duty_action_xone
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/xone/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/refinements/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/xone/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
+
+  permission_duty_action_or:
+    sources:
+      - permission_duty_action_or
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/or/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/refinements/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/or/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
+
+  permission_duty_action_and:
+    sources:
+      - permission_duty_action_and
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/and/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/refinements/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/and/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
+
+  permission_duty_action_andSequence:
+    sources:
+      - permission_duty_action_andSequence
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/andSequence/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/refinements/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(action_id)/andSequence/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
 
   permission_duty_action_refinement:
     sources:
@@ -386,6 +799,16 @@ mappings:
       - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
       - [odrl:unit, $(unit)~iri]
 
+  permission_duty_assignee:
+    sources:
+      - permission_duty_assignee
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/assignees/$(id)
+    po:
+      - [a, $(type)]
+      - [rdf:value, $(value)~iri]
+      - [rdf:uid, $(uid)~iri]
+      - [rdf:source, $(source)~iri]
+
   permission_duty_constraint:
     sources:
       - permission_duty_constraint
@@ -400,6 +823,98 @@ mappings:
       - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
       - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
       - [odrl:unit, $(unit)~iri]
+
+  permission_duty_xone:
+    sources:
+      - permission_duty_xone
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/xone/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/xone/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
+
+  permission_duty_or:
+    sources:
+      - permission_duty_or
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/or/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/or/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
+
+  permission_duty_and:
+    sources:
+      - permission_duty_and
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/and/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/and/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
+
+  permission_duty_andSequence:
+    sources:
+      - permission_duty_andSequence
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/andSequence/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/andSequence/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
 
   permission_duty_consequence:
     sources:
@@ -440,10 +955,13 @@ mappings:
         o:
           - mapping: permission_duty_consequence_action_refinement
             condition:
-              function: equal
-              parameters:
-                - [str1, $(id)] # From permission duty consequence's action
-                - [str2, $(action_id)] # From permission duty consequence action's refinement
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From permission duty consequence's action
+                  - [str2, $(action_id)] # From permission duty consequence action's refinement
 
   permission_duty_consequence_action_refinement:
     sources:
@@ -474,12 +992,181 @@ mappings:
       - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
       - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
       - [odrl:unit, $(unit)~iri]
+  
+  permission_constraint_xone_parent:
+    sources:
+      - permission_constraint
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(id)/xone
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission's constraint
+        - [grel:valueParameter2, "xone"] # From permission's constraint
+    po:
+      - p: odrl:xone
+        o:
+          - mapping: permission_constraint_xone
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission's constraint
+                - [str2, $(id)] # From permission's constraint xone
+
+  permission_constraint_or_parent:
+    sources:
+      - permission_constraint
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(id)/or
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission's constraint
+        - [grel:valueParameter2, "or"] # From permission's constraint
+    po:
+      - p: odrl:or
+        o:
+          - mapping: permission_constraint_or
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission's constraint
+                - [str2, $(id)] # From permission's constraint or
+
+  permission_constraint_and_parent:
+    sources:
+      - permission_constraint
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(id)/and
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission's constraint
+        - [grel:valueParameter2, "and"] # From permission's constraint
+    po:
+      - p: odrl:and
+        o:
+          - mapping: permission_constraint_and
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission's constraint
+                - [str2, $(id)] # From permission's constraint and
+
+  permission_constraint_andSequence_parent:
+    sources:
+      - permission_constraint
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(id)/andSequence
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From permission's constraint
+        - [grel:valueParameter2, "andSequence"] # From permission's constraint
+    po:
+      - p: odrl:andSequence
+        o:
+          - mapping: permission_constraint_andSequence
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From permission's constraint
+                - [str2, $(id)] # From permission's constraint andSequence
+
+  permission_constraint_xone:
+    sources:
+      - permission_constraint_xone
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/xone/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/xone/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
+
+  permission_constraint_or:
+    sources:
+      - permission_constraint_or
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/or/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/or/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
+
+  permission_constraint_and:
+    sources:
+      - permission_constraint_and
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/and/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/and/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
+
+  permission_constraint_andSequence:
+    sources:
+      - permission_constraint_andSequence
+    s: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/andSequence/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+         - value: rdf:nil
+           type: iri
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(next)]
+               - [str2, "null"]
+         - value: this:policies/$(policy_id)/permissions/$(rule_id)/constraints/$(constraint_id)/andSequence/$(next)
+           type: iri
+           condition:
+             function: idlab-fn:notEqual
+             parameters:
+               - [grel:valueParameter, $(next)]
+               - [grel:valueParameter2, "null"]
 
   prohibition:
     sources:
       - prohibition
     s: this:policies/$(policy_id)/prohibitions/$(id)
     po:
+      - [dc-elements:subject, $(cce), xsd:string]
       - p: odrl:assignee
         o:
           - mapping: prohibition_assignee
@@ -526,10 +1213,13 @@ mappings:
         o:
           - mapping: prohibition_assignee_refinement
             condition:
-              function: equal
-              parameters:
-                - [str1, $(id)] # From prohibition's assignee
-                - [str2, $(assignee_id)] # From prohibition assignee's refinement
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From prohibition's assignee
+                  - [str2, $(assignee_id)] # From prohibition assignee's refinement
 
   prohibition_assignee_refinement:
     sources:
@@ -558,10 +1248,13 @@ mappings:
         o:
           - mapping: prohibition_target_refinement
             condition:
-              function: equal
-              parameters:
-                - [str1, $(id)] # From prohibition's target
-                - [str2, $(target_id)] # From prohibition target's refinement
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From prohibition's target
+                  - [str2, $(target_id)] # From prohibition target's refinement
 
   prohibition_target_refinement:
     sources:
@@ -588,10 +1281,13 @@ mappings:
         o:
           - mapping: prohibition_action_refinement
             condition:
-              function: equal
-              parameters:
-                - [str1, $(id)] # From prohibition's action
-                - [str2, $(action_id)] # From prohibition action's refinement
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From prohibition's action
+                  - [str2, $(action_id)] # From prohibition action's refinement
 
   prohibition_action_refinement:
     sources:
@@ -640,10 +1336,13 @@ mappings:
         o:
           - mapping: prohibition_remedy_constraint
             condition:
-              function: equal
-              parameters:
-                - [str1, $(id)] # From prohibition's remedy
-                - [str2, $(remedy_id)] # From prohibition remedy's constraint
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From prohibition's remedy
+                  - [str2, $(remedy_id)] # From prohibition remedy's constraint
 
   prohibition_remedy_action:
     sources:
