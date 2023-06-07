@@ -1,0 +1,250 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix v: <http://rdf.data-vocabulary.org/#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix occe: <https://w3id.org/occe/> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dce: <http://purl.org/dc/elements/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix this: <https://example.com/> .
+
+<https://example.com/policies/2> rdf:type odrl:Offer ;
+	dct:issued "2023-05-29"^^xsd:date ;
+    odrl:permission <https://example.com/policies/2/permissions/1>, <https://example.com/policies/2/permissions/2>, <https://example.com/policies/2/permissions/3>, <https://example.com/policies/2/permissions/4>, <https://example.com/policies/2/permissions/5>, <https://example.com/policies/2/permissions/6>, <https://example.com/policies/2/permissions/7>, <https://example.com/policies/2/permissions/8>, <https://example.com/policies/2/permissions/9>, <https://example.com/policies/2/permissions/10> ;
+    odrl:prohibition <https://example.com/policies/2/prohibitions/1> ;
+    odrl:obligation <https://example.com/policies/2/obligations/1>, <https://example.com/policies/2/obligations/2>, <https://example.com/policies/2/obligations/3>, <https://example.com/policies/2/obligations/4> .
+
+# Permissions
+
+## Permission 1
+<https://example.com/policies/2/permissions/1> dce:subject "reidentification_of_individuals_with_irp" ;
+    odrl:target <https://example.com/policies/2/permissions/1/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/1/actions/1> ;
+    odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/1/targets/1> a odrl:AssetCollection ;
+	odrl:source <https://example.com/asset_1> .
+
+<https://example.com/policies/2/permissions/1/actions/1> rdf:value odrl:modify .
+
+## Permission 2
+<https://example.com/policies/2/permissions/2> dce:subject "clinical_care" ;
+	odrl:target <https://example.com/policies/2/permissions/2/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/2/actions/1> ;
+	odrl:constraint <https://example.com/policies/2/permissions/2/constraints/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/2/targets/1> a odrl:AssetCollection ;
+	odrl:source <https://example.com/asset_1> .
+
+<https://example.com/policies/2/permissions/2/actions/1> rdf:value odrl:use .
+
+<https://example.com/policies/2/permissions/2/constraints/1> odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0017431> .
+
+## Permission 3: uses to be discussed individually.
+<https://example.com/policies/2/permissions/3> dce:subject "clinical_research" ;
+	odrl:target <https://example.com/policies/2/permissions/3/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/3/actions/1> ;
+	odrl:constraint <https://example.com/policies/2/permissions/3/constraints/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/3/targets/1> a odrl:AssetCollection ;
+	odrl:source <https://example.com/asset_1> .
+
+<https://example.com/policies/2/permissions/3/actions/1> rdf:value odrl:use .
+
+<https://example.com/policies/2/permissions/3/constraints/1> odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0017431> .
+
+## Permission 4
+<https://example.com/policies/2/permissions/4> dce:subject "collaboration" ;
+	odrl:target <https://example.com/policies/2/permissions/4/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/4/actions/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/4/actions/1> rdf:value odrl:share ;
+    odrl:refinement <https://example.com/policies/2/permissions/4/actions/1/refinements/1> .
+
+<https://example.com/policies/2/permissions/4/actions/1/refinements/1> odrl:leftOperand odrl:recipient ;
+    odrl:operator odrl:eq ;
+    odrl:rightOperand this:Data_Center_01 .
+
+## Permission 5: relating to kidney diseases.
+<https://example.com/policies/2/permissions/5> dce:subject "disease_specific_use" ;
+	odrl:target <https://example.com/policies/2/permissions/5/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/5/actions/1> ;
+	odrl:constraint <https://example.com/policies/2/permissions/5/constraints/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/5/targets/1> a odrl:AssetCollection ;
+	odrl:source <https://example.com/asset_1> .
+
+<https://example.com/policies/2/permissions/5/actions/1> rdf:value odrl:use .
+
+<https://example.com/policies/2/permissions/5/constraints/1> odrl:leftOperand odrl:purpose ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://www.ebi.ac.uk/efo/EFO_0003086> .
+
+## Permission 6: uses to be discussed individually
+<https://example.com/policies/2/permissions/6> dce:subject "profit_motivated_use" ;
+	odrl:target <https://example.com/policies/2/permissions/6/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/6/actions/1> ;
+    odrl:constraint <https://example.com/policies/2/permissions/6/constraints/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/6/targets/1> a odrl:Asset ;
+    odrl:uid <https://example.com/asset_1/row_1> .
+
+<https://example.com/policies/2/permissions/6/actions/1> rdf:value cc:CommercialUse .
+
+<https://example.com/policies/2/permissions/6/constraints/1> odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0017431> .
+
+## Permission 7: uses to be discussed individually.
+<https://example.com/policies/2/permissions/7> dce:subject "research_use" ;
+	odrl:target <https://example.com/policies/2/permissions/7/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/7/actions/1> ;
+    odrl:constraint <https://example.com/policies/2/permissions/7/constraints/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/7/targets/1> a odrl:Asset ;
+    odrl:uid <https://example.com/asset_1/row_2> .
+
+<https://example.com/policies/2/permissions/7/actions/1> rdf:value odrl:use .
+
+<https://example.com/policies/2/permissions/7/constraints/1> odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0017431> .
+
+## Permission 8: uses to be discussed individually.
+<https://example.com/policies/2/permissions/8> dce:subject "return_of_incidental_findings" ;
+	odrl:target <https://example.com/policies/2/permissions/8/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/8/actions/1> ;
+    odrl:constraint <https://example.com/policies/2/permissions/8/constraints/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/8/targets/1> a odrl:Asset ;
+    odrl:uid <https://example.com/asset_1/row_2> .
+
+<https://example.com/policies/2/permissions/8/actions/1> rdf:value odrl:share ;
+    odrl:refinement <https://example.com/policies/2/permissions/8/actions/1/refinements/1> .
+
+<https://example.com/policies/2/permissions/8/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0022412> .
+
+<https://example.com/policies/2/permissions/8/constraints/1> odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0017431> .
+
+## Permission 9:
+<https://example.com/policies/2/permissions/9> dce:subject "use_as_control" ;
+    odrl:target <https://example.com/policies/2/permissions/8/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/9/actions/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/9/targets/1> a odrl:AssetCollection ;
+    odrl:uid <https://example.com/asset_1> .
+
+<https://example.com/policies/2/permissions/9/actions/1> rdf:value odrl:use ;
+	odrl:refinement <https://example.com/policies/2/permissions/9/actions/1/refinements/1> .
+
+<https://example.com/policies/2/permissions/9/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/GENO_0000152> .
+
+## Permission 10:
+<https://example.com/policies/2/permissions/10> dce:subject "use_by_commercial_entity" ;
+    odrl:target <https://example.com/policies/2/permissions/10/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/10/actions/1> ;
+	odrl:duty <https://example.com/policies/2/permissions/10/duties/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/10/targets/1> a odrl:Asset ;
+    odrl:uid <https://example.com/asset_1/row_2> .
+
+<https://example.com/policies/2/permissions/10/actions/1> rdf:value cc:CommercialUse .
+
+# Prohibitions
+
+## Prohibition 1
+<https://example.com/policies/2/prohibitions/1> dce:subject "reidentification_of_individuals_without_irp" ;
+	odrl:target <https://example.com/policies/2/prohibitions/1/targets/1> ;
+	odrl:action <https://example.com/policies/2/prohibitions/1/actions/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/prohibitions/1/targets/1> a odrl:AssetCollection ;
+	odrl:source <https://example.com/asset_1> .
+
+<https://example.com/policies/2/prohibitions/1/actions/1> rdf:value odrl:modify .
+
+# Obligations
+
+## Obligation 1: pay fees if use for commercial or for-profit purposes.
+<https://example.com/policies/2/obligation/1> dce:subject "fees" ;
+	odrl:action <https://example.com/policies/2/obligations/1/actions/1> ;
+	odrl:constraint <https://example.com/policies/2/obligations/1/constraints/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/obligations/1/actions/1> rdf:value odrl:compensate .
+
+<https://example.com/policies/2/obligations/1/constraints/1> odrl:leftOperand odrl:purpose ;
+	odrl:operator odrl:isAnyOf ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/ICO_0000057>, <http://www.ebi.ac.uk/swo/license/SWO_1000136> .
+
+## Obligation 2: use of data is only allowed where EU General Data Protection Regulation applies.
+<https://example.com/policies/2/obligations/2> dce:subject "regulatory_jurisdiction" ;
+    odrl:target <https://example.com/policies/2/obligations/2/targets/1> ;
+	odrl:action <https://example.com/policies/2/obligations/2/actions/1> ;
+	odrl:assigner this:Data_Center_01 ;
+    dct:coverage <https://w3id.org/dpv/dpv-legal#EU-GDPR> .
+
+<https://example.com/policies/2/obligations/2/actions/1> rdf:value odrl:use .
+
+<https://example.com/policies/2/obligations/2/targets/1> a odrl:AssetCollection ;
+	odrl:source <https://example.com/asset_1> .
+
+## Obligation 3:
+<https://example.com/policies/2/obligations/3> dce:subject "return_of_results" ;
+	odrl:target <https://example.com/policies/2/obligations/3/targets/1> ;
+	odrl:action <https://example.com/policies/2/obligations/3/actions/1> ;
+    odrl:constraint <https://example.com/policies/2/obligations/3/constraints/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/obligations/3/targets/1> a odrl:AssetCollection ;
+    odrl:uid <https://example.com/asset_1> .
+
+<https://example.com/policies/2/obligations/3/actions/1> rdf:value odrl:share ;
+    odrl:refinement <https://example.com/policies/2/obligations/3/actions/1/refinements/1> .
+
+<https://example.com/policies/2/obligations/3/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <https://w3id.org/reproduceme#Output> .
+
+<https://example.com/policies/2/obligations/3/constraints/1> odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C70664> .
+
+## Obligation 4: the recipient is permitted to use the data for no more than 1 year after the agreed completion date; to permit the preparation of the results for publication.
+<https://example.com/policies/2/obligations/4> dce:subject "time_period_of_use" ;
+	odrl:target <https://example.com/policies/2/obligations/4/targets/1> ;
+	odrl:action <https://example.com/policies/2/obligations/4/actions/1> ;
+	odrl:constraint <https://example.com/policies/2/obligations/4/constraints/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/2/obligations/4/targets/1> a odrl:AssetCollection ;
+	odrl:source <https://example.com/asset_1> .
+
+<https://example.com/policies/2/obligations/4/actions/1> rdf:value odrl:use .
+
+<https://example.com/policies/2/obligations/4/constraints/1> odrl:leftOperand odrl:meteredTime ;
+	odrl:operator odrl:lteq ;
+	odrl:rightOperand "P1Y"^^xsd:duration .

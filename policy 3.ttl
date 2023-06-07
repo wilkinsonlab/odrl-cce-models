@@ -1,0 +1,177 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix v: <http://rdf.data-vocabulary.org/#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix occe: <https://w3id.org/occe/> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dce: <http://purl.org/dc/elements/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix this: <https://example.com/> .
+
+<https://example.com/policies/3> rdf:type odrl:Offer ;
+	dct:issued "2023-05-30"^^xsd:date ;
+    odrl:permission <https://example.com/policies/3/permissions/1> ;
+	odrl:obligation <https://example.com/policies/3/obligations/1>, <https://example.com/policies/3/obligations/2>, <https://example.com/policies/3/obligations/3> .
+
+# Permissions
+
+## Permission 1: Informed consent should facilitate a continuous dialogue with participants and inform them about the disease. The way of re-identification should be compliant with GDPR UE 2016/679 and with the participant's choices.
+# Translation: Permission to: 1) Deanonymize in compliance with EU-GDPR & patients' decisions, NOT mediated by resource provider. 2) Share diagnosisis with patients.
+# PS: Weird to have this permitted and "reidentification_of_individuals_with_irp" obligated: it's contradictory.
+<https://example.com/policies/3/permissions/1> dce:subject "reidentification_of_individuals_without_irp" ;
+	odrl:target <https://example.com/policies/3/permissions/1/targets/1> ;
+	odrl:action <https://example.com/policies/3/permissions/1/actions/1>, <https://example.com/policies/3/permissions/1/actions/2> .
+
+<https://example.com/policies/3/permissions/1/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
+	dct:title "Patients' data"^^xsd:string .
+
+<https://example.com/policies/3/permissions/1/actions/1> rdf:value occe:deanonymize ;
+    odrl:refinement <https://example.com/policies/3/permissions/1/actions/1/refinements> .
+
+<https://example.com/policies/3/permissions/1/actions/1/refinements> odrl:and _:b0 .
+
+_:b0 rdf:first <https://example.com/policies/3/permissions/1/actions/1/refinements/1> ;
+    rdf:rest _:b1 .
+
+_:b1 rdf:first <https://example.com/policies/3/permissions/1/actions/1/refinements/2> ;
+    rdf:rest rdf:nil .
+
+<https://example.com/policies/3/permissions/1/actions/1/refinements/1> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow 
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR> . # GDPR
+
+<https://example.com/policies/3/permissions/1/actions/1/refinements/2> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow (adhere to)
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C137943> . # Patient Decision
+
+<https://example.com/policies/3/permissions/1/actions/2> rdf:value odrl:share ;
+	odrl:refinement <https://example.com/policies/3/permissions/1/actions/2/refinements> .
+
+<https://example.com/policies/3/permissions/1/actions/2/refinements> odrl:and _:b2 .
+
+_:b2 rdf:first <https://example.com/policies/3/permissions/1/actions/2/refinements/1> ;
+    rdf:rest _:b3 .
+
+_:b3 rdf:first <https://example.com/policies/3/permissions/1/actions/2/refinements/2> ;
+    rdf:rest rdf:nil .
+
+<https://example.com/policies/3/permissions/1/actions/2/refinements/1> odrl:leftOperand odrl:recipient ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/ICO_0000422> . # Patient
+
+<https://example.com/policies/3/permissions/1/actions/2/refinements/2> odrl:leftOperand odrl:purpose ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/OGMS_0000073> . # The representation of a conclusion of a diagnostic process
+
+# Obligations
+
+## Obligation 1: Informed consent should facilitate a continuous dialogue with participants and inform them about the disease. The way of re-identification should be compliant with GDPR UE 2016/679 and with the participant's choices.
+# Translation: Obligation to: 1) Deanonymize in compliance with EU-GDPR & patients' decisions, mediated by resource provider. 2) Share diagnosisis with patients.
+<https://example.com/policies/3/obligations/1> dce:subject "reidentification_of_individuals_with_irp" ;
+	odrl:target <https://example.com/policies/3/obligations/1/targets/1> ;
+	odrl:action <https://example.com/policies/3/obligations/1/actions/1>, <https://example.com/policies/3/obligations/1/actions/2> .
+
+<https://example.com/policies/3/obligations/1/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
+	dct:title "Patients' data"^^xsd:string .
+
+<https://example.com/policies/3/obligations/1/actions/1> rdf:value occe:deanonymize ;
+    odrl:refinement <https://example.com/policies/3/obligations/1/actions/1/refinements> .
+
+<https://example.com/policies/3/obligations/1/actions/1/refinements> odrl:and _:b4 .
+
+_:b4 rdf:first <https://example.com/policies/3/obligations/1/actions/1/refinements/1> ;
+    rdf:rest _:b5 .
+
+_:b5 rdf:first <https://example.com/policies/3/obligations/1/actions/1/refinements/2> ;
+    rdf:rest _:b6 .
+
+_:b6 rdf:first <https://example.com/policies/3/obligations/1/actions/1/refinements/3> ;
+    rdf:rest rdf:nil .
+
+<https://example.com/policies/3/obligations/1/actions/1/refinements/1> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow 
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR> . # GDPR
+
+<https://example.com/policies/3/obligations/1/actions/1/refinements/2> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow (adhere to)
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C137943> . # Patient Decision
+
+<https://example.com/policies/3/obligations/1/actions/1/refinements/3> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C25548> ; # Involvment
+	odrl:operator odrl:isA ;
+	odrl:rightOperand this:Data_Center_01 .
+
+<https://example.com/policies/3/obligations/1/actions/2> rdf:value odrl:share ;
+	odrl:refinement <https://example.com/policies/3/obligations/1/actions/2/refinements> .
+
+<https://example.com/policies/3/obligations/1/actions/2/refinements> odrl:and _:b7 .
+
+_:b7 rdf:first <https://example.com/policies/3/obligations/1/actions/2/refinements/1> ;
+    rdf:rest _:b8 .
+
+_:b8 rdf:first <https://example.com/policies/3/obligations/1/actions/2/refinements/2> ;
+    rdf:rest rdf:nil .
+
+<https://example.com/policies/3/obligations/1/actions/2/refinements/1> odrl:leftOperand odrl:recipient ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/ICO_0000422> . # Patient
+
+<https://example.com/policies/3/obligations/1/actions/2/refinements/2> odrl:leftOperand odrl:purpose ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/OGMS_0000073> . # The representation of a conclusion of a diagnostic process
+
+## Obligation 2: Use for diagnosis purpose, only if patients have the right to request the biospecimen for diagnostic investigations.
+# Translation: 
+<https://example.com/policies/3/obligations/2> dce:subject "clinical_care" ;
+	odrl:target <https://example.com/policies/3/obligations/2/targets/1> ;
+	odrl:action <https://example.com/policies/3/obligations/2/actions/1> ;
+	odrl:constraint <https://example.com/policies/3/obligations/2/constraints/1> .
+
+<https://example.com/policies/3/obligations/2/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
+	dct:title "Patients' data"^^xsd:string .
+
+<https://example.com/policies/3/obligations/2/actions/1> rdf:value odrl:use ;
+	odrl:refinement <https://example.com/policies/3/obligations/2/actions/1/refinements/1> .
+
+<https://example.com/policies/3/obligations/2/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/DUO_0000043> . # Clinical care use
+
+<https://example.com/policies/3/obligations/2/constraints/1> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C73624>; # Share
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C70699> . # Biospecimen
+
+## Obligation 3: Use for clinical research purposes, only if patients are informed about the intention of using biospecimens for advance medical knowledge.
+# Translation: 
+<https://example.com/policies/3/obligations/3> dce:subject "clinical_research" ;
+	odrl:target <https://example.com/policies/3/obligations/3/targets/1> ;
+	odrl:action <https://example.com/policies/3/obligations/3/actions/1>, <https://example.com/policies/3/obligations/3/actions/2> .
+
+<https://example.com/policies/3/obligations/3/actions/1> rdf:value odrl:use ;
+	odrl:refinement <https://example.com/policies/3/obligations/3/actions/1/refinements/1> .
+
+<https://example.com/policies/3/obligations/3/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/GSSO_012789> . # Clinical research
+
+<https://example.com/policies/3/obligations/3/actions/2> rdf:value odrl:inform ;
+    odrl:refinement <https://example.com/policies/3/obligations/3/actions/2/refinements> .
+
+<https://example.com/policies/3/obligations/3/actions/2/refinements> odrl:and _:b9 .
+
+_:b9 rdf:first <https://example.com/policies/3/obligations/3/actions/2/refinements/1> ;
+    rdf:rest _:b10 .
+
+_:b10 rdf:first <https://example.com/policies/3/obligations/3/actions/2/refinements/2> ;
+    rdf:rest rdf:nil .
+
+<https://example.com/policies/3/obligations/3/actions/2/refinements/1> odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <http://purl.obolibrary.org/obo/GENEPIO_0001574> . # Medical knowledge relevance
+
+<https://example.com/policies/3/obligations/3/actions/2/refinements/1> odrl:leftOperand odrl:recipient ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand <http://purl.obolibrary.org/obo/ICO_0000422> . # Patient
