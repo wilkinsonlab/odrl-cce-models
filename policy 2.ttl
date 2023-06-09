@@ -10,6 +10,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dce: <http://purl.org/dc/elements/> .
 @prefix cc: <http://creativecommons.org/ns#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix this: <https://example.com/> .
 
 <https://example.com/policies/2> rdf:type odrl:Offer ;
@@ -118,7 +119,12 @@
 <https://example.com/policies/2/permissions/7/targets/1> a odrl:Asset ;
     odrl:uid <https://example.com/asset_1/row_2> .
 
-<https://example.com/policies/2/permissions/7/actions/1> rdf:value odrl:use .
+<https://example.com/policies/2/permissions/7/actions/1> rdf:value odrl:use ;
+	odrl:refinement <https://example.com/policies/2/permissions/7/actions/1/refinements/1> .
+
+<https://example.com/policies/2/permissions/7/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C101142> . # Research use only
 
 <https://example.com/policies/2/permissions/7/constraints/1> odrl:leftOperand odrl:purpose ;
     odrl:operator odrl:isA ;
@@ -189,7 +195,7 @@
 # Obligations
 
 ## Obligation 1: pay fees if use for commercial or for-profit purposes.
-<https://example.com/policies/2/obligation/1> dce:subject "fees" ;
+<https://example.com/policies/2/obligations/1> dce:subject "fees" ;
 	odrl:action <https://example.com/policies/2/obligations/1/actions/1> ;
 	odrl:constraint <https://example.com/policies/2/obligations/1/constraints/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -227,7 +233,7 @@
 
 <https://example.com/policies/2/obligations/3/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
     odrl:operator odrl:isA ;
-    odrl:rightOperand <https://w3id.org/reproduceme#Output> .
+    odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C20200> . # Outcome
 
 <https://example.com/policies/2/obligations/3/constraints/1> odrl:leftOperand odrl:purpose ;
     odrl:operator odrl:isA ;
