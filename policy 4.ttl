@@ -15,9 +15,9 @@
 
 <https://example.com/policies/4> rdf:type odrl:Offer ;
 	dct:issued "2023-06-01"^^xsd:date ;
-    odrl:permission <https://example.com/policies/4/permissions/1>, <https://example.com/policies/4/permissions/2> ;
-    odrl:prohibition <https://example.com/policies/4/prohibitions/1>, <https://example.com/policies/4/prohibitions/2> ;
-	odrl:obligation <https://example.com/policies/4/obligations/1>, <https://example.com/policies/4/obligations/2>, <https://example.com/policies/4/obligations/3>, <https://example.com/policies/4/obligations/4>, <https://example.com/policies/4/obligations/5>, <https://example.com/policies/4/obligations/6>, <https://example.com/policies/4/obligations/7>, <https://example.com/policies/4/obligations/8>, <https://example.com/policies/4/obligations/9>, <https://example.com/policies/4/obligations/10> .
+    odrl:permission <https://example.com/policies/4/permissions/1>, <https://example.com/policies/4/permissions/2>, <https://example.com/policies/4/permissions/3> ;
+    odrl:prohibition <https://example.com/policies/4/prohibitions/1>, <https://example.com/policies/4/prohibitions/2>, <https://example.com/policies/4/prohibitions/3> ;
+	odrl:obligation <https://example.com/policies/4/obligations/1>, <https://example.com/policies/4/obligations/2>, <https://example.com/policies/4/obligations/3>, <https://example.com/policies/4/obligations/4>, <https://example.com/policies/4/obligations/5>, <https://example.com/policies/4/obligations/6>, <https://example.com/policies/4/obligations/7>, <https://example.com/policies/4/obligations/8>, <https://example.com/policies/4/obligations/9>, <https://example.com/policies/4/obligations/10>, <https://example.com/policies/4/obligations/11>, <https://example.com/policies/4/obligations/12>, <https://example.com/policies/4/obligations/13> .
 
 # Permissions
 
@@ -57,6 +57,38 @@
 	odrl:operator odrl:isAnyOf ;
 	odrl:rightOperand <http://purl.obolibrary.org/obo/DUO_0000043>, <http://purl.obolibrary.org/obo/DUO_0000042> . # Clinical care use / General research use
 
+## Permission 3: The Recipient Scientist must restitute the results to IPGB to allow the interpretation focused on Incontinentia pigmenti disease.
+# Translation:
+<https://example.com/policies/4/permissions/3> dce:subject "use_as_control" ;
+	odrl:target <https://example.com/policies/4/permissions/3/targets/1> ;
+	odrl:action <https://example.com/policies/4/permissions/3/actions/1> ;
+	odrl:duty <https://example.com/policies/4/permissions/3/duties/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/4/permissions/3/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
+	dct:title "Patients' data"^^xsd:string .
+
+<https://example.com/policies/4/permissions/3/actions/1> rdf:value odrl:use ;
+	odrl:refinement <https://example.com/policies/4/permissions/3/actions/1/refinements/1> .
+
+<https://example.com/policies/4/permissions/3/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
+	odrl:operator odrl:isAllOf ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/GENO_0000152> . # Reference
+
+<https://example.com/policies/4/permissions/3/duties/1>
+	odrl:target <https://example.com/policies/4/permissions/3/duties/1/targets/1> ;
+	odrl:action <https://example.com/policies/4/permissions/3/duties/1/actions/1> .
+
+<https://example.com/policies/4/permissions/3/duties/1/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C20200>, odrl:AssetCollection ; # Outcome
+	dct:title "Results"^^xsd:string .
+
+<https://example.com/policies/4/permissions/3/duties/1/actions/1> rdf:value odrl:share ;
+	odrl:refinement <https://example.com/policies/4/permissions/3/duties/1/actions/1/refinements/1> .
+
+<https://example.com/policies/4/permissions/3/duties/1/actions/1/refinements/1> odrl:leftOperand odrl:recipient ;
+	odrl:operator odrl:eq ;
+	odrl:rightOperand "Incontinentia Pigmenti Genetic Biobank (IPGB)"^^xsd:string .
+
 # Prohibitions
 
 ## Prohibition 1: The use of documents or samples deposited in the provider, always provided in unidentified form, must in no way be used to identify or re-identify one or more individuals from whom they were taken.
@@ -69,7 +101,12 @@
 <https://example.com/policies/4/prohibitions/1/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
 	dct:title "Patients' data"^^xsd:string .
 
-<https://example.com/policies/4/prohibitions/1/actions/1> rdf:value <http://purl.obolibrary.org/obo/T4FS_0000501> . # De-anonymization
+<https://example.com/policies/4/prohibitions/1/actions/1> rdf:value <http://purl.obolibrary.org/obo/T4FS_0000501> ; # De-anonymization
+	odrl:refinement <https://example.com/policies/4/prohibitions/1/actions/1/refinements/1> .
+
+<https://example.com/policies/4/prohibitions/1/actions/1/refinements/1> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C25548> ; # Involvment
+	odrl:operator odrl:isA ;
+	odrl:rightOperand this:Data_Center_01 .
 
 ## Prohibition 2: The Recipient Scientist agrees to use this Material solely for application in the non-commercial research. Its distribution is limited to scientists at non-profit institutions solely for use in their own research.
 # Translation:
@@ -82,6 +119,18 @@
 	dct:title "Patients' data"^^xsd:string .
 
 <https://example.com/policies/4/prohibitions/2/actions/1> rdf:value cc:CommercialUse .
+
+## Prohibition 3: The Recipient Scientist agrees to use this Material solely for application in the non-commercial research. Its distribution is limited to scientists at non-profit institutions solely for use in their own research.
+# Translation:
+<https://example.com/policies/4/prohibitions/3> dce:subject "use_by_commercial_entity" ;
+	odrl:target <https://example.com/policies/4/prohibitions/3/targets/1> ;
+	odrl:action <https://example.com/policies/4/prohibitions/3/actions/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/4/prohibitions/3/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
+	dct:title "Patients' data"^^xsd:string .
+
+<https://example.com/policies/4/prohibitions/3/actions/1> rdf:value cc:CommercialUse .
 
 # Obligations
 
@@ -243,7 +292,7 @@ _:b1 rdf:first <https://example.com/policies/4/obligations/9/actions/1/refinemen
 	odrl:leftOperand odrl:isA ;
 	odrl:rightOperand <http://purl.obolibrary.org/obo/SCDO_1000462> . # Research Ethics Committee Decision
 
-## Obligation 10:
+## Obligation 10: The provider must receive the results of incidental findings and communicate to the patient , according to his/her informed consent, of any unexpected results derived from any study/research.
 # Translation:
 <https://example.com/policies/4/obligations/10> dce:subject "return_of_incidental_findings" ;
 	odrl:target <https://example.com/policies/4/obligations/10/targets/1> ;
@@ -259,3 +308,50 @@ _:b1 rdf:first <https://example.com/policies/4/obligations/9/actions/1/refinemen
 <https://example.com/policies/4/obligations/10/constraints/1> odrl:leftOperand odrl:event ;
 	odrl:leftOperand odrl:isA ;
 	odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0022412> . # Incidental findings
+
+## Obligation 11: The Recipient Scientist must restitute the results to IPGB to allow the interpretation focused on Incontinentia pigmenti disease.
+# Translation:
+<https://example.com/policies/4/obligations/11> dce:subject "return_of_results" ;
+	odrl:target <https://example.com/policies/4/obligations/11/targets/1> ;
+	odrl:action <https://example.com/policies/4/obligations/11/actions/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/4/obligations/11/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C20200>, odrl:AssetCollection ; # Outcome
+	dct:title "Results"^^xsd:string .
+
+<https://example.com/policies/4/obligations/11/actions/1> rdf:value odrl:share .
+
+## Obligation 12: There is a predefined time linked to the closure of the project; after that the forwarded material must be destroyed or returned to the IPGB Biobank.
+# Translation:
+<https://example.com/policies/4/obligations/12> dce:subject "return_of_results" ;
+	odrl:target <https://example.com/policies/4/obligations/12/targets/1> ;
+	odrl:action <https://example.com/policies/4/obligations/12/actions/1> ;
+	odrl:consequence <https://example.com/policies/4/obligations/12/consequences/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/4/obligations/12/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C70699>, odrl:AssetCollection ; # Biospecimen
+	dct:title "Biospecimens"^^xsd:string .
+
+<https://example.com/policies/4/obligations/12/actions/1> rdf:value odrl:delete, <http://purl.obolibrary.org/obo/NCIT_C62100> ; # Destruction
+	odrl:refinement <https://example.com/policies/4/obligations/12/actions/1/refinements/1> .
+
+<https://example.com/policies/4/obligations/12/actions/1/refinements/1> odrl:leftOperand odrl:event ;
+	odrl:leftOperand odrl:gteq ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C164420> . # Project conduct
+
+<https://example.com/policies/4/obligations/12/consequences/1> odrl:action <https://example.com/policies/4/obligations/12/consequences/1/actions/1> .
+
+<https://example.com/policies/4/obligations/12/consequences/1/actions/1> rdf:value <http://purl.obolibrary.org/obo/NCIT_C186295> ; # Return to Biobank
+ 	odrl:refinement <https://example.com/policies/4/obligations/12/consequences/1/actions/1/refinements/1> .
+
+<https://example.com/policies/4/obligations/12/consequences/1/actions/1/refinements/1> odrl:leftOperand odrl:recipient ;
+	odrl:operator odrl:eq ;
+	odrl:rightOperand "Incontinentia Pigmenti Genetic Biobank (IPGB)"^^xsd:string .
+
+## Obligation 13:
+# Translation:
+<https://example.com/policies/4/obligations/13> dce:subject "user_authentication" ;
+	odrl:action <https://example.com/policies/4/obligations/13/actions/1> ;
+	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/4/obligations/13/actions/1> rdf:value <http://schema.org/RegisterAction> . # Register Action

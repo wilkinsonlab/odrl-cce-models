@@ -32,7 +32,12 @@
 <https://example.com/policies/1/permissions/1/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
 	dct:title "Patients' data"^^xsd:string .
 
-<https://example.com/policies/1/permissions/1/actions/1> rdf:value odrl:use, <http://purl.obolibrary.org/obo/T4FS_0000501> . # De-anonymization
+<https://example.com/policies/1/permissions/1/actions/1> rdf:value <http://purl.obolibrary.org/obo/T4FS_0000501> ; # De-anonymization
+	odrl:refinement<https://example.com/policies/1/permissions/1/actions/1/refinements/1> .
+
+<https://example.com/policies/1/permissions/1/actions/1/refinements/1> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C25548> ; # Involvment
+	odrl:operator odrl:isA ;
+	odrl:rightOperand this:Data_Center_01 .
 
 <https://example.com/policies/1/permissions/1/duties/1> odrl:action <https://example.com/policies/1/permissions/1/duties/1/actions/1> ;
 	odrl:constraint <https://example.com/policies/1/permissions/1/duties/1/constraints/1> .
@@ -366,15 +371,18 @@ _:b3 rdf:first <https://example.com/policies/1/obligations/5/actions/1/refinemen
 	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C164420> . # Project conduct
 
 ## Obligation 8 (User authentication): To request biological materials the recipient should register to the resource website and to fill in a specific form.
-# Translation: Obtain consent to use data.
+# Translation: 1) Obligation to register. 2) Obligation to request biospecimens through the website.
 <https://example.com/policies/1/obligations/8> dce:subject "user_authentication" ;
-	odrl:action <https://example.com/policies/1/obligations/8/actions/1> ;
+	odrl:action <https://example.com/policies/1/obligations/8/actions/1>, <https://example.com/policies/1/obligations/8/actions/2> ;
 	odrl:assigner this:Data_Center_01 ;
 	odrl:consentingParty this:Data_Center_01 .
 
-<https://example.com/policies/1/obligations/8/actions/1> rdf:value odrl:obtainConsent ;
+<https://example.com/policies/1/obligations/8/actions/1> rdf:value <http://schema.org/RegisterAction> ; # Register Action
 	odrl:refinement <https://example.com/policies/1/obligations/8/actions/1/refinements/1> .
 
-<https://example.com/policies/1/obligations/8/actions/1/refinements/1> odrl:leftOperand odrl:recipient ;
+<https://example.com/policies/1/obligations/8/actions/2> rdf:value <http://purl.obolibrary.org/obo/NCIT_C97566> ; # Fill out form
+	odrl:refinement <https://example.com/policies/1/obligations/8/actions/1/refinements/1> .
+
+<https://example.com/policies/1/obligations/8/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
 	odrl:operator odrl:isA ;
-	odrl:rightOperand this:Data_Center_01 .
+	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C70699> . # Biospecimen
