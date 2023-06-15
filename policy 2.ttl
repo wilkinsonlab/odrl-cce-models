@@ -4,7 +4,7 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix v: <http://rdf.data-vocabulary.org/#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix occe: <https://w3id.org/occe/> .
+@prefix occe: <https://w3id.org/odrl-occe/> .
 @prefix dpv: <https://w3id.org/dpv#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -73,17 +73,13 @@
 <https://example.com/policies/2/permissions/4> dce:subject "collaboration" ;
 	odrl:target <https://example.com/policies/2/permissions/4/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/4/actions/1> ;
-	odrl:assigner this:Data_Center_01 .
+	odrl:assigner this:Data_Center_01 ;
+	occe:sharedParty this:Data_Center_01 .
 
 <https://example.com/policies/2/permissions/4/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
 	dct:title "Patients' data"^^xsd:string .
 
-<https://example.com/policies/2/permissions/4/actions/1> rdf:value odrl:share ;
-    odrl:refinement <https://example.com/policies/2/permissions/4/actions/1/refinements/1> .
-
-<https://example.com/policies/2/permissions/4/actions/1/refinements/1> odrl:leftOperand odrl:recipient ;
-    odrl:operator odrl:isA ;
-    odrl:rightOperand this:Data_Center_01 .
+<https://example.com/policies/2/permissions/4/actions/1> rdf:value odrl:share .
 
 ## Permission 5: Relating to kidney diseases.
 <https://example.com/policies/2/permissions/5> dce:subject "disease_specific_use" ;
@@ -152,7 +148,8 @@
 	odrl:target <https://example.com/policies/2/permissions/8/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/8/actions/1> ;
     odrl:constraint <https://example.com/policies/2/permissions/8/constraints/1> ;
-	odrl:assigner this:Data_Center_01 .
+	odrl:assigner this:Data_Center_01 ;
+	occe:sharedParty this:Data_Center_01 .
 
 <https://example.com/policies/2/permissions/8/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:Asset ; # Data
 	dct:title "Part of patients' data"^^xsd:string .
@@ -160,7 +157,7 @@
 <https://example.com/policies/2/permissions/8/actions/1> rdf:value odrl:share ;
     odrl:refinement <https://example.com/policies/2/permissions/8/actions/1/refinements/1> .
 
-<https://example.com/policies/2/permissions/8/actions/1/refinements/1> odrl:leftOperand <https://w3id.org/dpv#Context> ; # Context
+<https://example.com/policies/2/permissions/8/actions/1/refinements/1> odrl:leftOperand dpv:Context ; # Context
     odrl:operator odrl:isA ;
     odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0022412> . # Incidental findings
 
@@ -243,7 +240,8 @@
 	odrl:target <https://example.com/policies/2/obligations/3/targets/1> ;
 	odrl:action <https://example.com/policies/2/obligations/3/actions/1> ;
     odrl:constraint <https://example.com/policies/2/obligations/3/constraints/1> ;
-	odrl:assigner this:Data_Center_01 .
+	odrl:assigner this:Data_Center_01 ;
+	odrl:sharedParty this:Data_Center_01 .
 
 <https://example.com/policies/2/obligations/3/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C20200>, odrl:AssetCollection ; # Outcome
 	dct:title "Results"^^xsd:string .

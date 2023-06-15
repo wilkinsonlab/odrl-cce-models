@@ -4,7 +4,7 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix v: <http://rdf.data-vocabulary.org/#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix occe: <https://w3id.org/occe/> .
+@prefix occe: <https://w3id.org/odrl-occe/> .
 @prefix dpv: <https://w3id.org/dpv#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -41,17 +41,16 @@
 	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR>, <http://purl.obolibrary.org/obo/NCIT_C137943> . # GDPR / Patient Decision
 
 <https://example.com/policies/3/permissions/1/duties/1> odrl:target <https://example.com/policies/3/permissions/1/duties/1/targets/1> ;
-	odrl:action <https://example.com/policies/3/permissions/1/duties/1/actions/1> .
+	odrl:action <https://example.com/policies/3/permissions/1/duties/1/actions/1> ;
+	occe:sharedParty <https://example.com/policies/3/permissions/1/duties/1/sharedParties/1> .
+
+<https://example.com/policies/3/permissions/1/duties/1/sharedParties/1> a <http://purl.obolibrary.org/obo/ICO_0000422>, odrl:PartyCollection ; # Patient
+	vcard:fn "Patients"^^xsd:string .
 
 <https://example.com/policies/3/permissions/1/duties/1/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C20200>, odrl:AssetCollection ; # Outcome
 	dct:title "Results"^^xsd:string .
 
-<https://example.com/policies/3/permissions/1/duties/1/actions/1> rdf:value odrl:share ;
-	odrl:refinement <https://example.com/policies/3/permissions/1/duties/1/actions/1/refinements/1> .
-
-<https://example.com/policies/3/permissions/1/duties/1/actions/1/refinements/1> odrl:leftOperand odrl:recipient ;
-	odrl:operator odrl:isA ;
-	odrl:rightOperand <http://purl.obolibrary.org/obo/ICO_0000422> . # Patient
+<https://example.com/policies/3/permissions/1/duties/1/actions/1> rdf:value odrl:share .
 
 ## Permission 2: A patent development is allowed only with the consent of the participant, who cannot claim any rights to inventions.
 # Translation:
@@ -95,7 +94,7 @@
 	odrl:refinement <https://example.com/policies/3/permissions/3/actions/1/refinements/1> .
 
 <https://example.com/policies/3/permissions/3/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
-	odrl:operator odrl:isAllOf ;
+	odrl:operator odrl:isA ;
 	odrl:rightOperand <http://purl.obolibrary.org/obo/GENO_0000152> . # Reference
 
 <https://example.com/policies/3/permissions/3/constraints/1> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow (adhere to)
@@ -123,7 +122,12 @@
 <https://example.com/policies/3/obligations/1> dce:subject "reidentification_of_individuals_with_irp" ;
 	odrl:target <https://example.com/policies/3/obligations/1/targets/1> ;
 	odrl:action <https://example.com/policies/3/obligations/1/actions/1>, <https://example.com/policies/3/obligations/1/actions/2> ;
-	odrl:constraint <https://example.com/policies/3/obligations/1/constraints/1> .
+	odrl:constraint <https://example.com/policies/3/obligations/1/constraints/1> ;
+	odrl:assigner this:Data_Center_01 ;
+	occe:sharedParty <https://example.com/policies/3/obligations/1/sharedParties/1> .
+
+<https://example.com/policies/3/obligations/1/sharedParties/1> a <http://purl.obolibrary.org/obo/ICO_0000422>, odrl:PartyCollection ; # Patient
+	vcard:fn "Patients"^^xsd:string .
 
 <https://example.com/policies/3/obligations/1/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
 	dct:title "Patients' data"^^xsd:string .
@@ -136,23 +140,9 @@
 	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR>, <http://purl.obolibrary.org/obo/NCIT_C137943> . # GDPR / # Patient Decision
 
 <https://example.com/policies/3/obligations/1/actions/2> rdf:value odrl:share ;
-	odrl:refinement <https://example.com/policies/3/obligations/1/actions/2/refinements> .
+	odrl:refinement <https://example.com/policies/3/obligations/1/actions/2/refinements/1> .
 
-<https://example.com/policies/3/obligations/1/actions/2/refinements> odrl:and _:b7 .
-
-_:b7 rdf:first <https://example.com/policies/3/obligations/1/actions/2/refinements/1> ;
-    rdf:rest _:b8 .
-
-_:b8 rdf:first <https://example.com/policies/3/obligations/1/actions/2/refinements/2> ;
-    rdf:rest rdf:nil .
-
-<https://example.com/policies/3/obligations/1/actions/2/refinements/1> a odrl:Constraint ;
-    odrl:leftOperand odrl:recipient ;
-	odrl:operator odrl:isA ;
-	odrl:rightOperand <http://purl.obolibrary.org/obo/ICO_0000422> . # Patient
-
-<https://example.com/policies/3/obligations/1/actions/2/refinements/2> a odrl:Constraint ;
-    odrl:leftOperand <https://w3id.org/dpv#Context> ; # Context
+<https://example.com/policies/3/obligations/1/actions/2/refinements/1> odrl:leftOperand dpv:Context ; # Context
 	odrl:operator odrl:isA ;
 	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C20200> . # Outcome
 
@@ -165,18 +155,17 @@ _:b8 rdf:first <https://example.com/policies/3/obligations/1/actions/2/refinemen
 # N.B: should be a permission and not an obligation so that we can add a duty (accept to share back bipspecimens with participants).
 <https://example.com/policies/3/obligations/2> dce:subject "clinical_care" ;
 	odrl:target <https://example.com/policies/3/obligations/2/targets/1> ;
-	odrl:action <https://example.com/policies/3/obligations/2/actions/1>, <https://example.com/policies/3/obligations/2/actions/2> ;
-	odrl:constraint <https://example.com/policies/3/obligations/2/constraints/1> .
+	odrl:action <https://example.com/policies/3/obligations/2/actions/1> ;
+	odrl:constraint <https://example.com/policies/3/obligations/2/constraints/1> ;
+	occe:sharedParty <https://example.com/policies/3/obligations/2/sharedParties/1> .
+
+<https://example.com/policies/3/obligations/2/sharedParties/1> a <http://purl.obolibrary.org/obo/ICO_0000422>, odrl:PartyCollection ; # Participant
+	vcard:fn "Patients"^^xsd:string .
 
 <https://example.com/policies/3/obligations/2/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C70699>, odrl:AssetCollection ; # Biospecimen
 	dct:title "Biospecimens"^^xsd:string .
 
-<https://example.com/policies/3/obligations/2/actions/2> rdf:value odrl:share ;
-    odrl:refinement <https://example.com/policies/3/obligations/2/actions/1/refinements/1> .
-
-<https://example.com/policies/3/obligations/2/actions/1/refinements/1> odrl:leftOperand odrl:recipient ;
-    odrl:operator odrl:isA ;
-    odrl:rightOperand <http://purl.obolibrary.org/obo/ICO_0000422> . # Patient
+<https://example.com/policies/3/obligations/2/actions/1> rdf:value odrl:share .
 
 <https://example.com/policies/3/obligations/2/constraints/1> odrl:leftOperand odrl:purpose ;
 	odrl:operator odrl:isA ;
@@ -185,7 +174,16 @@ _:b8 rdf:first <https://example.com/policies/3/obligations/1/actions/2/refinemen
 ## Obligation 3: Use for clinical research purposes, only if patients are informed about the intention of using biospecimens for advance medical knowledge.
 # Translation: 
 <https://example.com/policies/3/obligations/3> dce:subject "clinical_research" ;
-	odrl:action <https://example.com/policies/3/obligations/3/actions/1>, <https://example.com/policies/3/obligations/3/actions/2> .
+	odrl:target <https://example.com/policies/3/obligations/3/targets/1> ;
+	odrl:action <https://example.com/policies/3/obligations/3/actions/1>, <https://example.com/policies/3/obligations/3/actions/2> ;
+	odrl:assigner this:Data_Center_01 ;
+	odrl:informedParty <https://example.com/policies/3/obligations/3/informed/1> .
+
+<https://example.com/policies/3/obligations/3/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
+	dct:title "Patients' data"^^xsd:string .
+
+<https://example.com/policies/3/obligations/3/informed/1> a <http://purl.obolibrary.org/obo/ICO_0000422>, odrl:PartyCollection ;
+	vcard:fn "Patients"^^xsd:string .
 
 <https://example.com/policies/3/obligations/3/actions/1> rdf:value odrl:use ;
 	odrl:refinement <https://example.com/policies/3/obligations/3/actions/1/refinements/1> .
@@ -195,25 +193,11 @@ _:b8 rdf:first <https://example.com/policies/3/obligations/1/actions/2/refinemen
 	odrl:rightOperand <http://purl.obolibrary.org/obo/GSSO_012789> . # Clinical research
 
 <https://example.com/policies/3/obligations/3/actions/2> rdf:value odrl:inform ;
-    odrl:refinement <https://example.com/policies/3/obligations/3/actions/2/refinements> .
+    odrl:refinement <https://example.com/policies/3/obligations/3/actions/2/refinements/1> .
 
-<https://example.com/policies/3/obligations/3/actions/2/refinements> odrl:and _:b9 .
-
-_:b9 rdf:first <https://example.com/policies/3/obligations/3/actions/2/refinements/1> ;
-    rdf:rest _:b10 .
-
-_:b10 rdf:first <https://example.com/policies/3/obligations/3/actions/2/refinements/2> ;
-    rdf:rest rdf:nil .
-
-<https://example.com/policies/3/obligations/3/actions/2/refinements/1> a odrl:Constraint ;
-    odrl:leftOperand <https://w3id.org/dpv#Context> ; # Context
+<https://example.com/policies/3/obligations/3/actions/2/refinements/1> odrl:leftOperand dpv:Context ; # Context
     odrl:operator odrl:isA ;
     odrl:rightOperand <http://purl.obolibrary.org/obo/GENEPIO_0001574> . # Medical knowledge relevance
-
-<https://example.com/policies/3/obligations/3/actions/2/refinements/1> a odrl:Constraint ;
-    odrl:leftOperand odrl:recipient ;
-    odrl:operator odrl:isA ;
-    odrl:rightOperand <http://purl.obolibrary.org/obo/ICO_0000422> . # Patient
 
 ## Obligation 4: Use for collaboration purpose is obligated. Participants are informed about the use of own biological samples. The requestor should send to the biobank a preview of all publications arising from or relating to the use of biospecimen or data, for the correct acknowledgment.
 # Translation: 
@@ -221,7 +205,10 @@ _:b10 rdf:first <https://example.com/policies/3/obligations/3/actions/2/refineme
 	odrl:target <https://example.com/policies/3/obligations/4/targets/1> ;
 	odrl:action <https://example.com/policies/3/obligations/4/actions/1>, <https://example.com/policies/3/obligations/4/actions/2>, <https://example.com/policies/3/obligations/4/actions/3>, <https://example.com/policies/3/obligations/4/actions/4> ;
     odrl:assigner this:Data_Center_01 ;
-    odrl:informedParty <https://example.com/policies/3/obligations/4/informed/1> .
+	odrl:sharedParty this:Data_Center_01 ;
+	odrl:informedParty <https://example.com/policies/3/obligations/4/informed/1> ;
+	odrl:collaboratingParty this:Data_Center_01 ;
+	odrl:acknowledgedParty this:Data_Center_01 .
 
 <https://example.com/policies/3/obligations/4/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C93226>, odrl:AssetCollection ; # Peer-Reviewed Scientific Journal
 	dct:title "Peer-Reviewed Scientific Journal"^^xsd:string .
@@ -234,23 +221,13 @@ _:b10 rdf:first <https://example.com/policies/3/obligations/3/actions/2/refineme
 <https://example.com/policies/3/obligations/4/actions/2> rdf:value odrl:inform ;
 	odrl:refinement <https://example.com/policies/3/obligations/4/actions/2/refinements/1> .
 
-<https://example.com/policies/3/obligations/4/actions/2/refinements/1> odrl:leftOperand <https://w3id.org/dpv#Context> ; # Context
+<https://example.com/policies/3/obligations/4/actions/2/refinements/1> odrl:leftOperand dpv:Context ; # Context
 	odrl:operator odrl:isA ;
 	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C179745> . # Biospecimen handling
 
-<https://example.com/policies/3/obligations/4/actions/3> rdf:value odrl:share ;
-    odrl:refinement <https://example.com/policies/3/obligations/1/actions/3/refinements/1> .
+<https://example.com/policies/3/obligations/4/actions/3> rdf:value odrl:share .
 
-<https://example.com/policies/3/obligations/1/actions/3/refinements/1> odrl:leftOperand odrl:recipient ;
-	odrl:operator odrl:isA ;
-	odrl:rightOperand this:Data_Center_01 .
-
-<https://example.com/policies/3/obligations/4/actions/4> rdf:value cc:Attribution ;
-	odrl:refinement <https://example.com/policies/3/obligations/4/actions/4/refinements/1> .
-
-<https://example.com/policies/3/obligations/4/actions/4/refinements/1> odrl:leftOperand odrl:recipient ;
-    odrl:operator odrl:isA ;
-	odrl:rightOperand this:Data_Center_01 .
+<https://example.com/policies/3/obligations/4/actions/4> rdf:value cc:Attribution .
 
 ## Obligation 5: Participants can choose if samples may be used ONLY for research projects on the participant's disease or for other research projects on other diseases.
 # Translation:
@@ -261,7 +238,7 @@ _:b10 rdf:first <https://example.com/policies/3/obligations/3/actions/2/refineme
 <https://example.com/policies/3/obligations/5/actions/1> rdf:value <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow
 	odrl:refinement <https://example.com/policies/3/obligations/5/actions/1/refinements/1> .
 
-<https://example.com/policies/3/obligations/5/actions/1/refinements/1> odrl:leftOperand <https://w3id.org/dpv#Context> ; # Context
+<https://example.com/policies/3/obligations/5/actions/1/refinements/1> odrl:leftOperand dpv:Context ; # Context
 	odrl:operator odrl:isAnyOf ;
 	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C137943> . # Patients' decision
 
@@ -270,17 +247,13 @@ _:b10 rdf:first <https://example.com/policies/3/obligations/3/actions/2/refineme
 <https://example.com/policies/3/obligations/6> dce:subject "ethics_approval" ;
 	odrl:target <https://example.com/policies/3/obligations/6/targets/1> ;
 	odrl:action <https://example.com/policies/3/obligations/6/actions/1> ;
-	odrl:assigner this:Data_Center_01 .
+	odrl:assigner this:Data_Center_01 ;
+	occe:sharedParty this:Data_Center_01 .
 
 <https://example.com/policies/3/obligations/6/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C70800>, odrl:Asset ;
 	dct:title "Institutional Review Board approval document"^^xsd:string .
 
-<https://example.com/policies/3/obligations/6/actions/1> rdf:value odrl:share ;
-    odrl:refinement <https://example.com/policies/3/obligations/6/actions/1/refinements/1> .
-
-<https://example.com/policies/3/obligations/6/actions/1/refinements/1> odrl:leftOperand odrl:recipient ;
-	odrl:operator odrl:isA ;
-	odrl:rightOperand this:Data_Center_01 .
+<https://example.com/policies/3/obligations/6/actions/1> rdf:value odrl:share .
 
 ## Obligation 7: Our Institution views this as a collaborative research and we consider these fees as a reimbursement for the services provided under this project.
 # Translation:
@@ -305,35 +278,25 @@ _:b10 rdf:first <https://example.com/policies/3/obligations/3/actions/2/refineme
 
 <https://example.com/policies/3/obligations/8/actions/1/refinements/1> odrl:leftOperand dpv:Law ;
 	odrl:operator odrl:isA ;
-	odrl:rightOperand <https://w3c.github.io/dpv/dpv-legal/#EU-GDPR> . # EU-GDPR
+	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR> . # EU-GDPR
 
 ## Obligation 9: The access to the samples is only aimed for research purposes, measurable through the publication for research results. Each biobank that is used to perform a study is mentioned in the Methods section of the publication.
 # Translation: Obligation to use the data only for research purpose and publication purpose. Obligation to mention each biobank in the Methods section of the publication.
 <https://example.com/policies/3/obligations/9> dce:subject "publication" ;
-	odrl:action <https://example.com/policies/3/obligations/9/actions/1>, <https://example.com/policies/3/obligations/9/actions/2>, <https://example.com/policies/3/obligations/9/actions/3> ;
+	odrl:action <https://example.com/policies/3/obligations/9/actions/1>, <https://example.com/policies/3/obligations/9/actions/2> ;
     odrl:constraint <https://example.com/policies/3/obligations/9/constraints/1> ;
-	odrl:assigner this:Data_Center_01 .
+	odrl:assigner this:Data_Center_01 ;
+	occe:acknowledgedParty <https://example.com/policies/3/obligations/9/acknowledgedParties/1> .
+
+<https://example.com/policies/3/obligations/9/acknowledgedParties/1> a <http://purl.obolibrary.org/obo/SCDO_0008688>, odrl:Party ; # Biobank
+	vcard:fn "Biobank"^^xsd:string .
 
 <https://example.com/policies/3/obligations/9/actions/1> rdf:value <http://purl.obolibrary.org/obo/NCIT_C19026> . # Publication
 
 <https://example.com/policies/3/obligations/9/actions/2> rdf:value cc:Attribution ;
-    odrl:refinement <https://example.com/policies/3/obligations/9/actions/2/refinements> .
+    odrl:refinement <https://example.com/policies/3/obligations/9/actions/2/refinements/1>.
 
-<https://example.com/policies/3/obligations/9/actions/2/refinements> odrl:and _:b13 .
-
-_:b13 rdf:first <https://example.com/policies/3/obligations/9/actions/2/refinements/1> ;
-    rdf:rest _:b14 .
-
-_:b14 rdf:first <https://example.com/policies/3/obligations/9/actions/2/refinements/2> ;
-    rdf:rest rdf:nil .
-
-<https://example.com/policies/3/obligations/9/actions/2/refinements/1> a odrl:Constraint ;
-    odrl:leftOperand odrl:recipient ;
-    odrl:operator odrl:isA ;
-    odrl:rightOperand <http://purl.obolibrary.org/obo/SCDO_0008688> . # Biobank
-
-<https://example.com/policies/3/obligations/9/actions/2/refinements/1> a odrl:Constraint ;
-    odrl:leftOperand <http://purl.obolibrary.org/obo/IAO_0000314> ; # Document part
+<https://example.com/policies/3/obligations/9/actions/2/refinements/1> odrl:leftOperand <http://purl.obolibrary.org/obo/IAO_0000314> ; # Document part
     odrl:operator odrl:isA ;
     odrl:rightOperand <http://purl.obolibrary.org/obo/IAO_0000317> . # Methods section
 
@@ -351,12 +314,12 @@ _:b14 rdf:first <https://example.com/policies/3/obligations/9/actions/2/refineme
 <https://example.com/policies/3/obligations/10/actions/1> rdf:value <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow
     odrl:refinement <https://example.com/policies/3/obligations/10/actions/1/refinements/1> .
 
-<https://example.com/policies/3/obligations/10/actions/1/refinements/1> odrl:leftOperand <https://w3id.org/dpv#Context> ; # Context
+<https://example.com/policies/3/obligations/10/actions/1/refinements/1> odrl:leftOperand dpv:Context ; # Context
 	odrl:operator odrl:isA ;
 	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C137943> . # Patient Decision
 
 <https://example.com/policies/3/obligations/10/constraints/1> odrl:leftOperand odrl:purpose ;
-    odrl:leftOperand odrl:isA ;
+    odrl:operator odrl:isA ;
     odrl:rightOperand <http://purl.obolibrary.org/obo/T4FS_0000106> . # Publish data
 
 ## Obligation 11: GDPR UE 2016/679
@@ -378,18 +341,16 @@ _:b14 rdf:first <https://example.com/policies/3/obligations/9/actions/2/refineme
 	odrl:target <https://example.com/policies/3/obligations/12/targets/1> ;
 	odrl:action <https://example.com/policies/3/obligations/12/actions/1> ;
 	odrl:constraint <https://example.com/policies/3/obligations/12/constraints/1> ;
-	odrl:assigner this:Data_Center_01 .
+	odrl:assigner this:Data_Center_01 ;
+	occe:sharedParty <https://example.com/policies/3/obligations/12/sharedParties/1> .
+
+<https://example.com/policies/3/obligations/12/sharedParties/1> a <http://purl.obolibrary.org/obo/ICO_0000422>, odrl:PartyCollection ; # Patients
+	vcard:fn "Patients"^^xsd:string .
 
 <https://example.com/policies/3/obligations/12/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C70699>, odrl:AssetCollection ; # Biospecimen
 	dct:title "Biospecimens"^^xsd:string .
 
-<https://example.com/policies/3/obligations/12/actions/1> rdf:value odrl:share ;
-    odrl:refinement <https://example.com/policies/3/obligations/12/actions/1/refinements/1> .
-
-<https://example.com/policies/3/obligations/12/actions/1/refinements/1> a odrl:Constraint ;
-    odrl:leftOperand odrl:recipient ;
-    odrl:operator odrl:isA ;
-    odrl:rightOperand <http://purl.obolibrary.org/obo/ICO_0000422> . # Patient
+<https://example.com/policies/3/obligations/12/actions/1> rdf:value odrl:share .
 
 <https://example.com/policies/3/obligations/12/constraints/1> odrl:leftOperand odrl:purpose ;
 	odrl:operator odrl:isA ;
@@ -401,18 +362,13 @@ _:b14 rdf:first <https://example.com/policies/3/obligations/9/actions/2/refineme
 <https://example.com/policies/3/obligations/13> dce:subject "return_of_incidental_findings" ;
 	odrl:target <https://example.com/policies/3/obligations/13/targets/1> ;
 	odrl:action <https://example.com/policies/3/obligations/13/actions/1>, <https://example.com/policies/3/obligations/13/actions/2> ;
-	odrl:assigner this:Data_Center_01 .
+	odrl:assigner this:Data_Center_01 ;
+	occe:sharedParty this:Data_Center_01 .
 
 <https://example.com/policies/3/obligations/13/targets/1> a <http://purl.obolibrary.org/obo/OMIT_0022412>, odrl:AssetCollection ; # Incidental Findings
 	dct:title "Incidental Findings"^^xsd:string .
 
-<https://example.com/policies/3/obligations/13/actions/2> rdf:value odrl:share ;
-	odrl:refinement <https://example.com/policies/3/obligations/13/actions/2/refinements/1> .
-
-<https://example.com/policies/3/obligations/13/actions/2/refinements/1> a odrl:Constraint ;
-	odrl:leftOperand odrl:recipient ;
-	odrl:operator odrl:isA ;
-	odrl:rightOperand this:Data_Center_01 .
+<https://example.com/policies/3/obligations/13/actions/2> rdf:value odrl:share .
 
 ## Obligation 14: Health and wellness of the participant (and his/her family) shall be safeguarded.
 # Translation:
@@ -420,18 +376,13 @@ _:b14 rdf:first <https://example.com/policies/3/obligations/9/actions/2/refineme
 <https://example.com/policies/3/obligations/14> dce:subject "return_of_results" ;
 	odrl:target <https://example.com/policies/3/obligations/14/targets/1> ;
 	odrl:action <https://example.com/policies/3/obligations/14/actions/1> ;
-	odrl:assigner this:Data_Center_01 .
+	odrl:assigner this:Data_Center_01 ;
+	occe:sharedParty this:Data_Center_01 .
 
 <https://example.com/policies/3/obligations/14/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C20200>, odrl:AssetCollection ; # Outcome
 	dct:title "Results"^^xsd:string .
 
-<https://example.com/policies/3/obligations/14/actions/2> rdf:value odrl:share ;
-	odrl:refinement <https://example.com/policies/3/obligations/14/actions/1/refinements/1> .
-
-<https://example.com/policies/3/obligations/14/actions/1/refinements/1> a odrl:Constraint ;
-	odrl:leftOperand odrl:recipient ;
-	odrl:operator odrl:isA ;
-	odrl:rightOperand this:Data_Center_01 .
+<https://example.com/policies/3/obligations/14/actions/1> rdf:value odrl:share .
 
 ## Obligation 15: Health and wellness of the participant (and his/her family) shall be safeguarded.
 # Translation:
@@ -455,6 +406,6 @@ _:b14 rdf:first <https://example.com/policies/3/obligations/9/actions/2/refineme
 <https://example.com/policies/3/obligations/16/actions/1> rdf:value <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow (adhere to)
     odrl:refinement <https://example.com/policies/3/obligations/16/actions/1/refinements/1> .
 
-<https://example.com/policies/3/obligations/16/actions/1/refinements/1> odrl:leftOperand <https://w3id.org/dpv#Context> ; # Context
+<https://example.com/policies/3/obligations/16/actions/1/refinements/1> odrl:leftOperand dpv:Context ; # Context
 	odrl:operator odrl:isA ;
 	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C16735> . # Informed consent
