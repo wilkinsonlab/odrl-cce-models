@@ -147,7 +147,6 @@
 <https://example.com/policies/2/permissions/8> dce:subject "return_of_incidental_findings" ;
 	odrl:target <https://example.com/policies/2/permissions/8/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/8/actions/1> ;
-    odrl:constraint <https://example.com/policies/2/permissions/8/constraints/1> ;
 	odrl:assigner this:Data_Center_01 ;
 	occe:sharedParty this:Data_Center_01 .
 
@@ -188,7 +187,6 @@
 <https://example.com/policies/2/permissions/10> dce:subject "use_by_commercial_entity" ;
     odrl:target <https://example.com/policies/2/permissions/10/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/10/actions/1> ;
-	odrl:duty <https://example.com/policies/2/permissions/10/duties/1> ;
 	odrl:assigner this:Data_Center_01 .
 
 <https://example.com/policies/2/permissions/10/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:Asset ; # Data
