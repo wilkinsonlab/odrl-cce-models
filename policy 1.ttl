@@ -86,7 +86,7 @@
 
 ## Permission 3: use for research purposes, including research to improve diagnosis and treatment, in the field of the disease for which the biological materials have been biobanked. Specific authorisation in the informed consent is mandatory.
 # Translation: Permission to use patients data for research purposes in the field of the disease. Consent must be obtained before using the data.
-<https://example.com/policies/1/permissions/3> dce:subject "clinical_research" ;
+<https://example.com/policies/1/permissions/3> dce:subject "clinical_research_use" ;
 	odrl:target <https://example.com/policies/1/permissions/3/targets/1> ;
 	odrl:action <https://example.com/policies/1/permissions/3/actions/1> ;
 	odrl:duty <https://example.com/policies/1/permissions/3/duties/1> ;

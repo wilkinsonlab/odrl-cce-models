@@ -173,7 +173,7 @@
 
 ## Obligation 3: Use for clinical research purposes, only if patients are informed about the intention of using biospecimens for advance medical knowledge.
 # Translation: 
-<https://example.com/policies/3/obligations/3> dce:subject "clinical_research" ;
+<https://example.com/policies/3/obligations/3> dce:subject "clinical_research_use" ;
 	odrl:target <https://example.com/policies/3/obligations/3/targets/1> ;
 	odrl:action <https://example.com/policies/3/obligations/3/actions/1>, <https://example.com/policies/3/obligations/3/actions/2> ;
 	odrl:assigner this:Data_Center_01 ;

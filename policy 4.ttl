@@ -24,7 +24,7 @@
 
 ## Permission 1:
 # Translation:
-<https://example.com/policies/4/permissions/1> dce:subject "clinical_research" ;
+<https://example.com/policies/4/permissions/1> dce:subject "clinical_research_use" ;
 	odrl:target <https://example.com/policies/4/permissions/1/targets/1> ;
 	odrl:action <https://example.com/policies/4/permissions/1/actions/1> ;
 	odrl:assigner this:Data_Center_01 .

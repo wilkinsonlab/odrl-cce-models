@@ -54,7 +54,7 @@
     odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0017431> . # Negotiating
 
 ## Permission 3: Uses to be discussed individually.
-<https://example.com/policies/2/permissions/3> dce:subject "clinical_research" ;
+<https://example.com/policies/2/permissions/3> dce:subject "clinical_research_use" ;
 	odrl:target <https://example.com/policies/2/permissions/3/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/3/actions/1> ;
 	odrl:constraint <https://example.com/policies/2/permissions/3/constraints/1> ;
