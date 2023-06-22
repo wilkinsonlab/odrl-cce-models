@@ -41,7 +41,7 @@
 <https://example.com/policies/2/permissions/2> dce:subject "clinical_care" ;
 	odrl:target <https://example.com/policies/2/permissions/2/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/2/actions/1> ;
-	odrl:constraint <https://example.com/policies/2/permissions/2/constraints/1> ;
+	odrl:duty <https://example.com/policies/2/permissions/2/duties/1> ;
 	odrl:assigner this:Data_Center_01 .
 
 <https://example.com/policies/2/permissions/2/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
@@ -49,15 +49,16 @@
 
 <https://example.com/policies/2/permissions/2/actions/1> rdf:value odrl:use .
 
-<https://example.com/policies/2/permissions/2/constraints/1> odrl:leftOperand odrl:purpose ;
-    odrl:operator odrl:isA ;
-    odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0017431> . # Negotiating
+<https://example.com/policies/2/permissions/2/duties/1> odrl:action <https://example.com/policies/2/permissions/2/duties/1/actions/1> ;
+	occe:negotiatedParty this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/2/duties/1/actions/1> rdf:value occe:negotiate .
 
 ## Permission 3: Uses to be discussed individually.
 <https://example.com/policies/2/permissions/3> dce:subject "clinical_research_use" ;
 	odrl:target <https://example.com/policies/2/permissions/3/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/3/actions/1> ;
-	odrl:constraint <https://example.com/policies/2/permissions/3/constraints/1> ;
+	odrl:duty <https://example.com/policies/2/permissions/3/duties/1> ;
 	odrl:assigner this:Data_Center_01 .
 
 <https://example.com/policies/2/permissions/3/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
@@ -65,21 +66,31 @@
 
 <https://example.com/policies/2/permissions/3/actions/1> rdf:value odrl:use .
 
-<https://example.com/policies/2/permissions/3/constraints/1> odrl:leftOperand odrl:purpose ;
-    odrl:operator odrl:isA ;
-    odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0017431> . # Negotiating
+<https://example.com/policies/2/permissions/3/duties/1> odrl:action <https://example.com/policies/2/permissions/3/duties/1/actions/1> ;
+	occe:negotiatedParty this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/3/duties/1/actions/1> rdf:value occe:negotiate .
 
 ## Permission 4
 <https://example.com/policies/2/permissions/4> dce:subject "collaboration" ;
 	odrl:target <https://example.com/policies/2/permissions/4/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/4/actions/1> ;
 	odrl:assigner this:Data_Center_01 ;
-	occe:sharedParty this:Data_Center_01 .
+	odrl:duty <https://example.com/policies/2/permissions/4/duties/1> .
 
-<https://example.com/policies/2/permissions/4/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
+<https://example.com/policies/2/permissions/4/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C20200>, odrl:AssetCollection ; # Data
 	dct:title "Patients' data"^^xsd:string .
 
-<https://example.com/policies/2/permissions/4/actions/1> rdf:value odrl:share .
+<https://example.com/policies/2/permissions/4/actions/1> rdf:value odrl:use .
+
+<https://example.com/policies/2/permissions/4/duties/1> odrl:target <https://example.com/policies/2/permissions/4/duties/1/targets/1> ;
+	odrl:action <https://example.com/policies/2/permissions/4/duties/1/actions/1> ;
+	occe:sharedParty this:Data_Center_01 .
+
+<https://example.com/policies/2/permissions/4/duties/1/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C20200>, odrl:AssetCollection ; # Outcome
+	dct:title "Results"^^xsd:string .
+
+<https://example.com/policies/2/permissions/4/duties/1/actions/1> rdf:value odrl:share .
 
 ## Permission 5: Relating to kidney diseases.
 <https://example.com/policies/2/permissions/5> dce:subject "disease_specific_use" ;
@@ -110,8 +121,11 @@
 
 <https://example.com/policies/2/permissions/6/actions/1> rdf:value cc:CommercialUse .
 
-<https://example.com/policies/2/permissions/6/duties/1> odrl:action <http://purl.obolibrary.org/obo/OMIT_0017431> ; # Negotiating
+<https://example.com/policies/2/permissions/6/duties/1> odrl:action <https://example.com/policies/2/permissions/6/duties/1/actions/1> ;
+	occe:negotiatedParty this:Data_Center_01 ;
 	odrl:constraint <https://example.com/policies/2/permissions/6/duties/1/constraints/1> .
+
+<https://example.com/policies/2/permissions/6/duties/1/actions/1> rdf:value occe:negotiate .
 
 <https://example.com/policies/2/permissions/6/duties/1/constraints/1> odrl:leftOperand odrl:event ;
     odrl:operator odrl:lt ;
@@ -135,8 +149,11 @@
 	odrl:operator odrl:isA ;
 	odrl:rightOperand <http://purl.obolibrary.org/obo/DUO_0000042> . # General research use
 
-<https://example.com/policies/2/permissions/7/duties/1> odrl:action <http://purl.obolibrary.org/obo/OMIT_0017431> ; # Negotiating
+<https://example.com/policies/2/permissions/7/duties/1> odrl:action <https://example.com/policies/2/permissions/7/duties/1/actions/1> ;
+	occe:negotiatedParty this:Data_Center_01 ;
 	odrl:constraint <https://example.com/policies/2/permissions/7/duties/1/constraints/1> .
+
+<https://example.com/policies/2/permissions/7/duties/1/actions/1> rdf:value occe:negotiate .
 
 <https://example.com/policies/2/permissions/7/duties/1/constraints/1> odrl:leftOperand odrl:event ;
     odrl:operator odrl:lt ;
@@ -160,13 +177,6 @@
     odrl:operator odrl:isA ;
     odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0022412> . # Incidental findings
 
-<https://example.com/policies/2/permissions/8/duties/1> odrl:action <http://purl.obolibrary.org/obo/OMIT_0017431> ; # Negotiating
-	odrl:constraint <https://example.com/policies/2/permissions/8/duties/1/constraints/1> .
-
-<https://example.com/policies/2/permissions/8/duties/1/constraints/1> odrl:leftOperand odrl:event ;
-    odrl:operator odrl:lt ;
-    odrl:rightOperand odrl:policyUsage .
-
 ## Permission 9:
 <https://example.com/policies/2/permissions/9> dce:subject "use_as_control" ;
     odrl:target <https://example.com/policies/2/permissions/8/targets/1> ;
@@ -176,12 +186,7 @@
 <https://example.com/policies/2/permissions/9/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
 	dct:title "Patients' data"^^xsd:string .
 
-<https://example.com/policies/2/permissions/9/actions/1> rdf:value odrl:use ;
-	odrl:refinement <https://example.com/policies/2/permissions/9/actions/1/refinements/1> .
-
-<https://example.com/policies/2/permissions/9/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
-	odrl:operator odrl:isA ;
-	odrl:rightOperand <http://purl.obolibrary.org/obo/GENO_0000152> . # Reference
+<https://example.com/policies/2/permissions/9/actions/1> rdf:value occe:useAsReference .
 
 ## Permission 10:
 <https://example.com/policies/2/permissions/10> dce:subject "use_by_commercial_entity" ;
@@ -260,8 +265,13 @@
 <https://example.com/policies/2/obligations/4/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
 	dct:title "Patients' data"^^xsd:string .
 
-<https://example.com/policies/2/obligations/4/actions/1> rdf:value odrl:use .
+<https://example.com/policies/2/obligations/4/actions/1> rdf:value odrl:use ;
+	odrl:refinement <https://example.com/policies/2/obligations/4/actions/1/refinements/1> .
 
-<https://example.com/policies/2/obligations/4/constraints/1> odrl:leftOperand odrl:meteredTime ;
+<https://example.com/policies/2/obligations/4/actions/1/refinements/1> odrl:leftOperand occe:duration ;
 	odrl:operator odrl:lteq ;
 	odrl:rightOperand "P1Y"^^xsd:duration .
+
+<https://example.com/policies/2/obligations/4/constraints/1> odrl:leftOperand odrl:event ;
+	odrl:operator odrl:gt ;
+	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C25369> . # Agreement

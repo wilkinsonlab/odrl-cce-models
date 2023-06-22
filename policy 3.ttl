@@ -208,7 +208,7 @@
 	odrl:sharedParty this:Data_Center_01 ;
 	odrl:informedParty <https://example.com/policies/3/obligations/4/informed/1> ;
 	odrl:collaboratingParty this:Data_Center_01 ;
-	odrl:acknowledgedParty this:Data_Center_01 .
+	occe:acknowledgedParty this:Data_Center_01 .
 
 <https://example.com/policies/3/obligations/4/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C93226>, odrl:AssetCollection ; # Peer-Reviewed Scientific Journal
 	dct:title "Peer-Reviewed Scientific Journal"^^xsd:string .

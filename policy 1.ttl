@@ -142,12 +142,12 @@
 <https://example.com/policies/1/permissions/5/actions/1> rdf:value odrl:use .
 
 <https://example.com/policies/1/permissions/5/duties/1> odrl:action <https://example.com/policies/1/permissions/5/duties/1/actions/1> ;
-	odrl:consentingParty this:Data_Center_01 .
+	odrl:consentingParty this:Data_Center_01 ;
+	odrl:constraint <https://example.com/policies/1/permissions/5/duties/1/constraints/1> .
 
-<https://example.com/policies/1/permissions/5/duties/1/actions/1> rdf:value odrl:obtainConsent ;
-	odrl:refinement <https://example.com/policies/1/permissions/5/duties/1/actions/1/refinements/1> .
+<https://example.com/policies/1/permissions/5/duties/1/actions/1> rdf:value odrl:obtainConsent .
 
-<https://example.com/policies/1/permissions/5/duties/1/actions/1/refinements/1> odrl:leftOperand dpv:Law ;
+<https://example.com/policies/1/permissions/5/duties/1/constraints/1> odrl:leftOperand dpv:Law ;
 	odrl:operator odrl:isNoneOf ;
 	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR> . # EU-GDPR
 
@@ -182,12 +182,7 @@
 <https://example.com/policies/1/permissions/7/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
 	dct:title "Patients' data"^^xsd:string .
 
-<https://example.com/policies/1/permissions/7/actions/1> rdf:value odrl:use ;
-	odrl:refinement <https://example.com/policies/1/permissions/7/actions/1/refinements/1> .
-
-<https://example.com/policies/1/permissions/7/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
-	odrl:operator odrl:isA ;
-	odrl:rightOperand <http://purl.obolibrary.org/obo/GENO_0000152> . # Reference
+<https://example.com/policies/1/permissions/7/actions/1> rdf:value occe:useAsReference .
 
 <https://example.com/policies/1/permissions/7/constraints/1> odrl:leftOperand odrl:purpose ;
 	odrl:operator odrl:isA ;
@@ -244,8 +239,12 @@
 ## Obligation 1: Relating to the field of the disease for which the biological materials have been biobanked.
 # Translation: Obligation to use data only for disease for which the biological materials have been biobanked.
 <https://example.com/policies/1/obligations/1> dce:subject "disease_specific_use" ;
+	odrl:target <https://example.com/policies/1/obligations/1/targets/1> ;
 	odrl:action <https://example.com/policies/1/obligations/1/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
+
+<https://example.com/policies/1/obligations/1/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
+	dct:title "Patients' data"^^xsd:string .
 
 <https://example.com/policies/1/obligations/1/actions/1> rdf:value odrl:use ;
 	odrl:refinement <https://example.com/policies/1/obligations/1/actions/1/refinements/1> .
@@ -280,25 +279,26 @@
 
 ## Obligation 4 : The recipient agrees to make available to the resource the paper reprint (or pdf format) in case of publication. The recipients is asked to acknowledge the biobank in their publication.
 <https://example.com/policies/1/obligations/4> dce:subject "publication" ;
+	odrl:target <https://example.com/policies/1/obligations/4/targets/1>, <https://example.com/policies/1/obligations/4/targets/2> ;
 	odrl:action <https://example.com/policies/1/obligations/4/actions/1>, <https://example.com/policies/1/obligations/4/actions/2>, <https://example.com/policies/1/obligations/4/actions/3> ;
 	odrl:constraint <https://example.com/policies/1/obligations/4/constraints/1> ;
-	odrl:assigner this:Data_Center_01 .
+	odrl:assigner this:Data_Center_01 ;
+	occe:acknowledgedParty <https://example.com/policies/1/obligations/4/acknowledgedParties/1> .
+
+<https://example.com/policies/1/obligations/4/targets/1> a <http://purl.org/dc/terms/PhysicalMedium>, odrl:Asset ; # Physical Medium
+	dct:title "Paper reprint"^^xsd:string .
+
+<https://example.com/policies/1/obligations/4/targets/2> a <http://purl.org/dc/terms/FileFormat>, odrl:Asset ; # File format
+	dct:title "PDF"^^xsd:string .
+
+<https://example.com/policies/1/obligations/4/acknowledgedParties/1> a <http://edamontology.org/topic_3337>, odrl:Party ; # Biobank
+	vcard:fn "Biobank"^^xsd:string .
 
 <https://example.com/policies/1/obligations/4/actions/1> rdf:value <http://purl.obolibrary.org/obo/NCIT_C19026> . # Publication
 
-<https://example.com/policies/1/obligations/4/actions/2> rdf:value cc:Attribution ;
-	odrl:refinement <https://example.com/policies/1/obligations/4/actions/2/refinements/1> .
+<https://example.com/policies/1/obligations/4/actions/2> rdf:value cc:Attribution .
 
-<https://example.com/policies/1/obligations/4/actions/2/refinements/1> odrl:leftOperand odrl:recipient ;
-	odrl:operator odrl:isA ;
-	odrl:rightOperand <http://edamontology.org/topic_3337> . # Biobank
-
-<https://example.com/policies/1/obligations/4/actions/3> rdf:value odrl:share ;
-	odrl:refinement <https://example.com/policies/1/obligations/4/actions/3/refinements/1> .
-
-<https://example.com/policies/1/obligations/4/actions/3/refinements/1> odrl:leftOperand dpv:Context ;
-	odrl:operator odrl:isAnyOf ;
-	odrl:rightOperand <http://purl.org/dc/terms/PhysicalMedium>, <http://edamontology.org/format_3508> . # Paper / PDF
+<https://example.com/policies/1/obligations/4/actions/3> rdf:value odrl:share .
 
 <https://example.com/policies/1/obligations/4/constraints/1> odrl:leftOperand odrl:event ;
 	odrl:operator odrl:gteq ;
@@ -355,11 +355,9 @@
 # Translation: 1) Obligation to register. 2) Obligation to request biospecimens through the website.
 <https://example.com/policies/1/obligations/8> dce:subject "user_authentication" ;
 	odrl:action <https://example.com/policies/1/obligations/8/actions/1>, <https://example.com/policies/1/obligations/8/actions/2> ;
-	odrl:assigner this:Data_Center_01 ;
-	odrl:consentingParty this:Data_Center_01 .
+	odrl:assigner this:Data_Center_01 .
 
-<https://example.com/policies/1/obligations/8/actions/1> rdf:value <http://schema.org/RegisterAction> ; # Register Action
-	odrl:refinement <https://example.com/policies/1/obligations/8/actions/1/refinements/1> .
+<https://example.com/policies/1/obligations/8/actions/1> rdf:value <http://schema.org/RegisterAction> . # Register Action
 
 <https://example.com/policies/1/obligations/8/actions/2> rdf:value <http://purl.obolibrary.org/obo/NCIT_C97566> ; # Fill out form
 	odrl:refinement <https://example.com/policies/1/obligations/8/actions/1/refinements/1> .
