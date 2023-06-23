@@ -148,6 +148,7 @@
 <https://example.com/policies/3/obligations/2> dce:subject "clinical_care" ;
 	odrl:target <https://example.com/policies/3/obligations/2/targets/1> ;
 	odrl:action <https://example.com/policies/3/obligations/2/actions/1> ;
+	odrl:assigner this:Data_Center_01 ;
 	odrl:constraint <https://example.com/policies/3/obligations/2/constraints/1> ;
 	occe:sharedParty <https://example.com/policies/3/obligations/2/sharedParties/1> .
 

@@ -228,15 +228,15 @@
 
 ## Obligation 2: Use of data is only allowed where EU General Data Protection Regulation applies.
 <https://example.com/policies/2/obligations/2> dce:subject "regulatory_jurisdiction" ;
-    odrl:target <https://example.com/policies/2/obligations/2/targets/1> ;
 	odrl:action <https://example.com/policies/2/obligations/2/actions/1> ;
-	odrl:assigner this:Data_Center_01 ;
-    dct:coverage <https://w3id.org/dpv/dpv-legal#EU-GDPR> . # EU-GDPR
+	odrl:assigner this:Data_Center_01 .
 
-<https://example.com/policies/2/obligations/2/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
-	dct:title "Patients' data"^^xsd:string .
+<https://example.com/policies/2/obligations/2/actions/1> rdf:value <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow (adhere to)
+    odrl:refinement <https://example.com/policies/2/obligations/2/actions/1/refinements/1> .
 
-<https://example.com/policies/2/obligations/2/actions/1> rdf:value odrl:use .
+<https://example.com/policies/2/obligations/2/actions/1/refinements/1> odrl:leftOperand dpv:Context ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR> . # EU-GDPR
 
 ## Obligation 3: Areas that overlap with the uses from the supplying institution.
 <https://example.com/policies/2/obligations/3> dce:subject "return_of_results" ;

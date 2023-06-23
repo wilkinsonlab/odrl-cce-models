@@ -50,11 +50,11 @@
 	dct:title "Patients' data"^^xsd:string .
 
 <https://example.com/policies/4/permissions/2/actions/1> rdf:value odrl:use ;
-	odrl:refinement <https://example.com/policies/4/permissions/1/actions/1/refinements/1> .
+	odrl:refinement <https://example.com/policies/4/permissions/2/actions/1/refinements/1> .
 
 <https://example.com/policies/4/permissions/2/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
 	odrl:operator odrl:isAnyOf ;
-	odrl:rightOperand <http://purl.obolibrary.org/obo/DUO_0000043>, <http://purl.obolibrary.org/obo/DUO_0000042> . # Clinical care use / General research use
+	odrl:rightOperand <http://purl.obolibrary.org/obo/DUO_0000043>, <http://purl.obolibrary.org/obo/DUO_0000007> . # Clinical care use / Disease specific research
 
 ## Permission 3: The Recipient Scientist must restitute the results to IPGB to allow the interpretation focused on Incontinentia pigmenti disease.
 # Translation:
@@ -67,12 +67,7 @@
 <https://example.com/policies/4/permissions/3/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
 	dct:title "Patients' data"^^xsd:string .
 
-<https://example.com/policies/4/permissions/3/actions/1> rdf:value odrl:use ;
-	odrl:refinement <https://example.com/policies/4/permissions/3/actions/1/refinements/1> .
-
-<https://example.com/policies/4/permissions/3/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
-	odrl:operator odrl:isA ;
-	odrl:rightOperand <http://purl.obolibrary.org/obo/GENO_0000152> . # Reference
+<https://example.com/policies/4/permissions/3/actions/1> rdf:value occe:useAsReference .
 
 <https://example.com/policies/4/permissions/3/duties/1> odrl:target <https://example.com/policies/4/permissions/3/duties/1/targets/1> ;
 	odrl:action <https://example.com/policies/4/permissions/3/duties/1/actions/1> ;
@@ -102,14 +97,14 @@
 	odrl:refinement <https://example.com/policies/4/prohibitions/1/actions/1/refinements/1> .
 
 <https://example.com/policies/4/prohibitions/1/actions/1/refinements/1> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C25548> ; # Involvment
-	odrl:operator odrl:isA ;
+	odrl:operator odrl:isNoneOf ;
 	odrl:rightOperand this:Data_Center_01 .
 
 ## Prohibition 2: The Recipient Scientist agrees to use this Material solely for application in the non-commercial research. Its distribution is limited to scientists at non-profit institutions solely for use in their own research.
 # Translation:
 <https://example.com/policies/4/prohibitions/2> dce:subject "profit_motivated_use" ;
 	odrl:target <https://example.com/policies/4/prohibitions/2/targets/1> ;
-	odrl:action <https://example.com/policies/4/prohibitions/1/actions/1> ;
+	odrl:action <https://example.com/policies/4/prohibitions/2/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
 
 <https://example.com/policies/4/prohibitions/2/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
@@ -136,6 +131,7 @@
 <https://example.com/policies/4/obligations/1> dce:subject "reidentification_of_individuals_with_irp" ;
 	odrl:target <https://example.com/policies/1/obligations/1/targets/1> ;
 	odrl:action <https://example.com/policies/1/obligations/1/actions/1> ;
+	odrl:constraint <https://example.com/policies/1/obligations/1/constraints/1> ;
 	odrl:assigner this:Data_Center_01 .
 
 <https://example.com/policies/1/obligations/1/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
@@ -151,9 +147,9 @@
 
 <https://example.com/policies/1/obligations/1/actions/1/refinements/1> odrl:leftOperand odrl:purpose ;
     odrl:operator odrl:isAnyOf ;
-    odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C82652>, <http://purl.obolibrary.org/obo/OMIT_0022412> . # Feedback / Incidental findings
+    odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C20200>, <http://purl.obolibrary.org/obo/OMIT_0022412> . # Outcome / Incidental findings
 
-<https://example.com/policies/1/obligations/1/refinements/1> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow 
+<https://example.com/policies/1/obligations/1/constraints/1> odrl:leftOperand <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow 
 	odrl:operator odrl:isA ;
 	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR> . # GDPR
 
@@ -248,15 +244,15 @@
 ## Obligation 8: Italy.
 # Translation:
 <https://example.com/policies/4/obligations/8> dce:subject "regulatory_jurisdiction" ;
-	odrl:target <https://example.com/policies/1/obligations/8/targets/1> ;
 	odrl:action <https://example.com/policies/4/obligations/8/actions/1> ;
-	odrl:assigner this:Data_Center_01 ;
-	dct:coverage <https://w3id.org/dpv/dpv-legal#IT> . # Italy
+	odrl:assigner this:Data_Center_01 .
 
-<https://example.com/policies/1/obligations/8/targets/1> a <http://purl.obolibrary.org/obo/NCIT_C25474>, odrl:AssetCollection ; # Data
-	dct:title "Patients' data"^^xsd:string .
+<https://example.com/policies/4/obligations/8/actions/1> rdf:value <http://purl.obolibrary.org/obo/NCIT_C64950> ; # Follow (adhere to)
+    odrl:refinement <https://example.com/policies/4/obligations/8/actions/1/refinements/1> .
 
-<https://example.com/policies/4/obligations/8/actions/1> rdf:value odrl:use .
+<https://example.com/policies/4/obligations/8/actions/1/refinements/1> odrl:leftOperand dpv:Context ;
+	odrl:operator odrl:isA ;
+	odrl:rightOperand "Italian jurisdiction" . # <https://w3id.org/dpv/dpv-legal#IT>
 
 ## Obligation 9: The investigation must be carried out only in the context of medical and scientific research projects approved by an Ethics Committee.
 # Translation:
