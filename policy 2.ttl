@@ -8,7 +8,6 @@
 @prefix dpv: <https://w3id.org/dpv#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix dce: <http://purl.org/dc/elements/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix this: <https://example.com/> .
@@ -22,7 +21,7 @@
 # Permissions
 
 ## Permission 1
-<https://example.com/policies/2/permissions/1> dce:subject "reidentification_of_individuals_with_irp" ;
+<https://example.com/policies/2/permissions/1> dct:subject "reidentification_of_individuals_with_irp" ;
     odrl:target <https://example.com/policies/2/permissions/1/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/1/actions/1> ;
     odrl:assigner this:Data_Center_01 .
@@ -38,7 +37,7 @@
 	odrl:rightOperand this:Data_Center_01 .
 
 ## Permission 2: Uses to be discussed individually.
-<https://example.com/policies/2/permissions/2> dce:subject "clinical_care" ;
+<https://example.com/policies/2/permissions/2> dct:subject "clinical_care" ;
 	odrl:target <https://example.com/policies/2/permissions/2/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/2/actions/1> ;
 	odrl:duty <https://example.com/policies/2/permissions/2/duties/1> ;
@@ -55,7 +54,7 @@
 <https://example.com/policies/2/permissions/2/duties/1/actions/1> rdf:value occe:negotiate .
 
 ## Permission 3: Uses to be discussed individually.
-<https://example.com/policies/2/permissions/3> dce:subject "clinical_research_use" ;
+<https://example.com/policies/2/permissions/3> dct:subject "clinical_research_use" ;
 	odrl:target <https://example.com/policies/2/permissions/3/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/3/actions/1> ;
 	odrl:duty <https://example.com/policies/2/permissions/3/duties/1> ;
@@ -72,7 +71,7 @@
 <https://example.com/policies/2/permissions/3/duties/1/actions/1> rdf:value occe:negotiate .
 
 ## Permission 4
-<https://example.com/policies/2/permissions/4> dce:subject "collaboration" ;
+<https://example.com/policies/2/permissions/4> dct:subject "collaboration" ;
 	odrl:target <https://example.com/policies/2/permissions/4/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/4/actions/1> ;
 	odrl:assigner this:Data_Center_01 ;
@@ -93,7 +92,7 @@
 <https://example.com/policies/2/permissions/4/duties/1/actions/1> rdf:value odrl:share .
 
 ## Permission 5: Relating to kidney diseases.
-<https://example.com/policies/2/permissions/5> dce:subject "disease_specific_use" ;
+<https://example.com/policies/2/permissions/5> dct:subject "disease_specific_use" ;
 	odrl:target <https://example.com/policies/2/permissions/5/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/5/actions/1> ;
 	odrl:constraint <https://example.com/policies/2/permissions/5/constraints/1> ;
@@ -110,7 +109,7 @@
 
 ## Permission 6: Uses to be discussed individually.
 # Translation: Permission to use the data for profit purpose. Obligation to negotiate before using the data.
-<https://example.com/policies/2/permissions/6> dce:subject "profit_motivated_use" ;
+<https://example.com/policies/2/permissions/6> dct:subject "profit_motivated_use" ;
 	odrl:target <https://example.com/policies/2/permissions/6/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/6/actions/1> ;
     odrl:duty <https://example.com/policies/2/permissions/6/duties/1> ;
@@ -133,7 +132,7 @@
 
 ## Permission 7: Uses to be discussed individually.
 # Translation: Permission to use the data for research purpose. Obligation to negotiate before using the data.
-<https://example.com/policies/2/permissions/7> dce:subject "research_use" ;
+<https://example.com/policies/2/permissions/7> dct:subject "research_use" ;
 	odrl:target <https://example.com/policies/2/permissions/7/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/7/actions/1> ;
     odrl:duty <https://example.com/policies/2/permissions/7/duties/1> ;
@@ -161,7 +160,7 @@
 
 ## Permission 8: Uses to be discussed individually.
 # Translation: Permission to share incidental findings. Obligation to negotiate before using the data.
-<https://example.com/policies/2/permissions/8> dce:subject "return_of_incidental_findings" ;
+<https://example.com/policies/2/permissions/8> dct:subject "return_of_incidental_findings" ;
 	odrl:target <https://example.com/policies/2/permissions/8/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/8/actions/1> ;
 	odrl:assigner this:Data_Center_01 ;
@@ -178,7 +177,7 @@
     odrl:rightOperand <http://purl.obolibrary.org/obo/OMIT_0022412> . # Incidental findings
 
 ## Permission 9:
-<https://example.com/policies/2/permissions/9> dce:subject "use_as_control" ;
+<https://example.com/policies/2/permissions/9> dct:subject "use_as_control" ;
     odrl:target <https://example.com/policies/2/permissions/8/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/9/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -189,7 +188,7 @@
 <https://example.com/policies/2/permissions/9/actions/1> rdf:value occe:useAsReference .
 
 ## Permission 10:
-<https://example.com/policies/2/permissions/10> dce:subject "use_by_commercial_entity" ;
+<https://example.com/policies/2/permissions/10> dct:subject "use_by_commercial_entity" ;
     odrl:target <https://example.com/policies/2/permissions/10/targets/1> ;
 	odrl:action <https://example.com/policies/2/permissions/10/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -202,7 +201,7 @@
 # Prohibitions
 
 ## Prohibition 1:
-<https://example.com/policies/2/prohibitions/1> dce:subject "reidentification_of_individuals_without_irp" ;
+<https://example.com/policies/2/prohibitions/1> dct:subject "reidentification_of_individuals_without_irp" ;
 	odrl:target <https://example.com/policies/2/prohibitions/1/targets/1> ;
 	odrl:action <https://example.com/policies/2/prohibitions/1/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -215,7 +214,7 @@
 # Obligations
 
 ## Obligation 1: Pay fees if use for commercial or for-profit purposes.
-<https://example.com/policies/2/obligations/1> dce:subject "fees" ;
+<https://example.com/policies/2/obligations/1> dct:subject "fees" ;
 	odrl:action <https://example.com/policies/2/obligations/1/actions/1> ;
 	odrl:constraint <https://example.com/policies/2/obligations/1/constraints/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -227,7 +226,7 @@
 	odrl:rightOperand <http://purl.obolibrary.org/obo/ICO_0000057>, <http://www.ebi.ac.uk/swo/license/SWO_1000136> . # For-profit research investigation / Commercial use only
 
 ## Obligation 2: Use of data is only allowed where EU General Data Protection Regulation applies.
-<https://example.com/policies/2/obligations/2> dce:subject "regulatory_jurisdiction" ;
+<https://example.com/policies/2/obligations/2> dct:subject "regulatory_jurisdiction" ;
 	odrl:action <https://example.com/policies/2/obligations/2/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
 
@@ -239,7 +238,7 @@
 	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR> . # EU-GDPR
 
 ## Obligation 3: Areas that overlap with the uses from the supplying institution.
-<https://example.com/policies/2/obligations/3> dce:subject "return_of_results" ;
+<https://example.com/policies/2/obligations/3> dct:subject "return_of_results" ;
 	odrl:target <https://example.com/policies/2/obligations/3/targets/1> ;
 	odrl:action <https://example.com/policies/2/obligations/3/actions/1> ;
     odrl:constraint <https://example.com/policies/2/obligations/3/constraints/1> ;
@@ -256,7 +255,7 @@
     odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C70664> . # Relevance
 
 ## Obligation 4: The recipient is permitted to use the data for no more than 1 year after the agreed completion date; to permit the preparation of the results for publication.
-<https://example.com/policies/2/obligations/4> dce:subject "time_period_of_use" ;
+<https://example.com/policies/2/obligations/4> dct:subject "time_period_of_use" ;
 	odrl:target <https://example.com/policies/2/obligations/4/targets/1> ;
 	odrl:action <https://example.com/policies/2/obligations/4/actions/1> ;
 	odrl:constraint <https://example.com/policies/2/obligations/4/constraints/1> ;

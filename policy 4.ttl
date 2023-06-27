@@ -8,7 +8,6 @@
 @prefix dpv: <https://w3id.org/dpv#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix dce: <http://purl.org/dc/elements/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix this: <https://example.com/> .
@@ -24,7 +23,7 @@
 
 ## Permission 1:
 # Translation:
-<https://example.com/policies/4/permissions/1> dce:subject "clinical_research_use" ;
+<https://example.com/policies/4/permissions/1> dct:subject "clinical_research_use" ;
 	odrl:target <https://example.com/policies/4/permissions/1/targets/1> ;
 	odrl:action <https://example.com/policies/4/permissions/1/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -41,7 +40,7 @@
 
 ## Permission 2: The biological samples and associated data can be used exclusively for the performance of diagnostic tests and/ or scientific research carried out in the context of the provider disease area, but never for profit.
 # Translation:
-<https://example.com/policies/4/permissions/2> dce:subject "disease_specific_use" ;
+<https://example.com/policies/4/permissions/2> dct:subject "disease_specific_use" ;
 	odrl:target <https://example.com/policies/4/permissions/2/targets/1> ;
 	odrl:action <https://example.com/policies/4/permissions/2/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -58,7 +57,7 @@
 
 ## Permission 3: The Recipient Scientist must restitute the results to IPGB to allow the interpretation focused on Incontinentia pigmenti disease.
 # Translation:
-<https://example.com/policies/4/permissions/3> dce:subject "use_as_control" ;
+<https://example.com/policies/4/permissions/3> dct:subject "use_as_control" ;
 	odrl:target <https://example.com/policies/4/permissions/3/targets/1> ;
 	odrl:action <https://example.com/policies/4/permissions/3/actions/1> ;
 	odrl:duty <https://example.com/policies/4/permissions/3/duties/1> ;
@@ -85,7 +84,7 @@
 
 ## Prohibition 1: The use of documents or samples deposited in the provider, always provided in unidentified form, must in no way be used to identify or re-identify one or more individuals from whom they were taken.
 # Translation:
-<https://example.com/policies/4/prohibitions/1> dce:subject "reidentification_of_individuals_without_irp" ;
+<https://example.com/policies/4/prohibitions/1> dct:subject "reidentification_of_individuals_without_irp" ;
 	odrl:target <https://example.com/policies/4/prohibitions/1/targets/1> ;
 	odrl:action <https://example.com/policies/4/prohibitions/1/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -102,7 +101,7 @@
 
 ## Prohibition 2: The Recipient Scientist agrees to use this Material solely for application in the non-commercial research. Its distribution is limited to scientists at non-profit institutions solely for use in their own research.
 # Translation:
-<https://example.com/policies/4/prohibitions/2> dce:subject "profit_motivated_use" ;
+<https://example.com/policies/4/prohibitions/2> dct:subject "profit_motivated_use" ;
 	odrl:target <https://example.com/policies/4/prohibitions/2/targets/1> ;
 	odrl:action <https://example.com/policies/4/prohibitions/2/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -114,7 +113,7 @@
 
 ## Prohibition 3: The Recipient Scientist agrees to use this Material solely for application in the non-commercial research. Its distribution is limited to scientists at non-profit institutions solely for use in their own research.
 # Translation:
-<https://example.com/policies/4/prohibitions/3> dce:subject "use_by_commercial_entity" ;
+<https://example.com/policies/4/prohibitions/3> dct:subject "use_by_commercial_entity" ;
 	odrl:target <https://example.com/policies/4/prohibitions/3/targets/1> ;
 	odrl:action <https://example.com/policies/4/prohibitions/3/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -128,7 +127,7 @@
 
 ## Obligation 1:
 # Translation: The provider operates according to GDPR: the samples are transferred and used exclusively in coded form. The provider is obligated  to identify or re-identify of an individual to allow a physician to feedback results or incidental findings.
-<https://example.com/policies/4/obligations/1> dce:subject "reidentification_of_individuals_with_irp" ;
+<https://example.com/policies/4/obligations/1> dct:subject "reidentification_of_individuals_with_irp" ;
 	odrl:target <https://example.com/policies/1/obligations/1/targets/1> ;
 	odrl:action <https://example.com/policies/1/obligations/1/actions/1> ;
 	odrl:constraint <https://example.com/policies/1/obligations/1/constraints/1> ;
@@ -155,7 +154,7 @@
 
 ## Obligation 2: The collaboration is obligatory because the staff of the provider is group leader in the research and studies of the provider disease area. Moreover the provider must be cited in the acknowledgments of any scientific production.
 # Translation:
-<https://example.com/policies/4/obligations/2> dce:subject "collaboration" ;
+<https://example.com/policies/4/obligations/2> dct:subject "collaboration" ;
 	odrl:action <https://example.com/policies/4/obligations/2/actions/1>, <https://example.com/policies/4/obligations/2/actions/2> ;
 	odrl:assigner this:Data_Center_01 ;
 	occe:collaboratingParty this:Data_Center_01 ;
@@ -167,7 +166,7 @@
 
 ## Obligation 3: The investigation must be carried out only in the context of medical and scientific research projects approved by an Ethics Committee.
 # Translation:
-<https://example.com/policies/4/obligations/3> dce:subject "ethics_approval" ;
+<https://example.com/policies/4/obligations/3> dct:subject "ethics_approval" ;
 	odrl:target <https://example.com/policies/4/obligations/3/targets/1> ;
 	odrl:action <https://example.com/policies/4/obligations/3/actions/1> ;
 	odrl:assigner this:Data_Center_01 ;
@@ -180,7 +179,7 @@
 
 ## Obligation 4 : The Recipient Scientist must pay any shipping fees.
 # Translation: Obligation to pay fees for biospecimen Shipping.
-<https://example.com/policies/4/obligations/4> dce:subject "fees" ;
+<https://example.com/policies/4/obligations/4> dct:subject "fees" ;
 	odrl:action <https://example.com/policies/4/obligations/4/actions/1> ;
 	odrl:constraint <https://example.com/policies/4/obligations/4/constraints/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -193,7 +192,7 @@
 
 ## Obligation 5: The transfer of data to non-European countries must ensure the same protections of the GDPR in European countries.
 # Translation: Everyone must adhere to GDPR.
-<https://example.com/policies/4/obligations/5> dce:subject "geographical_area" ;
+<https://example.com/policies/4/obligations/5> dct:subject "geographical_area" ;
 	odrl:action <https://example.com/policies/4/obligations/5/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
 
@@ -206,7 +205,7 @@
 
 ## Obligation 6: The use of samples or data from the provider entails the recipient's obligation to make the results of studies conducted with the resource available to the scientific community, in accordance with the agreements with the provider when requesting the samples.
 # Translation:
-<https://example.com/policies/4/obligations/6> dce:subject "publication" ;
+<https://example.com/policies/4/obligations/6> dct:subject "publication" ;
 	odrl:target <https://example.com/policies/4/obligations/6/targets/1> ;
 	odrl:action <https://example.com/policies/4/obligations/6/actions/1> ;
 	odrl:assigner this:Data_Center_01 ;
@@ -222,7 +221,7 @@
 
 ## Obligation 7: The use of samples and data from the IPGB entails the recipient's obligation not to publish the results of studies derived from the use of such samples and data before they are communicated to the IPGB.
 # Translation:
-<https://example.com/policies/4/obligations/7> dce:subject "publication_moratorium" ;
+<https://example.com/policies/4/obligations/7> dct:subject "publication_moratorium" ;
 	odrl:target <https://example.com/policies/4/obligations/7/targets/1> ;
 	odrl:action <https://example.com/policies/4/obligations/7/actions/1> ;
 	odrl:assigner this:Data_Center_01 ;
@@ -243,7 +242,7 @@
 
 ## Obligation 8: Italy.
 # Translation:
-<https://example.com/policies/4/obligations/8> dce:subject "regulatory_jurisdiction" ;
+<https://example.com/policies/4/obligations/8> dct:subject "regulatory_jurisdiction" ;
 	odrl:action <https://example.com/policies/4/obligations/8/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
 
@@ -256,7 +255,7 @@
 
 ## Obligation 9: The investigation must be carried out only in the context of medical and scientific research projects approved by an Ethics Committee.
 # Translation:
-<https://example.com/policies/4/obligations/9> dce:subject "research_use" ;
+<https://example.com/policies/4/obligations/9> dct:subject "research_use" ;
 	odrl:target <https://example.com/policies/1/obligations/9/targets/1> ;
 	odrl:action <https://example.com/policies/4/obligations/9/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -285,7 +284,7 @@ _:b1 rdf:first <https://example.com/policies/4/obligations/9/actions/1/refinemen
 
 ## Obligation 10: The provider must receive the results of incidental findings and communicate to the patient , according to his/her informed consent, of any unexpected results derived from any study/research.
 # Translation:
-<https://example.com/policies/4/obligations/10> dce:subject "return_of_incidental_findings" ;
+<https://example.com/policies/4/obligations/10> dct:subject "return_of_incidental_findings" ;
 	odrl:target <https://example.com/policies/4/obligations/10/targets/1> ;
 	odrl:action <https://example.com/policies/4/obligations/10/actions/1> ;
 	odrl:constraint <https://example.com/policies/4/obligations/10/constraints/1> ;
@@ -303,7 +302,7 @@ _:b1 rdf:first <https://example.com/policies/4/obligations/9/actions/1/refinemen
 
 ## Obligation 11: The Recipient Scientist must restitute the results to IPGB to allow the interpretation focused on Incontinentia pigmenti disease.
 # Translation:
-<https://example.com/policies/4/obligations/11> dce:subject "return_of_results" ;
+<https://example.com/policies/4/obligations/11> dct:subject "return_of_results" ;
 	odrl:target <https://example.com/policies/4/obligations/11/targets/1> ;
 	odrl:action <https://example.com/policies/4/obligations/11/actions/1> ;
 	occe:sharedParty <https://example.com/policies/4/obligations/11//sharedParties/1> ;
@@ -319,7 +318,7 @@ _:b1 rdf:first <https://example.com/policies/4/obligations/9/actions/1/refinemen
 
 ## Obligation 12: There is a predefined time linked to the closure of the project; after that the forwarded material must be destroyed or returned to the IPGB Biobank.
 # Translation:
-<https://example.com/policies/4/obligations/12> dce:subject "time_period_of_use" ;
+<https://example.com/policies/4/obligations/12> dct:subject "time_period_of_use" ;
 	odrl:target <https://example.com/policies/4/obligations/12/targets/1> ;
 	odrl:action <https://example.com/policies/4/obligations/12/actions/1> ;
 	odrl:consequence <https://example.com/policies/4/obligations/12/consequences/1> ;
@@ -346,7 +345,7 @@ _:b1 rdf:first <https://example.com/policies/4/obligations/9/actions/1/refinemen
 
 ## Obligation 13:
 # Translation:
-<https://example.com/policies/4/obligations/13> dce:subject "user_authentication" ;
+<https://example.com/policies/4/obligations/13> dct:subject "user_authentication" ;
 	odrl:action <https://example.com/policies/4/obligations/13/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
 

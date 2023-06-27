@@ -8,7 +8,6 @@
 @prefix dpv: <https://w3id.org/dpv#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix dce: <http://purl.org/dc/elements/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix this: <https://example.com/> .
@@ -23,7 +22,7 @@
 
 ## Permission 1: To allow the return of clinical relevant results to the participants.
 # Translation: Permission to use and deanonymize only if clinical relevant results are returned to the participants, through the resource provider.
-<https://example.com/policies/1/permissions/1> dce:subject "reidentification_of_individuals_with_irp" ;
+<https://example.com/policies/1/permissions/1> dct:subject "reidentification_of_individuals_with_irp" ;
 	odrl:target <https://example.com/policies/1/permissions/1/targets/1> ;
 	odrl:action <https://example.com/policies/1/permissions/1/actions/1> ;
 	odrl:duty <https://example.com/policies/1/permissions/1/duties/1> ;
@@ -58,7 +57,7 @@
 
 ## Permission 2: Use for diagnosis purpose, only if a specific authorisation in the informed consent is present.
 # Translation: Permission to use the patients data only for clinical care purpose. Consent must be obtained before using the data.
-<https://example.com/policies/1/permissions/2> dce:subject "clinical_care" ;
+<https://example.com/policies/1/permissions/2> dct:subject "clinical_care" ;
 	odrl:target <https://example.com/policies/1/permissions/2/targets/1> ;
 	odrl:action <https://example.com/policies/1/permissions/2/actions/1> ;
 	odrl:duty <https://example.com/policies/1/permissions/2/duties/1> ;
@@ -86,7 +85,7 @@
 
 ## Permission 3: use for research purposes, including research to improve diagnosis and treatment, in the field of the disease for which the biological materials have been biobanked. Specific authorisation in the informed consent is mandatory.
 # Translation: Permission to use patients data for research purposes in the field of the disease. Consent must be obtained before using the data.
-<https://example.com/policies/1/permissions/3> dce:subject "clinical_research_use" ;
+<https://example.com/policies/1/permissions/3> dct:subject "clinical_research_use" ;
 	odrl:target <https://example.com/policies/1/permissions/3/targets/1> ;
 	odrl:action <https://example.com/policies/1/permissions/3/actions/1> ;
 	odrl:duty <https://example.com/policies/1/permissions/3/duties/1> ;
@@ -108,7 +107,7 @@
 <https://example.com/policies/1/permissions/3/duties/1/actions/1> rdf:value odrl:obtainConsent .
 
 ## Permission 4 : Obtain consent if the country is not covered by GDPR.
-<https://example.com/policies/1/permissions/4> dce:subject "geographical_area" ;
+<https://example.com/policies/1/permissions/4> dct:subject "geographical_area" ;
 	odrl:target <https://example.com/policies/1/permissions/4/targets/1> ;
 	odrl:action <https://example.com/policies/1/permissions/4/actions/1> ;
 	odrl:duty <https://example.com/policies/1/permissions/4/duties/1> ;
@@ -130,7 +129,7 @@
 	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR> . # EU-GDPR
 
 ## Permission 5 : Use in countries that are not covered by GDPR requires specific authorisation in the informed consent.
-<https://example.com/policies/1/permissions/5> dce:subject "regulatory_jurisdiction" ;
+<https://example.com/policies/1/permissions/5> dct:subject "regulatory_jurisdiction" ;
 	odrl:target <https://example.com/policies/1/permissions/5/targets/1> ;
 	odrl:action <https://example.com/policies/1/permissions/5/actions/1> ;
 	odrl:duty <https://example.com/policies/1/permissions/5/duties/1> ;
@@ -152,7 +151,7 @@
 	odrl:rightOperand <https://w3id.org/dpv/dpv-legal#EU-GDPR> . # EU-GDPR
 
 ## Permission 6: use for research purposes in the field of the disease for which the biological materials have been stored in the biobank.
-<https://example.com/policies/1/permissions/6> dce:subject "research_use" ;
+<https://example.com/policies/1/permissions/6> dct:subject "research_use" ;
 	odrl:target <https://example.com/policies/1/permissions/6/targets/1> ;
 	odrl:action <https://example.com/policies/1/permissions/6/actions/1> ;
 	odrl:constraint <https://example.com/policies/1/permissions/6/constraints/1> ;
@@ -173,7 +172,7 @@
 	odrl:rightOperand <https://w3id.org/dpv#ResearchAndDevelopment>, <http://www.ebi.ac.uk/efo/EFO_0000408> . # R&D / Any disease
 
 ## Permission 7: Relating to the field of the disease for which the biological materials have been biobanked.
-<https://example.com/policies/1/permissions/7> dce:subject "use_as_control" ;
+<https://example.com/policies/1/permissions/7> dct:subject "use_as_control" ;
 	odrl:target <https://example.com/policies/1/permissions/7/targets/1> ;
 	odrl:action <https://example.com/policies/1/permissions/7/actions/1> ;
 	odrl:constraint <https://example.com/policies/1/permissions/7/constraints/1> ;
@@ -189,7 +188,7 @@
 	odrl:rightOperand <http://www.ebi.ac.uk/efo/EFO_0000408> . # Any disease
 
 ## Permission 8: Only if it has been authorised in the informed consent.
-<https://example.com/policies/1/permissions/8> dce:subject "use_by_commercial_entity" ;
+<https://example.com/policies/1/permissions/8> dct:subject "use_by_commercial_entity" ;
 	odrl:target <https://example.com/policies/1/permissions/8/targets/1> ;
 	odrl:action <https://example.com/policies/1/permissions/8/actions/1> ;
 	odrl:duty <https://example.com/policies/1/permissions/8/duties/1> ;
@@ -208,7 +207,7 @@
 # Prohibitions
 
 ## Prohibition 1
-<https://example.com/policies/1/prohibitions/1> dce:subject "reidentification_of_individuals_without_irp" ;
+<https://example.com/policies/1/prohibitions/1> dct:subject "reidentification_of_individuals_without_irp" ;
 	odrl:target <https://example.com/policies/1/prohibitions/1/targets/1> ;
 	odrl:action <https://example.com/policies/1/prohibitions/1/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -219,7 +218,7 @@
 <https://example.com/policies/1/prohibitions/1/actions/1> rdf:value <http://purl.obolibrary.org/obo/T4FS_0000501> . # De-anonymization
 
 ## Prohibition 2
-<https://example.com/policies/1/prohibitions/2> dce:subject "profit_motivated_use" ;
+<https://example.com/policies/1/prohibitions/2> dct:subject "profit_motivated_use" ;
 	odrl:target <https://example.com/policies/1/prohibitions/2/targets/1> ;
 	odrl:action <https://example.com/policies/1/prohibitions/2/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -238,7 +237,7 @@
 
 ## Obligation 1: Relating to the field of the disease for which the biological materials have been biobanked.
 # Translation: Obligation to use data only for disease for which the biological materials have been biobanked.
-<https://example.com/policies/1/obligations/1> dce:subject "disease_specific_use" ;
+<https://example.com/policies/1/obligations/1> dct:subject "disease_specific_use" ;
 	odrl:target <https://example.com/policies/1/obligations/1/targets/1> ;
 	odrl:action <https://example.com/policies/1/obligations/1/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -254,7 +253,7 @@
 	odrl:rightOperand <http://www.ebi.ac.uk/efo/EFO_0000408> . # Any disease
 
 ## Obligation 2 : Obligation to include the IRB document with IRB's name, protocol number and IRB approval date.
-<https://example.com/policies/1/obligations/2> dce:subject "ethics_approval" ;
+<https://example.com/policies/1/obligations/2> dct:subject "ethics_approval" ;
 	odrl:target <https://example.com/policies/1/obligations/2/targets/1> ;
 	odrl:action <https://example.com/policies/1/obligations/2/actions/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -266,7 +265,7 @@
 <https://example.com/policies/1/obligations/2/actions/1> rdf:value odrl:share  .
 
 ## Obligation 3 : Obligation to pay fees (not applicable for collaboration projects).
-<https://example.com/policies/1/obligations/3> dce:subject "fees" ;
+<https://example.com/policies/1/obligations/3> dct:subject "fees" ;
 	odrl:action <https://example.com/policies/1/obligations/3/actions/1> ;
 	odrl:constraint <https://example.com/policies/1/obligations/3/constraints/1> ;
 	odrl:assigner this:Data_Center_01 .
@@ -278,7 +277,7 @@
 	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C73529> . # Collaboration
 
 ## Obligation 4 : The recipient agrees to make available to the resource the paper reprint (or pdf format) in case of publication. The recipients is asked to acknowledge the biobank in their publication.
-<https://example.com/policies/1/obligations/4> dce:subject "publication" ;
+<https://example.com/policies/1/obligations/4> dct:subject "publication" ;
 	odrl:target <https://example.com/policies/1/obligations/4/targets/1>, <https://example.com/policies/1/obligations/4/targets/2> ;
 	odrl:action <https://example.com/policies/1/obligations/4/actions/1>, <https://example.com/policies/1/obligations/4/actions/2>, <https://example.com/policies/1/obligations/4/actions/3> ;
 	odrl:constraint <https://example.com/policies/1/obligations/4/constraints/1> ;
@@ -305,7 +304,7 @@
 	odrl:rightOperand odrl:policyUsage .
 
 ## Obligation 5: Only for results that are relevant to the health of the participant.
-<https://example.com/policies/1/obligations/5> dce:subject "return_of_incidental_findings" ;
+<https://example.com/policies/1/obligations/5> dct:subject "return_of_incidental_findings" ;
 	odrl:action <https://example.com/policies/1/obligations/5/actions/1> ;
 	odrl:constraint <https://example.com/policies/1/obligations/5/constraints/1> ;
 	odrl:assigner this:Data_Center_01 ;
@@ -323,7 +322,7 @@
 	odrl:rightOperand <http://purl.obolibrary.org/obo/NCIT_C25746> . # Recovry
 
 ## Obligation 6: The recipient shall make available in confidence to the resource a final report of the results of the project.
-<https://example.com/policies/1/obligations/6> dce:subject "return_of_results" ;
+<https://example.com/policies/1/obligations/6> dct:subject "return_of_results" ;
 	odrl:target <https://example.com/policies/1/obligations/6/targets/1> ;
 	odrl:action <https://example.com/policies/1/obligations/6/actions/1> ;
 	odrl:assigner this:Data_Center_01 ;
@@ -336,7 +335,7 @@
 
 ## Obligation 7: The recipient is permitted to use the biological material until completion of the project for which the material has been required to the biobank.
 # Translation: Obligation to use the data only during the study (project).
-<https://example.com/policies/1/obligations/7> dce:subject "time_period_of_use" ;
+<https://example.com/policies/1/obligations/7> dct:subject "time_period_of_use" ;
 	odrl:target <https://example.com/policies/1/obligations/7/targets/1> ;
 	odrl:action <https://example.com/policies/1/obligations/7/actions/1> ;
 	odrl:constraint <https://example.com/policies/1/obligations/7/constraints/1> ;
@@ -353,7 +352,7 @@
 
 ## Obligation 8 (User authentication): To request biological materials the recipient should register to the resource website and to fill in a specific form.
 # Translation: 1) Obligation to register. 2) Obligation to request biospecimens through the website.
-<https://example.com/policies/1/obligations/8> dce:subject "user_authentication" ;
+<https://example.com/policies/1/obligations/8> dct:subject "user_authentication" ;
 	odrl:action <https://example.com/policies/1/obligations/8/actions/1>, <https://example.com/policies/1/obligations/8/actions/2> ;
 	odrl:assigner this:Data_Center_01 .
 
