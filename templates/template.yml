@@ -7,7 +7,6 @@ prefixes:
   dpv: https://w3id.org/dpv#
   obo: http://purl.obolibrary.org/obo/
   dc-terms: http://purl.org/dc/terms/
-  dc-elements: http://purl.org/dc/elements/
   this: https://example.com/
   idlab-fn: http://example.com/idlab/function/
   grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
@@ -554,7 +553,7 @@ mappings:
       - permission
     s: this:policies/$(policy_id)/permissions/$(id)
     po:
-      - [dc-elements:subject, $(cce), xsd:string]
+      - [dc-terms:subject, $(cce), xsd:string]
       - [odrl:assigner, $(assigner)~iri]
       - p: odrl:assignee
         o:
@@ -1410,7 +1409,6 @@ mappings:
     s: this:policies/$(policy_id)/permissions/$(rule_id)/duties/$(duty_id)/actions/$(id)
     po:
       - [rdf:value, $(value)~iri]
-      - [dc-elements:subject, $(context)]
       - p: odrl:refinement
         o:
           - mapping: permission_duty_action_refinement
@@ -2183,7 +2181,7 @@ mappings:
       - prohibition
     s: this:policies/$(policy_id)/prohibitions/$(id)
     po:
-      - [dc-elements:subject, $(cce), xsd:string]
+      - [dc-terms:subject, $(cce), xsd:string]
       - p: odrl:assignee
         o:
           - mapping: prohibition_assignee
@@ -2892,7 +2890,7 @@ mappings:
       - obligation
     s: this:policies/$(policy_id)/obligations/$(id)
     po:
-      - [dc-elements:subject, $(cce), xsd:string]
+      - [dc-terms:subject, $(cce), xsd:string]
       - [odrl:assigner, $(assigner)~iri]
       - p: odrl:assignee
         o:
@@ -3740,7 +3738,6 @@ mappings:
     s: this:policies/$(policy_id)/obligations/$(rule_id)/consequences/$(consequence_id)/actions/$(id)
     po:
       - [rdf:value, $(value)~iri]
-      - [dc-elements:subject, $(context)]
       - p: odrl:refinement
         o:
           - mapping: obligation_consequence_action_refinement
