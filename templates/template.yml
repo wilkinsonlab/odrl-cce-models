@@ -4,8 +4,6 @@ prefixes:
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   occe: https://w3id.org/occe/
-  dpv: https://w3id.org/dpv#
-  obo: http://purl.obolibrary.org/obo/
   dc-terms: http://purl.org/dc/terms/
   this: https://example.com/
   idlab-fn: http://example.com/idlab/function/
@@ -251,6 +249,26 @@ sources:
     access: /mnt/data/policy.json
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.prohibitions.[*].assignees.[*].refinements.[*]"
+  
+  prohibition_assignee_xone:
+    access: /mnt/data/policy.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].assignees.[*].logical_constraints.xone.[*]"
+  
+  prohibition_assignee_or:
+    access: /mnt/data/policy.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].assignees.[*].logical_constraints.or.[*]"
+  
+  prohibition_assignee_and:
+    access: /mnt/data/policy.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].assignees.[*].logical_constraints.and.[*]"
+  
+  prohibition_assignee_andSequence:
+    access: /mnt/data/policy.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].assignees.[*].logical_constraints.andSequence.[*]"
 
   prohibition_target:
     access: /mnt/data/policy.json
@@ -311,6 +329,31 @@ sources:
     access: /mnt/data/policy.json
     referenceFormulation: jsonpath
     iterator: "$.policies[*].rules.prohibitions.[*].actions.[*].refinements.[*]"
+
+  prohibition_constraint:
+    access: /mnt/data/policy.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].constraints.[*]"
+
+  prohibition_constraint_xone:
+    access: /mnt/data/policy.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].logical_constraints.xone.[*]"
+  
+  prohibition_constraint_or:
+    access: /mnt/data/policy.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].logical_constraints.or.[*]"
+  
+  prohibition_constraint_and:
+    access: /mnt/data/policy.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].logical_constraints.and.[*]"
+  
+  prohibition_constraint_andSequence:
+    access: /mnt/data/policy.json
+    referenceFormulation: jsonpath
+    iterator: "$.policies[*].rules.prohibitions.[*].logical_constraints.andSequence.[*]"
 
   prohibition_remedy:
     access: /mnt/data/policy.json
@@ -2215,6 +2258,47 @@ mappings:
               parameters:
                 - [str1, $(id)] # From prohibition
                 - [str2, $(rule_id)] # From action
+      - p: odrl:constraint
+        o:
+          - mapping: prohibition_constraint
+            condition:
+              - function: idlab-fn:isNull
+                parameters:
+                  - [idlab-fn:str, $(operand)]
+              - function: equal
+                parameters:
+                  - [str1, $(id)] # From prohibition
+                  - [str2, $(rule_id)] # From prohibition's constraint
+      - p: odrl:constraint
+        o:
+          - value: this:policies/$(policy_id)/prohibitions/$(id)/constraints/xone
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [grel:valueParameter, $(operand)] # From prohibition's constraint
+                - [grel:valueParameter2, "xone"] # From prohibition's constraint
+          - value: this:policies/$(policy_id)/prohibitions/$(id)/constraints/and
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [grel:valueParameter, $(operand)] # From prohibition's constraint
+                - [grel:valueParameter2, "and"] # From prohibition's constraint
+          - value: this:policies/$(policy_id)/prohibitions/$(id)/constraints/or
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [grel:valueParameter, $(operand)] # From prohibition's constraint
+                - [grel:valueParameter2, "or"] # From prohibition's constraint
+          - value: this:policies/$(policy_id)/prohibitions/$(id)/constraints/andSequence
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [grel:valueParameter, $(operand)] # From prohibition's constraint
+                - [grel:valueParameter2, "andSequence"] # From prohibition's constraint
 
   prohibition_assignee:
     sources:
@@ -2822,6 +2906,188 @@ mappings:
       - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
       - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
       - [odrl:unit, $(unit)~iri]
+
+  prohibition_constraint:
+    sources:
+      - prohibition_constraint
+    s: this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(id)
+    po:
+      - [odrl:leftOperand, $(left_operand)~iri]
+      - [odrl:operator, $(operator)~iri]
+      - [odrl:rightOperand, $(right_operand_value_iri)~iri]
+      - [odrl:rightOperand, $(right_operand_value_date), xsd:date]
+      - [odrl:rightOperand, $(right_operand_value_dateTime), xsd:dateTime]
+      - [odrl:rightOperand, $(right_operand_value_string), xsd:string]
+      - [odrl:rightOperand, $(right_operand_value_float), xsd:float]
+      - [odrl:rightOperand, $(right_operand_value_duration), xsd:duration]
+      - [odrl:unit, $(unit)~iri]
+
+  prohibition_constraint_xone_parent:
+    sources:
+      - prohibition
+    s: this:policies/$(policy_id)/prohibitions/$(id)/constraints/xone
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From prohibition's constraint
+        - [grel:valueParameter2, "xone"] # From prohibition's constraint
+    po:
+      - p: odrl:xone
+        o:
+          - mapping: prohibition_constraints_xone
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From prohibition's constraint
+                - [str2, $(id)] # From prohibition's constraint xone
+
+  prohibition_constraint_or_parent:
+    sources:
+      - prohibition_constraint
+    s: this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(id)/or
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From prohibition's constraint
+        - [grel:valueParameter2, "or"] # From prohibition's constraint
+    po:
+      - p: odrl:or
+        o:
+          - mapping: prohibition_constraint_or
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From prohibition's constraint
+                - [str2, $(id)] # From prohibition's constraint or
+
+  prohibition_constraint_and_parent:
+    sources:
+      - prohibition_constraint
+    s: this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(id)/and
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From prohibition's constraint
+        - [grel:valueParameter2, "and"] # From prohibition's constraint
+    po:
+      - p: odrl:and
+        o:
+          - mapping: prohibition_constraint_and
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From prohibition's constraint
+                - [str2, $(id)] # From prohibition's constraint and
+
+  prohibition_constraint_andSequence_parent:
+    sources:
+      - prohibition_constraint
+    s: this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(id)/andSequence
+    condition:
+      function: equal
+      parameters:
+        - [grel:valueParameter, $(operand)] # From prohibition's constraint
+        - [grel:valueParameter2, "andSequence"] # From prohibition's constraint
+    po:
+      - p: odrl:andSequence
+        o:
+          - mapping: prohibition_constraint_andSequence
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(first)] # From prohibition's constraint
+                - [str2, $(id)] # From prohibition's constraint andSequence
+
+  prohibition_constraints_xone:
+    sources:
+      - prohibition_constraint_xone
+    s: null
+    po:
+      - [rdf:first, this:policies/$(policy_id)/prohibitions/$(rule_id)/logical_constraints/xone/$(id)~iri]
+      - p: rdf:rest
+        o:
+          - mapping: prohibition_constraints_xone
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(next)]
+                - [str2, $(id)]
+
+          - value: rdf:nil
+            type: iri
+            condition:
+              function: idlab-fn:isNull
+              parameters:
+                - [idlab-fn:str, $(next)]
+
+  prohibition_constraint_or:
+    sources:
+      - prohibition_constraint_or
+    s: this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(constraint_id)/or/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(constraint_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+          - value: rdf:nil
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(next)]
+                - [str2, "null"]
+          - value: this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(constraint_id)/or/$(next)
+            type: iri
+            condition:
+              function: idlab-fn:notEqual
+              parameters:
+                - [grel:valueParameter, $(next)]
+                - [grel:valueParameter2, "null"]
+
+  prohibition_constraint_and:
+    sources:
+      - prohibition_constraint_and
+    s: this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(constraint_id)/and/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(constraint_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+          - value: rdf:nil
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(next)]
+                - [str2, "null"]
+          - value: this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(constraint_id)/and/$(next)
+            type: iri
+            condition:
+              function: idlab-fn:notEqual
+              parameters:
+                - [grel:valueParameter, $(next)]
+                - [grel:valueParameter2, "null"]
+
+  prohibition_constraint_andSequence:
+    sources:
+      - prohibition_constraint_andSequence
+    s: this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(constraint_id)/andSequence/$(id)
+    po:
+      - [rdf:first, this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(constraint_id)/constraints/$(id)~iri]
+      - p: rdf:rest
+        o:
+          - value: rdf:nil
+            type: iri
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(next)]
+                - [str2, "null"]
+          - value: this:policies/$(policy_id)/prohibitions/$(rule_id)/constraints/$(constraint_id)/andSequence/$(next)
+            type: iri
+            condition:
+              function: idlab-fn:notEqual
+              parameters:
+                - [grel:valueParameter, $(next)]
+                - [grel:valueParameter2, "null"]
 
   prohibition_remedy:
     sources:
